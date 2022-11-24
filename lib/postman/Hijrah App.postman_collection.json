@@ -1,0 +1,106 @@
+{
+	"info": {
+		"_postman_id": "22170684-0a6a-433e-899b-822528467500",
+		"name": "Hijrah App",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "23643267"
+	},
+	"item": [
+		{
+			"name": "Daftar Surah",
+			"request": {
+				"method": "GET",
+				"header": []
+			},
+			"response": []
+		},
+		{
+			"name": "Detail Surah",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "https://equran.id/api/surat/{nomor}",
+					"protocol": "https",
+					"host": [
+						"equran",
+						"id"
+					],
+					"path": [
+						"api",
+						"surat",
+						"{nomor}"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Tafsir Surah",
+			"request": {
+				"method": "GET",
+				"header": []
+			},
+			"response": []
+		},
+		{
+			"name": "Daftar Hadist",
+			"request": {
+				"method": "GET",
+				"header": []
+			},
+			"response": []
+		},
+		{
+			"name": "Hadist berdasarkan nama dan range(max 300)",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "https://api.hadith.gading.dev/books/muslim?range=1-50/",
+					"protocol": "https",
+					"host": [
+						"api",
+						"hadith",
+						"gading",
+						"dev"
+					],
+					"path": [
+						"books",
+						"muslim"
+					],
+					"query": [
+						{
+							"key": "range",
+							"value": "1-50/"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Hadist spesifik",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "https://api.hadith.gading.dev/books/{name}/{number}",
+					"protocol": "https",
+					"host": [
+						"api",
+						"hadith",
+						"gading",
+						"dev"
+					],
+					"path": [
+						"books",
+						"{name}",
+						"{number}"
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}
