@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 
-import '../widgets/card_home_menu.dart';
+import 'package:core/presentation/widgets/card_home_menu.dart';
 
 class HijrahHomePage extends StatelessWidget {
   static const routeName = '/home';
