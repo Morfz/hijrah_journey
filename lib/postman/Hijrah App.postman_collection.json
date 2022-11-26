@@ -10,7 +10,19 @@
 			"name": "Daftar Surah",
 			"request": {
 				"method": "GET",
-				"header": []
+				"header": [],
+				"url": {
+					"raw": "https://equran.id/api/surat",
+					"protocol": "https",
+					"host": [
+						"equran",
+						"id"
+					],
+					"path": [
+						"api",
+						"surat"
+					]
+				}
 			},
 			"response": []
 		},
@@ -39,7 +51,20 @@
 			"name": "Tafsir Surah",
 			"request": {
 				"method": "GET",
-				"header": []
+				"header": [],
+				"url": {
+					"raw": "https://equran.id/api/tafsir/{nomor}",
+					"protocol": "https",
+					"host": [
+						"equran",
+						"id"
+					],
+					"path": [
+						"api",
+						"tafsir",
+						"{nomor}"
+					]
+				}
 			},
 			"response": []
 		},
