@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:hijrah_journey/view/home_page.dart';
+import 'package:hijrah_journey/views/home_page.dart';
 
 void main() {
   runApp(const MyApp());
