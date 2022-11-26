@@ -9,18 +9,21 @@ class HijrahHomePage extends StatelessWidget {
     var menu = [
       {
         "nama": "Al-Qur'an",
-        "deskripsi": "Lorem Ipsum",
+        "deskripsi": "Fitur Membaca Al-Qur'an",
         "pict": "",
+        "routes": "",
       },
       {
         "nama": "Hadist",
-        "deskripsi": "Lorem Ipsum",
+        "deskripsi": "Fitur Hadist",
         "pict": "",
+        "routes": "",
       },
       {
         "nama": "Waktu Sholat",
-        "deskripsi": "Lorem Ipsum",
+        "deskripsi": "Fitur Notifikasi Sholat dan Melihat waktu sholat",
         "pict": "",
+        "routes": "",
       }
     ];
 
@@ -62,14 +65,9 @@ class HijrahHomePage extends StatelessWidget {
                             height: 100,
                             decoration: BoxDecoration(
                               borderRadius: BorderRadius.circular(10),
-                              boxShadow: const [
-                                BoxShadow(
-                                    color: Colors.black38, spreadRadius: 2),
-                              ],
-                              image: const DecorationImage(
+                              image: DecorationImage(
                                 fit: BoxFit.fitWidth,
-                                image: NetworkImage(
-                                    'https://restaurant-api.dicoding.dev/images/small/restaurant.pictureId'),
+                                image: NetworkImage(menu[index]["pict"]!),
                               ),
                             ),
                           ),
@@ -89,17 +87,16 @@ class HijrahHomePage extends StatelessWidget {
                               ),
                             ),
                           ),
-                          const Padding(
-                            padding: EdgeInsets.fromLTRB(0, 10, 0, 10),
+                          Padding(
+                            padding: const EdgeInsets.fromLTRB(0, 10, 0, 10),
                             child: SizedBox(
                               width: 200,
-                              height: 20,
                               child: Center(
                                 child: Text(
-                                  'restaurant.description',
+                                  menu[index]["deskripsi"]!,
                                   textAlign: TextAlign.justify,
                                   overflow: TextOverflow.fade,
-                                  style: TextStyle(
+                                  style: const TextStyle(
                                     fontSize: 12.0,
                                   ),
                                 ),
@@ -111,8 +108,11 @@ class HijrahHomePage extends StatelessWidget {
                               style: ButtonStyle(
                                   backgroundColor: MaterialStatePropertyAll(
                                       Theme.of(context).primaryColor)),
-                              onPressed: null,
-                              child: const Text('Selengkapnya...'),
+                              onPressed: () {
+                                Navigator.pushNamed(context, '/detail_resto',
+                                    arguments: menu[index]["routes"]);
+                              },
+                              child: const Text('Pilih'),
                             ),
                           )
                         ],
