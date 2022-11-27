@@ -1,6 +1,6 @@
 # hijrah_journey
 
-A new Flutter project.
+Aplikasi Hijrah Journey
 
 ## Getting Started
 
