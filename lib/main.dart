@@ -17,7 +17,7 @@ class MyApp extends StatelessWidget {
         primaryColor: const Color(0xFF4CA86E),
       ),
       title: 'HijrahApp',
-      initialRoute: '/waktu-sholat',
+      initialRoute: '/home',
       routes: {
         '/home': (context) => const HijrahHomePage(),
 
