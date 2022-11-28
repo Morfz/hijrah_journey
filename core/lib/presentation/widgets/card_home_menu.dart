@@ -1,4 +1,3 @@
-
 import 'package:flutter/material.dart';
 
 class CardHomeMenu extends StatelessWidget {
@@ -71,8 +70,7 @@ class CardHomeMenu extends StatelessWidget {
                             backgroundColor: MaterialStatePropertyAll(
                                 Theme.of(context).primaryColor)),
                         onPressed: () {
-                          Navigator.pushNamed(context, '/detail_resto',
-                              arguments: menu[index]["routes"]);
+                          Navigator.pushNamed(context, menu[index]["routes"]!);
                         },
                         child: const Text('Pilih'),
                       ),

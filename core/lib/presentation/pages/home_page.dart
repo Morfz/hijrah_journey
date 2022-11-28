@@ -25,7 +25,7 @@ class HijrahHomePage extends StatelessWidget {
         "nama": "Waktu Sholat",
         "deskripsi": "Fitur Notifikasi Sholat dan Melihat waktu sholat",
         "pict": "",
-        "routes": "",
+        "routes": "/waktu-sholat",
       }
     ];
 
