@@ -17,8 +17,33 @@ class WaktuSholatView extends StatelessWidget {
             backgroundColor: Theme.of(context).primaryColor,
             title: Row(
               mainAxisAlignment: MainAxisAlignment.spaceBetween,
-              children: const <Widget>[
-                Text('Waktu Sholat'),
+              children: <Widget>[
+                const Text('Waktu Sholat'),
+                Row(
+                  mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                  children: <Widget>[
+                    IconButton(
+                      icon: const Icon(
+                        Icons.location_on,
+                        size: 20.0,
+                        color: Colors.white,
+                      ),
+                      onPressed: () {
+                        Navigator.pushNamed(context, '/wilayah-sholat');
+                      },
+                    ),
+                    IconButton(
+                      icon: const Icon(
+                        Icons.settings,
+                        size: 20.0,
+                        color: Colors.white,
+                      ),
+                      onPressed: () {
+                        Navigator.pushNamed(context, '/settings');
+                      },
+                    ),
+                  ],
+                ),
               ],
             ),
           ),

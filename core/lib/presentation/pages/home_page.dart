@@ -39,7 +39,7 @@ class HijrahHomePage extends StatelessWidget {
               IconButton(
                 icon: const Icon(
                   Icons.person,
-                  size: 40.0,
+                  size: 20.0,
                   color: Colors.white,
                 ),
                 onPressed: () {

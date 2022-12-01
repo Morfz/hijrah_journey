@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:core/presentation/pages/home_page.dart';
+import 'package:hijrah_journey/views/wilayah_sholat.dart';
 
 import 'views/waktu_sholat.dart';
 
@@ -23,6 +24,7 @@ class MyApp extends StatelessWidget {
 
         //page waktu sholat
         '/waktu-sholat': (context) => const WaktuSholatView(),
+        '/wilayah-sholat' : (context) => const WilayahSholatView()
       },
     );
   }
