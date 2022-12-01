@@ -21,17 +21,10 @@ class CardHomeMenu extends StatelessWidget {
                 padding: const EdgeInsets.all(20.0),
                 child: Column(
                   children: <Widget>[
-                    Container(
-                      width: (MediaQuery.of(context).size.width) * 1 / 2,
-                      height: 100,
-                      decoration: BoxDecoration(
-                        borderRadius: BorderRadius.circular(10),
-                        image: DecorationImage(
-                          fit: BoxFit.fitWidth,
-                          image: NetworkImage(menu[index]["pict"]!),
-                        ),
-                      ),
-                    ),
+                    SizedBox(
+                        width: (MediaQuery.of(context).size.width) * 1 / 2,
+                        height: 100,
+                        child: Image.asset(menu[index]["pict"]!)),
                     Padding(
                       padding: const EdgeInsets.fromLTRB(0, 10, 0, 10),
                       child: SizedBox(

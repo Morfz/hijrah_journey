@@ -12,19 +12,19 @@ class HijrahHomePage extends StatelessWidget {
       {
         "nama": "Al-Qur'an",
         "deskripsi": "Fitur Membaca Al-Qur'an",
-        "pict": "",
+        "pict": "images/quran.png",
         "routes": "",
       },
       {
         "nama": "Hadist",
         "deskripsi": "Fitur Hadist",
-        "pict": "",
+        "pict": "images/tasbih.png",
         "routes": "",
       },
       {
         "nama": "Waktu Sholat",
         "deskripsi": "Fitur Notifikasi Sholat dan Melihat waktu sholat",
-        "pict": "",
+        "pict": "images/sujud.png",
         "routes": "/waktu-sholat",
       }
     ];
