@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:hijrah_journey/providers/wilayah_sholat_provider.dart';
 import 'package:provider/provider.dart';
+import 'package:shared_preferences/shared_preferences.dart';
 
 import '../api/api_waktu_sholat.dart';
 import '../utility/result_state.dart';
@@ -14,6 +15,28 @@ class WilayahSholatView extends StatefulWidget {
 
 class _WilayahSholatViewState extends State<WilayahSholatView> {
   late String query = "a";
+  static const String idWilayahPrefs = 'idWilayah';
+  late String _idWilayah;
+
+  Future<void> _saveWilayah(value) async {
+    _idWilayah = value;
+    final prefs = await SharedPreferences.getInstance();
+    prefs.setString(idWilayahPrefs, _idWilayah);
+  }
+
+  void _loadIdWilayah() async {
+    final prefs = await SharedPreferences.getInstance();
+    setState(() {
+      _idWilayah = prefs.getString(idWilayahPrefs) ?? "1301";
+    });
+  }
+
+  @override
+  void initState() {
+    super.initState();
+    _loadIdWilayah();
+  }
+
   @override
   Widget build(BuildContext context) {
     return ChangeNotifierProvider(
@@ -80,7 +103,15 @@ class _WilayahSholatViewState extends State<WilayahSholatView> {
                                 style: ButtonStyle(
                                     backgroundColor: MaterialStatePropertyAll(
                                         Theme.of(context).primaryColor)),
-                                onPressed: () {},
+                                onPressed: () {
+                                  final scaffoldMessenger =
+                                      ScaffoldMessenger.of(context);
+                                  _saveWilayah(state.list.data[index].id);
+
+                                  SnackBar snackBar = const SnackBar(
+                                      content: Text('Wilayah berhasil diubah'));
+                                  scaffoldMessenger.showSnackBar(snackBar);
+                                },
                                 child: const Text('Pilih'),
                               ),
                             ),

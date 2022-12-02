@@ -4,6 +4,7 @@ import 'package:hijrah_journey/providers/harian_waktu_sholat_provider.dart';
 import 'package:hijrah_journey/widgets/card_harian_jadwal_sholat.dart';
 import 'package:provider/provider.dart';
 
+
 class WaktuSholatView extends StatelessWidget {
   const WaktuSholatView({super.key});
 

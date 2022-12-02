@@ -24,7 +24,7 @@ class MyApp extends StatelessWidget {
 
         //page waktu sholat
         '/waktu-sholat': (context) => const WaktuSholatView(),
-        '/wilayah-sholat' : (context) => const WilayahSholatView()
+        '/wilayah-sholat': (context) => const WilayahSholatView()
       },
     );
   }

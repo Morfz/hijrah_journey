@@ -22,7 +22,7 @@ class CardHomeMenu extends StatelessWidget {
                 child: Column(
                   children: <Widget>[
                     SizedBox(
-                        width: (MediaQuery.of(context).size.width) * 1 / 2,
+                        width: 100,
                         height: 100,
                         child: Image.asset(menu[index]["pict"]!)),
                     Padding(
