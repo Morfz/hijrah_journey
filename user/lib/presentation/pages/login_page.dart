@@ -1,5 +1,6 @@
 import 'package:firebase_ui_auth/firebase_ui_auth.dart';
 import 'package:flutter/material.dart';
+import 'package:core/core.dart';
 import 'package:firebase_auth/firebase_auth.dart'
     hide EmailAuthProvider;
 
@@ -20,7 +21,7 @@ class HijrahLoginPage extends StatelessWidget {
     if (auth.currentUser == null) {
       return '/login';
     }
-    return '/profile';
+    return PROFIL_PAGE;
   }
 
   @override
@@ -53,10 +54,10 @@ class HijrahLoginPage extends StatelessWidget {
                     context, '/forgot-password', arguments: {'email': email});
               }),
               AuthStateChangeAction<SignedIn>((context, state) {
-                  Navigator.pushReplacementNamed(context, '/profile');
+                  Navigator.pushReplacementNamed(context, PROFIL_PAGE);
               }),
               AuthStateChangeAction<UserCreated>((context, state) {
-                  Navigator.pushReplacementNamed(context, '/profile');
+                  Navigator.pushReplacementNamed(context, PROFIL_PAGE);
               }),
             ],
             styles: const {
@@ -79,7 +80,7 @@ class HijrahLoginPage extends StatelessWidget {
             actionCodeSettings: actionCodeSettings,
             actions: [
               EmailVerifiedAction(() {
-                Navigator.pushReplacementNamed(context, '/profile');
+                Navigator.pushReplacementNamed(context, PROFIL_PAGE);
               }),
               AuthCancelledAction((context) {
                 FirebaseUIAuth.signOut(context: context);

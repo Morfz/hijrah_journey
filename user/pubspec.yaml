@@ -1,13 +1,15 @@
 name: user
 description: A new Flutter package project.
 version: 0.0.1
-homepage:
+publish_to: none
 
 environment:
   sdk: '>=2.18.4 <3.0.0'
   flutter: ">=1.17.0"
 
 dependencies:
+  core:
+    path: ../core
   flutter:
     sdk: flutter
   firebase_ui_auth: ^1.1.1

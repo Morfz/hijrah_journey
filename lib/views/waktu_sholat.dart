@@ -5,8 +5,8 @@ import 'package:hijrah_journey/widgets/card_harian_jadwal_sholat.dart';
 import 'package:provider/provider.dart';
 
 
-class WaktuSholatView extends StatelessWidget {
-  const WaktuSholatView({super.key});
+class WaktuSholatPage extends StatelessWidget {
+  const WaktuSholatPage({super.key});
 
   @override
   Widget build(BuildContext context) {

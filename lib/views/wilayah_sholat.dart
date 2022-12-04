@@ -6,14 +6,14 @@ import 'package:shared_preferences/shared_preferences.dart';
 import '../api/api_waktu_sholat.dart';
 import '../utility/result_state.dart';
 
-class WilayahSholatView extends StatefulWidget {
-  const WilayahSholatView({super.key});
+class WilayahSholatPage extends StatefulWidget {
+  const WilayahSholatPage({super.key});
 
   @override
-  State<WilayahSholatView> createState() => _WilayahSholatViewState();
+  State<WilayahSholatPage> createState() => _WilayahSholatViewState();
 }
 
-class _WilayahSholatViewState extends State<WilayahSholatView> {
+class _WilayahSholatViewState extends State<WilayahSholatPage> {
   late String query = "a";
   static const String idWilayahPrefs = 'idWilayah';
   late String _idWilayah;

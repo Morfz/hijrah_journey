@@ -1,10 +1,30 @@
 import 'package:flutter/material.dart';
+import 'package:firebase_auth/firebase_auth.dart';
+import 'package:core/core.dart';
 
-import 'package:core/presentation/widgets/card_home_menu.dart';
-
-class HijrahHomePage extends StatelessWidget {
+class HijrahHomePage extends StatefulWidget {
   static const routeName = '/home';
-  const HijrahHomePage({super.key});
+  @override
+  _HijrahHomePageState createState() => _HijrahHomePageState();
+}
+
+class _HijrahHomePageState extends State<HijrahHomePage> with RouteAware {
+  User user = FirebaseAuth.instance.currentUser!;
+  var name;
+
+  @override
+  void initState() {
+    super.initState();
+    setState(() {
+      name = user.displayName;
+    });
+  }
+
+  @override
+  void didChangeDependencies() {
+    super.didChangeDependencies();
+    routeObserver.subscribe(this, ModalRoute.of(context)!);
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -49,9 +69,16 @@ class HijrahHomePage extends StatelessWidget {
             ],
           ),
         ),
-        body: Padding(
-          padding: const EdgeInsets.fromLTRB(0, 20, 0, 20),
-          child: CardHomeMenu(menu: menu),
+        body: Column(
+          children: [
+            Container(
+                padding: const EdgeInsets.all(20),
+                child: Text('Assalamualaikum, ${name}',
+                    style: const TextStyle(
+                        fontSize: 20, fontWeight: FontWeight.bold))),
+            Expanded(
+                child: CardHomeMenu(menu: menu)),
+          ],
         ));
   }
 }
