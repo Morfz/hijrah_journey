@@ -35,7 +35,7 @@ class HijrahHomePage extends StatelessWidget {
           title: Row(
             mainAxisAlignment: MainAxisAlignment.spaceBetween,
             children: <Widget>[
-              const Text('HijrahApp'),
+              const Text('Hijrah Journey App'),
               IconButton(
                 icon: const Icon(
                   Icons.person,
@@ -43,7 +43,7 @@ class HijrahHomePage extends StatelessWidget {
                   color: Colors.white,
                 ),
                 onPressed: () {
-                  Navigator.pushNamed(context, '/search_resto');
+                  Navigator.pushNamed(context, '/login');
                 },
               ),
             ],

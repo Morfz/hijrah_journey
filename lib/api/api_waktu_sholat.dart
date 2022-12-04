@@ -13,7 +13,7 @@ class WaktuSholatApiService {
     if (response.statusCode == 200) {
       return WaktuSholat.fromJson(json.decode(response.body));
     } else {
-      throw Exception('Gagal untuk memuat list Restaurant');
+      throw Exception('Gagal untuk memuat list Waktu Sholat');
     }
   }
 
@@ -23,7 +23,7 @@ class WaktuSholatApiService {
     if (response.statusCode == 200) {
       return WilayahSholat.fromJson(json.decode(response.body));
     } else {
-      throw Exception('Gagal untuk memuat list Restaurant');
+      throw Exception('Gagal untuk memuat list Wilayah');
     }
   }
 }

@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "77666331389",
+    "project_id": "hijrah-journey",
+    "storage_bucket": "hijrah-journey.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:77666331389:android:0f0e16521652321400ec94",
+        "android_client_info": {
+          "package_name": "com.example.hijrah_journey"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "77666331389-80rhir9kl6c3aaf7u45s90vpkofdr0rg.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDZnVdzW83IGJnWh0c6TPqTML8vDx-RrpU"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "77666331389-80rhir9kl6c3aaf7u45s90vpkofdr0rg.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
