@@ -42,6 +42,8 @@ dependencies:
     path: core
   user:
     path: user
+  hadist:
+    path: hadist
 
 dev_dependencies:
   flutter_test:

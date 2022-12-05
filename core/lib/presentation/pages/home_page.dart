@@ -11,19 +11,13 @@ class HijrahHomePage extends StatefulWidget {
 class _HijrahHomePageState extends State<HijrahHomePage> with RouteAware {
 
   User? _user = FirebaseAuth.instance.currentUser;
-  //create function non display null
+
   String _displayName() {
     if (_user?.displayName == null) {
       return '';
     } else {
       return _user!.displayName!;
     }
-  }
-
-  @override
-  void didChangeDependencies() {
-    super.didChangeDependencies();
-    routeObserver.subscribe(this, ModalRoute.of(context)!);
   }
 
   @override
@@ -63,7 +57,11 @@ class _HijrahHomePageState extends State<HijrahHomePage> with RouteAware {
                   color: Colors.white,
                 ),
                 onPressed: () {
-                  Navigator.pushNamed(context, '/login');
+                  if (_user != null) {
+                    Navigator.of(context).pushNamed(PROFIL_PAGE);
+                  } else {
+                    Navigator.of(context).pushNamed(LOGIN_PAGE);
+                  }
                 },
               ),
             ],

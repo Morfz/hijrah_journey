@@ -1,12 +1,11 @@
 import 'package:flutter/material.dart';
-import 'package:flutter/src/widgets/container.dart';
 import 'package:flutter/src/widgets/framework.dart';
 
 import '../../../common/routes.dart';
 
-class HomePage extends StatelessWidget {
+class HadistPage extends StatelessWidget {
   static const routeName = '/hadist-page';
-  const HomePage({super.key});
+  const HadistPage({super.key});
 
   @override
   Widget build(BuildContext context) {

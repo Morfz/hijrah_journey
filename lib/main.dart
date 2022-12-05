@@ -2,6 +2,7 @@ import 'package:firebase_core/firebase_core.dart';
 import 'package:firebase_ui_auth/firebase_ui_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:core/core.dart';
+import 'package:hadist/presentation/pages/home/home_page.dart';
 import 'package:hijrah_journey/views/wilayah_sholat.dart';
 import 'package:user/presentation/pages/login_page.dart';
 import 'package:user/presentation/pages/profile_page.dart';
@@ -33,10 +34,14 @@ class MyApp extends StatelessWidget {
       home: HijrahHomePage(),
       onGenerateRoute: (RouteSettings settings){
         switch (settings.name){
+          case HOME_PAGE:
+            return MaterialPageRoute(builder: (context) => HijrahHomePage());
           case LOGIN_PAGE:
             return MaterialPageRoute(builder: (context) => const HijrahLoginPage());
           case PROFIL_PAGE:
             return MaterialPageRoute(builder: (context) => const ProfilePage());
+          case HADIST_PAGE:
+            return MaterialPageRoute(builder: (context) => const HadistPage());
           case WAKTU_SHOLAT_PAGE:
             return MaterialPageRoute(builder: (context) => const WaktuSholatPage());
           case WILAYAH_SHOLAT_PAGE:
