@@ -9,16 +9,7 @@ class HijrahHomePage extends StatefulWidget {
 }
 
 class _HijrahHomePageState extends State<HijrahHomePage> with RouteAware {
-  User user = FirebaseAuth.instance.currentUser!;
-  var name;
-
-  @override
-  void initState() {
-    super.initState();
-    setState(() {
-      name = user.displayName;
-    });
-  }
+  User? _user = FirebaseAuth.instance.currentUser;
 
   @override
   void didChangeDependencies() {
@@ -73,7 +64,7 @@ class _HijrahHomePageState extends State<HijrahHomePage> with RouteAware {
           children: [
             Container(
                 padding: const EdgeInsets.all(20),
-                child: Text('Assalamualaikum, ${name}',
+                child: Text('Assalamualaikum, ${_user?.displayName}',
                     style: const TextStyle(
                         fontSize: 20, fontWeight: FontWeight.bold))),
             Expanded(
