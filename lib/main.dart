@@ -14,15 +14,13 @@ import 'locator.dart' as di;
 import 'firebase_options.dart';
 import 'views/waktu_sholat.dart';
 
-void main() async {
+Future<void> main() async {
   await di.init();
   WidgetsFlutterBinding.ensureInitialized();
   await Firebase.initializeApp(
     options: DefaultFirebaseOptions.currentPlatform,
   );
-  FirebaseUIAuth.configureProviders([
-    EmailAuthProvider()
-  ]);
+  FirebaseUIAuth.configureProviders([EmailAuthProvider()]);
   runApp(MyApp());
 }
 
@@ -32,37 +30,52 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MultiBlocProvider(
-      providers: [
-        BlocProvider<SurahBloc>(
-          create: (context) => di.locator<SurahBloc>(),
-        ),
-        BlocProvider<SurahDetailBloc>(
-          create: (context) => di.locator<SurahDetailBloc>(),
-        ),
-      ],
-      child: MaterialApp(
-        theme: ThemeData(
-          primaryColor: const Color(0xFF4CA86E),
-        ),
-        title: 'Hijrah Journey App',
-        home: HijrahHomePage(),
-        onGenerateRoute: (RouteSettings settings){
-          switch (settings.name){
-            case LOGIN_PAGE:
-              return MaterialPageRoute(builder: (context) => const HijrahLoginPage());
-            case PROFIL_PAGE:
-              return MaterialPageRoute(builder: (context) => const ProfilePage());
-            case HADIST_PAGE:
-              return MaterialPageRoute(builder: (context) => const RawiPage());
-            case WAKTU_SHOLAT_PAGE:
-              return MaterialPageRoute(builder: (context) => const WaktuSholatPage());
-            case WILAYAH_SHOLAT_PAGE:
-              return MaterialPageRoute(builder: (context) => const WilayahSholatPage());
-            default:
-              return MaterialPageRoute(builder: (context) => HijrahHomePage());
-          }
-        },
-      )
-    );
+        providers: [
+          BlocProvider<SurahBloc>(
+            create: (context) => di.locator<SurahBloc>(),
+          ),
+          BlocProvider<SurahDetailBloc>(
+            create: (context) => di.locator<SurahDetailBloc>(),
+          ),
+        ],
+        child: MaterialApp(
+          theme: ThemeData(
+            primaryColor: const Color(0xFF4CA86E),
+          ),
+          title: 'Hijrah Journey App',
+          home: HijrahHomePage(),
+          navigatorObservers: [routeObserver],
+          onGenerateRoute: (RouteSettings settings) {
+            switch (settings.name) {
+              case HOME_PAGE:
+                return MaterialPageRoute(
+                    builder: (context) => HijrahHomePage());
+              case LOGIN_PAGE:
+                return MaterialPageRoute(
+                    builder: (context) => const HijrahLoginPage());
+              case PROFIL_PAGE:
+                return MaterialPageRoute(
+                    builder: (context) => const ProfilePage());
+              case HADIST_PAGE:
+                return MaterialPageRoute(
+                    builder: (context) => const RawiPage());
+              case WAKTU_SHOLAT_PAGE:
+                return MaterialPageRoute(
+                    builder: (context) => const WaktuSholatPage());
+              case WILAYAH_SHOLAT_PAGE:
+                return MaterialPageRoute(
+                    builder: (context) => const WilayahSholatPage());
+              default:
+                return MaterialPageRoute(
+                    builder: (_) {
+                      return const Scaffold(
+                        body: Center(
+                          child: Text('Page Not Found'),
+                        ),
+                      );
+                    });
+            }
+          },
+        ));
   }
 }

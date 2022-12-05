@@ -20,20 +20,13 @@ class HijrahLoginPage extends StatelessWidget {
     final auth = FirebaseAuth.instance;
 
     if (auth.currentUser == null) {
-      return '/login';
+      return LOGIN_PAGE;
     }
-    return HOME_PAGE;
+    return PROFIL_PAGE;
   }
 
   @override
   Widget build(BuildContext context) {
-    final buttonStyle = ButtonStyle(
-      padding: MaterialStateProperty.all(const EdgeInsets.all(12)),
-      shape: MaterialStateProperty.all(
-        RoundedRectangleBorder(borderRadius: BorderRadius.circular(8)),
-      ),
-    );
-
     return MaterialApp(
       theme: ThemeData(
         brightness: Brightness.light,
@@ -41,11 +34,8 @@ class HijrahLoginPage extends StatelessWidget {
         inputDecorationTheme: const InputDecorationTheme(
           border: OutlineInputBorder(),
         ),
-        elevatedButtonTheme: ElevatedButtonThemeData(style: buttonStyle),
-        textButtonTheme: TextButtonThemeData(style: buttonStyle),
-        outlinedButtonTheme: OutlinedButtonThemeData(style: buttonStyle),
       ),
-      initialRoute: initialRoute,
+      initialRoute: FirebaseAuth.instance.currentUser == null ? LOGIN_PAGE : PROFIL_PAGE,
       routes: {
         LOGIN_PAGE: (context) {
           return SignInScreen(
@@ -54,12 +44,12 @@ class HijrahLoginPage extends StatelessWidget {
                 Navigator.pushNamed(
                     context, '/forgot-password', arguments: {'email': email});
               }),
-              AuthStateChangeAction<SignedIn>((context, state) {
-                Navigator.pushReplacementNamed(context, HOME_PAGE);
+              AuthStateChangeAction<SigningIn>((context, state) {
+                Navigator.pushNamed(context, PROFIL_PAGE);
               }),
-              AuthStateChangeAction<UserCreated>((context, state) {
-                Navigator.pushReplacementNamed(context, HOME_PAGE);
-              }),
+              AuthStateChangeAction<SigningUp>((context, state) {
+                Navigator.pushNamed(context, PROFIL_PAGE);
+              })
             ],
             styles: const {
               EmailFormStyle(signInButtonVariant: ButtonVariant.filled)
@@ -74,20 +64,6 @@ class HijrahLoginPage extends StatelessWidget {
                 ),
               );
             },
-          );
-        },
-        '/verify-email': (context) {
-          return EmailVerificationScreen(
-            actionCodeSettings: actionCodeSettings,
-            actions: [
-              EmailVerifiedAction(() {
-                Navigator.pushReplacementNamed(context, PROFIL_PAGE);
-              }),
-              AuthCancelledAction((context) {
-                FirebaseUIAuth.signOut(context: context);
-                Navigator.pushReplacementNamed(context, '/login');
-              })
-            ],
           );
         },
         '/forgot-password': (context) {

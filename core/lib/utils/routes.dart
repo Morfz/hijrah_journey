@@ -1,5 +1,5 @@
 const LOGIN_PAGE = '/login';
-const PROFIL_PAGE = '/profile';
+const PROFIL_PAGE = '/profile-page';
 const HOME_PAGE = '/home';
 const WAKTU_SHOLAT_PAGE = '/waktu-sholat';
 const WILAYAH_SHOLAT_PAGE = '/wilayah-sholat';

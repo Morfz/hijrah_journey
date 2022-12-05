@@ -124,8 +124,7 @@ class ProfilePage extends StatelessWidget {
                           final scaffoldMessenger =
                               ScaffoldMessenger.of(context);
                           FirebaseAuth.instance.currentUser!.delete();
-                          Navigator.of(context)
-                              .pushReplacementNamed(LOGIN_PAGE);
+                          Navigator.of(context).pushReplacementNamed(LOGIN_PAGE);
 
                           SnackBar snackBar =
                               const SnackBar(content: Text('Account Deleted'));
