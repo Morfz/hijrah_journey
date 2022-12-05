@@ -11,6 +11,14 @@ class HijrahHomePage extends StatefulWidget {
 class _HijrahHomePageState extends State<HijrahHomePage> with RouteAware {
 
   User? _user = FirebaseAuth.instance.currentUser;
+  //create function non display null
+  String _displayName() {
+    if (_user?.displayName == null) {
+      return '';
+    } else {
+      return _user!.displayName!;
+    }
+  }
 
   @override
   void didChangeDependencies() {
@@ -31,7 +39,7 @@ class _HijrahHomePageState extends State<HijrahHomePage> with RouteAware {
         "nama": "Hadist",
         "deskripsi": "Fitur Hadist",
         "pict": "images/tasbih.png",
-        "routes": "",
+        "routes": "/hadist-page",
       },
       {
         "nama": "Waktu Sholat",
@@ -65,7 +73,7 @@ class _HijrahHomePageState extends State<HijrahHomePage> with RouteAware {
           children: [
             Container(
                 padding: const EdgeInsets.all(20),
-                child: Text('Assalamualaikum, ${_user?.displayName}',
+                child: Text('Assalamualaikum ${_displayName()}',
                     style: const TextStyle(
                         fontSize: 20, fontWeight: FontWeight.bold))),
             Expanded(

@@ -5,6 +5,7 @@ import 'package:flutter/src/widgets/framework.dart';
 import '../../../common/routes.dart';
 
 class HomePage extends StatelessWidget {
+  static const routeName = '/hadist-page';
   const HomePage({super.key});
 
   @override
