@@ -5,14 +5,14 @@ import 'package:hadist/common/routes.dart';
 import 'package:hadist/common/style_text_theme.dart';
 import 'package:hadist/presentation/bloc/rawi/rawi_bloc.dart';
 
-class SurahPage extends StatefulWidget {
-  const SurahPage({super.key});
+class RawiPage extends StatefulWidget {
+  const RawiPage({super.key});
 
   @override
-  State<SurahPage> createState() => _SurahPageState();
+  State<RawiPage> createState() => _RawiPageState();
 }
 
-class _SurahPageState extends State<SurahPage> {
+class _RawiPageState extends State<RawiPage> {
   // bloc surah
   late SurahBloc _surahBloc;
 

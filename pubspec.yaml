@@ -37,6 +37,8 @@ dependencies:
   shared_preferences: ^2.0.15
   firebase_core: ^2.3.0
   firebase_ui_auth: ^1.1.1
+  flutter_bloc: ^8.1.1
+  get_it: ^7.2.0
 
   core:
     path: core
