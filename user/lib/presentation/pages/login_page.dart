@@ -3,6 +3,7 @@ import 'package:flutter/material.dart';
 import 'package:core/core.dart';
 import 'package:firebase_auth/firebase_auth.dart'
     hide EmailAuthProvider;
+import 'package:user/presentation/pages/profile_page.dart';
 
 final actionCodeSettings = ActionCodeSettings(
   url: 'https://hijrah-journey.firebaseapp.com',
@@ -21,7 +22,7 @@ class HijrahLoginPage extends StatelessWidget {
     if (auth.currentUser == null) {
       return '/login';
     }
-    return PROFIL_PAGE;
+    return HOME_PAGE;
   }
 
   @override
@@ -46,7 +47,7 @@ class HijrahLoginPage extends StatelessWidget {
       ),
       initialRoute: initialRoute,
       routes: {
-        '/login': (context) {
+        LOGIN_PAGE: (context) {
           return SignInScreen(
             actions: [
               ForgotPasswordAction((context, email) {
@@ -54,10 +55,10 @@ class HijrahLoginPage extends StatelessWidget {
                     context, '/forgot-password', arguments: {'email': email});
               }),
               AuthStateChangeAction<SignedIn>((context, state) {
-                  Navigator.pushReplacementNamed(context, PROFIL_PAGE);
+                Navigator.pushReplacementNamed(context, HOME_PAGE);
               }),
               AuthStateChangeAction<UserCreated>((context, state) {
-                  Navigator.pushReplacementNamed(context, PROFIL_PAGE);
+                Navigator.pushReplacementNamed(context, HOME_PAGE);
               }),
             ],
             styles: const {
@@ -89,25 +90,21 @@ class HijrahLoginPage extends StatelessWidget {
             ],
           );
         },
-        '/forgot-password' : (context) {
-          final arguments = ModalRoute.of(context)?.settings.arguments as Map<String, dynamic>?;
+        '/forgot-password': (context) {
+          final arguments = ModalRoute
+              .of(context)
+              ?.settings
+              .arguments as Map<String, dynamic>?;
 
           return ForgotPasswordScreen(
-            email: arguments?['email']
+              email: arguments?['email']
           );
         },
-        '/profile': (context) {
-          return ProfileScreen(
-            actions: [
-              SignedOutAction((context) {
-                Navigator.pushReplacementNamed(context, '/login');
-              }),
-            ],
-            actionCodeSettings: actionCodeSettings,
-          );
-        }
+        PROFIL_PAGE: (context) {
+          return ProfilePage();
+        },
       },
-      title: 'Hijrah Journey App',
+      title: 'Hijrah Journey',
     );
   }
 }
