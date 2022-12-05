@@ -9,6 +9,7 @@ class HijrahHomePage extends StatefulWidget {
 }
 
 class _HijrahHomePageState extends State<HijrahHomePage> with RouteAware {
+
   User? _user = FirebaseAuth.instance.currentUser;
 
   @override
