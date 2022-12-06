@@ -9,10 +9,10 @@ import 'package:hadist/domain/repositories/hadist_repository.dart';
 import '../../common/exception.dart';
 import '../datasources/hadist_remote_data_source.dart';
 
-class SurahRepositoryImpl extends SurahRepository {
-  final SurahRemoteDataSource remoteDataSource;
+class HadistRepositoryImpl extends HadistRepository {
+  final HadistRemoteDataSource remoteDataSource;
 
-  SurahRepositoryImpl({
+  HadistRepositoryImpl({
     required this.remoteDataSource,
   });
 

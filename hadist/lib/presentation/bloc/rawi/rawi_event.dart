@@ -1,10 +1,10 @@
 part of 'rawi_bloc.dart';
 
-abstract class SurahEvent extends Equatable {
-  const SurahEvent();
+abstract class RawiEvent extends Equatable {
+  const RawiEvent();
 
   @override
   List<Object> get props => [];
 }
 
-class FetchSurahEvent extends SurahEvent {}
+class FetchRawiEvent extends RawiEvent {}

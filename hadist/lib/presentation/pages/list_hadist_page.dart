@@ -4,23 +4,23 @@ import 'package:hadist/common/style_text_theme.dart';
 import 'package:hadist/domain/entities/list_hadist.dart';
 import 'package:hadist/presentation/bloc/list_hadist/list_hadist_bloc.dart';
 
-import '../../../common/color_theme.dart';
+import '../../common/color_theme.dart';
 
-class SurahDetailPage extends StatefulWidget {
+class ListHadistPage extends StatefulWidget {
   final String id;
-  const SurahDetailPage({super.key, required this.id});
+  const ListHadistPage({super.key, required this.id});
 
   @override
-  State<SurahDetailPage> createState() => _SurahDetailPageState();
+  State<ListHadistPage> createState() => _ListHadistPageState();
 }
 
-class _SurahDetailPageState extends State<SurahDetailPage> {
+class _ListHadistPageState extends State<ListHadistPage> {
   // bloc surah detail
-  late SurahDetailBloc _surahDetailBloc;
+  late ListHadistBloc _surahDetailBloc;
   @override
   void initState() {
-    _surahDetailBloc = BlocProvider.of<SurahDetailBloc>(context);
-    _surahDetailBloc.add(FetchSurahDetailEvent(widget.id));
+    _surahDetailBloc = BlocProvider.of<ListHadistBloc>(context);
+    _surahDetailBloc.add(FetchListHadistEvent(widget.id));
     super.initState();
   }
 
@@ -34,13 +34,13 @@ class _SurahDetailPageState extends State<SurahDetailPage> {
           style: openSansMedium,
         ),
       ),
-      body: BlocBuilder<SurahDetailBloc, SurahDetailState>(
+      body: BlocBuilder<ListHadistBloc, ListHadistState>(
           builder: (context, state) {
-            if (state is SurahDetailLoading) {
+            if (state is ListHadistLoading) {
               return const Center(
                 child: CircularProgressIndicator(),
               );
-            } else if (state is SurahDetailHasData) {
+            } else if (state is ListHadistHasData) {
               // final juz = state.result.name;
               return Column(
                 crossAxisAlignment: CrossAxisAlignment.start,
@@ -194,7 +194,7 @@ class _SurahDetailPageState extends State<SurahDetailPage> {
                   )
                 ],
               );
-            } else if (state is SurahDetailError) {
+            } else if (state is ListHadistError) {
               return Center(
                 child: Text(state.message),
               );

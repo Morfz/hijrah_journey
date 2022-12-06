@@ -14,12 +14,12 @@ class RawiPage extends StatefulWidget {
 
 class _RawiPageState extends State<RawiPage> {
   // bloc surah
-  late SurahBloc _surahBloc;
+  late RawiBloc _surahBloc;
 
   @override
   void initState() {
-    _surahBloc = BlocProvider.of<SurahBloc>(context);
-    _surahBloc.add(FetchSurahEvent());
+    _surahBloc = BlocProvider.of<RawiBloc>(context);
+    _surahBloc.add(FetchRawiEvent());
     super.initState();
   }
 
@@ -34,13 +34,13 @@ class _RawiPageState extends State<RawiPage> {
           style: openSansMedium,
         ),
       ),
-      body: BlocBuilder<SurahBloc, SurahState>(
+      body: BlocBuilder<RawiBloc, RawiState>(
         builder: (context, state) {
-          if (state is SurahLoading) {
+          if (state is RawiLoading) {
             return const Center(
               child: CircularProgressIndicator(),
             );
-          } else if (state is SurahHasData) {
+          } else if (state is RawiHasData) {
             return ListView.builder(
               shrinkWrap: true,
               itemCount: state.result.length,
@@ -106,11 +106,11 @@ class _RawiPageState extends State<RawiPage> {
                 );
               },
             );
-          } else if (state is SurahError) {
+          } else if (state is RawiError) {
             return Center(
               child: Text(state.message),
             );
-          } else if (state is SurahEmpty) {
+          } else if (state is RawiEmpty) {
             return Container();
           } else {
             return Container();

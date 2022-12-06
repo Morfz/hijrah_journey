@@ -6,19 +6,19 @@ import 'package:hadist/domain/usecase/get_list_hadist.dart';
 part 'list_hadist_event.dart';
 part 'list_hadist_state.dart';
 
-class SurahDetailBloc extends Bloc<SurahDetailEvent, SurahDetailState> {
-  final GetSurahDetail _getSurahDetail;
+class ListHadistBloc extends Bloc<ListHadistEvent, ListHadistState> {
+  final GetListHadist _getListHadist;
 
-  SurahDetailBloc(this._getSurahDetail) : super(SurahDetailEmpty()) {
-    on<SurahDetailEvent>(
+  ListHadistBloc(this._getListHadist) : super(ListHadistEmpty()) {
+    on<ListHadistEvent>(
       (event, emit) async {
-        if (event is FetchSurahDetailEvent) {
-          emit(SurahDetailLoading());
-          final result = await _getSurahDetail.execute(event.id);
+        if (event is FetchListHadistEvent) {
+          emit(ListHadistLoading());
+          final result = await _getListHadist.execute(event.id);
 
           result.fold(
-            (failure) => emit(SurahDetailError(failure.message)),
-            (data) => emit(SurahDetailHasData(data)),
+            (failure) => emit(ListHadistError(failure.message)),
+            (data) => emit(ListHadistHasData(data)),
           );
         }
       },

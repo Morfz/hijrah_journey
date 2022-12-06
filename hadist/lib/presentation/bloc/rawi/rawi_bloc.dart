@@ -8,24 +8,24 @@ import 'package:hadist/domain/usecase/get_list_hadist.dart';
 part 'rawi_event.dart';
 part 'rawi_state.dart';
 
-class SurahBloc extends Bloc<SurahEvent, SurahState> {
-  final GetSurah _getSurah;
-  SurahBloc(
-    this._getSurah,
-  ) : super(SurahEmpty()) {
-    on<SurahEvent>(
+class RawiBloc extends Bloc<RawiEvent, RawiState> {
+  final GetRawi _getRawi;
+  RawiBloc(
+    this._getRawi,
+  ) : super(RawiEmpty()) {
+    on<RawiEvent>(
       (event, emit) async {
-        if (event is FetchSurahEvent) {
-          emit(SurahLoading());
-          final result = await _getSurah.execute();
+        if (event is FetchRawiEvent) {
+          emit(RawiLoading());
+          final result = await _getRawi.execute();
 
           result.fold(
-            (failure) => emit(SurahError(failure.message)),
+            (failure) => emit(RawiError(failure.message)),
             (data) {
               if (data.isEmpty) {
-                emit(SurahEmpty());
+                emit(RawiEmpty());
               } else {
-                emit(SurahHasData(data));
+                emit(RawiHasData(data));
               }
             },
           );

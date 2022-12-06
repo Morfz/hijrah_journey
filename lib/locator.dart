@@ -12,29 +12,29 @@ final locator = GetIt.instance;
 
 Future<void> init() async {
   // repository
-  locator.registerLazySingleton<SurahRepository>(
-    () => SurahRepositoryImpl(
+  locator.registerLazySingleton<HadistRepository>(
+    () => HadistRepositoryImpl(
       remoteDataSource: locator(),
     ),
   );
 
   // data source
-  locator.registerLazySingleton<SurahRemoteDataSource>(
-    () => SurahRemoteDataSourceImpl(locator()),
+  locator.registerLazySingleton<HadistRemoteDataSource>(
+    () => HadistRemoteDataSourceImpl(locator()),
   );
 
   // bloc
-  locator.registerLazySingleton<SurahBloc>(
-    () => SurahBloc(locator()),
+  locator.registerLazySingleton<RawiBloc>(
+    () => RawiBloc(locator()),
   );
-  locator.registerLazySingleton<SurahDetailBloc>(
-    () => SurahDetailBloc(locator()),
+  locator.registerLazySingleton<ListHadistBloc>(
+    () => ListHadistBloc(locator()),
   );
 
   // usecase
-  locator.registerLazySingleton<GetSurah>(() => GetSurah(locator()));
+  locator.registerLazySingleton<GetRawi>(() => GetRawi(locator()));
   locator
-      .registerLazySingleton<GetSurahDetail>(() => GetSurahDetail(locator()));
+      .registerLazySingleton<GetListHadist>(() => GetListHadist(locator()));
 
   // helper
   locator.registerLazySingleton<Dio>(() => Dio());

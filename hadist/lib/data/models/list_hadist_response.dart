@@ -1,13 +1,13 @@
 import 'package:equatable/equatable.dart';
 import 'package:hadist/data/models/list_hadist_model.dart';
 
-class SurahDetailResponse extends Equatable {
+class ListHadistResponse extends Equatable {
   final ListHadistModel surahDetailModel;
 
-  const SurahDetailResponse({required this.surahDetailModel});
+  const ListHadistResponse({required this.surahDetailModel});
 
-  factory SurahDetailResponse.fromJson(Map<String, dynamic> json) =>
-      SurahDetailResponse(
+  factory ListHadistResponse.fromJson(Map<String, dynamic> json) =>
+      ListHadistResponse(
         surahDetailModel: ListHadistModel.fromJson(
           json["data"],
         ),

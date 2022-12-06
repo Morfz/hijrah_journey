@@ -1,15 +1,15 @@
 import 'package:equatable/equatable.dart';
 import 'package:hadist/data/models/rawi_model.dart';
 
-class SurahResponse extends Equatable {
-  final List<SurahModel> surahList;
+class RawiResponse extends Equatable {
+  final List<RawiModel> surahList;
 
-  const SurahResponse({required this.surahList});
+  const RawiResponse({required this.surahList});
 
-  factory SurahResponse.fromJson(Map<String, dynamic> json) => SurahResponse(
-        surahList: List<SurahModel>.from(
+  factory RawiResponse.fromJson(Map<String, dynamic> json) => RawiResponse(
+        surahList: List<RawiModel>.from(
           json["data"].map(
-            (x) => SurahModel.fromJson(x),
+            (x) => RawiModel.fromJson(x),
           ),
         ),
       );
