@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:hadist/common/color_theme.dart';
-import 'package:hadist/common/routes.dart';
+import 'package:core/core.dart';
 import 'package:hadist/common/style_text_theme.dart';
 import 'package:hadist/presentation/bloc/rawi/rawi_bloc.dart';
 
@@ -50,7 +50,7 @@ class _RawiPageState extends State<RawiPage> {
                   onTap: () {
                     Navigator.pushNamed(
                       context,
-                      SURAH_DETAIL_ROUTE,
+                      LIST_HADIST_PAGE,
                       arguments: state.result[index].id,
                     );
                   },

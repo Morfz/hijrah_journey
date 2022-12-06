@@ -1,10 +1,12 @@
 import 'package:firebase_core/firebase_core.dart';
 import 'package:firebase_ui_auth/firebase_ui_auth.dart';
+import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:core/core.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:hadist/presentation/bloc/list_hadist/list_hadist_bloc.dart';
 import 'package:hadist/presentation/bloc/rawi/rawi_bloc.dart';
+import 'package:hadist/presentation/pages/surah/list_hadist_page.dart';
 import 'package:hadist/presentation/pages/surah/rawi_page.dart';
 import 'package:hijrah_journey/views/wilayah_sholat.dart';
 import 'package:user/presentation/pages/login_page.dart';
@@ -59,6 +61,14 @@ class MyApp extends StatelessWidget {
               case HADIST_PAGE:
                 return MaterialPageRoute(
                     builder: (context) => const RawiPage());
+              case LIST_HADIST_PAGE:
+                final id = settings.arguments as String;
+                return MaterialPageRoute(
+                  builder: (_) => SurahDetailPage(
+                    id: id,
+                  ),
+                  settings: settings,
+                );
               case WAKTU_SHOLAT_PAGE:
                 return MaterialPageRoute(
                     builder: (context) => const WaktuSholatPage());

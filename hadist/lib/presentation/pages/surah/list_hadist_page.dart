@@ -99,9 +99,9 @@ class _SurahDetailPageState extends State<SurahDetailPage> {
                         ListView.builder(
                           physics: const NeverScrollableScrollPhysics(),
                           shrinkWrap: true,
-                          itemCount: state.result.hadiths?.length,
+                          itemCount: state.result.hadiths.length,
                           itemBuilder: (context, int index) {
-                            final data = state.result.hadiths?[index];
+                            final data = state.result.hadiths[index];
                             return Container(
                               padding: const EdgeInsets.only(
                                 top: 12,
