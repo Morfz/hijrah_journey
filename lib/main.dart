@@ -1,5 +1,5 @@
 import 'package:firebase_core/firebase_core.dart';
-import 'package:firebase_ui_auth/firebase_ui_auth.dart';
+import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:core/core.dart';
@@ -22,7 +22,6 @@ Future<void> main() async {
   await Firebase.initializeApp(
     options: DefaultFirebaseOptions.currentPlatform,
   );
-  FirebaseUIAuth.configureProviders([EmailAuthProvider()]);
   runApp(MyApp());
 }
 
@@ -45,7 +44,15 @@ class MyApp extends StatelessWidget {
             primaryColor: const Color(0xFF4CA86E),
           ),
           title: 'Hijrah Journey App',
-          home: HijrahHomePage(),
+          home: StreamBuilder<User?>(
+            stream: FirebaseAuth.instance.authStateChanges(),
+            builder: (context, snapshot) {
+              if (snapshot.hasData) {
+                return HijrahHomePage();
+              }
+              return LoginPage();
+            }
+          ),
           navigatorObservers: [routeObserver],
           onGenerateRoute: (RouteSettings settings) {
             switch (settings.name) {
@@ -54,7 +61,7 @@ class MyApp extends StatelessWidget {
                     builder: (context) => HijrahHomePage());
               case LOGIN_PAGE:
                 return MaterialPageRoute(
-                    builder: (context) => const HijrahLoginPage());
+                    builder: (context) => const LoginPage());
               case PROFIL_PAGE:
                 return MaterialPageRoute(
                     builder: (context) => const ProfilePage());

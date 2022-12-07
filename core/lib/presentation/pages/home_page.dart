@@ -26,19 +26,19 @@ class _HijrahHomePageState extends State<HijrahHomePage> with RouteAware {
       {
         "nama": "Al-Qur'an",
         "deskripsi": "Fitur Membaca Al-Qur'an",
-        "pict": "images/quran.png",
+        "pict": "assets/quran.png",
         "routes": "",
       },
       {
         "nama": "Hadist",
         "deskripsi": "Fitur Hadist",
-        "pict": "images/tasbih.png",
+        "pict": "assets/tasbih.png",
         "routes": "/hadist-page",
       },
       {
         "nama": "Waktu Sholat",
         "deskripsi": "Fitur Notifikasi Sholat dan Melihat waktu sholat",
-        "pict": "images/sujud.png",
+        "pict": "assets/sujud.png",
         "routes": "/waktu-sholat",
       }
     ];

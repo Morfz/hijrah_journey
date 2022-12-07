@@ -1,4 +1,4 @@
-const LOGIN_PAGE = '/login';
+const LOGIN_PAGE = '/login-page';
 const PROFIL_PAGE = '/profile-page';
 const HOME_PAGE = '/home';
 const WAKTU_SHOLAT_PAGE = '/waktu-sholat';
