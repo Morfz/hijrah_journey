@@ -13,13 +13,13 @@ class RawiPage extends StatefulWidget {
 }
 
 class _RawiPageState extends State<RawiPage> {
-  // bloc surah
-  late RawiBloc _surahBloc;
+  // bloc rawi
+  late RawiBloc _rawiBloc;
 
   @override
   void initState() {
-    _surahBloc = BlocProvider.of<RawiBloc>(context);
-    _surahBloc.add(FetchRawiEvent());
+    _rawiBloc = BlocProvider.of<RawiBloc>(context);
+    _rawiBloc.add(FetchRawiEvent());
     super.initState();
   }
 
@@ -28,9 +28,9 @@ class _RawiPageState extends State<RawiPage> {
     return Scaffold(
       backgroundColor: Colors.white,
       appBar: AppBar(
-        elevation: 0.0,
+        backgroundColor: Theme.of(context).primaryColor,
         title: Text(
-          'Al-Quran',
+          'Hadist',
           style: openSansMedium,
         ),
       ),
@@ -45,7 +45,7 @@ class _RawiPageState extends State<RawiPage> {
               shrinkWrap: true,
               itemCount: state.result.length,
               itemBuilder: (context, int index) {
-                final surah = state.result[index];
+                final rawi = state.result[index];
                 return GestureDetector(
                   onTap: () {
                     Navigator.pushNamed(
@@ -70,28 +70,29 @@ class _RawiPageState extends State<RawiPage> {
                               alignment: Alignment.center,
                               decoration: const BoxDecoration(
                                 shape: BoxShape.circle,
-                                color: greyColor1,
+                                color: greyColor,
                               ),
-                              // child: Text(
-                              //   surah.number.toString(),
-                              //   style: openSansMedium.copyWith(
-                              //     fontSize: 16,
-                              //     color: blueColor,
-                              //   ),
-                              // ),
+                              child: Text(
+                                "${index+1}",
+                                style: openSansMedium.copyWith(
+                                  fontSize: 16,
+                                  color: kPrimaryColor,
+                                ),
+                              ),
                             ),
                             title: Text(
-                              surah.name,
+                              rawi.name,
                               style: openSansNormal.copyWith(
-                                fontSize: 14,
-                                color: blackColor,
+                                fontSize: 16,
+                                fontWeight: FontWeight.bold,
+                                color: Colors.black,
                               ),
                             ),
-                            subtitle: Text(
-                              '${surah.available}',
+                            trailing: Text(
+                              '${rawi.available}',
                               style: openSansNormal.copyWith(
-                                fontSize: 12,
-                                color: blackColor,
+                                fontSize: 14,
+                                color: Colors.black,
                               ),
                             ),
                           ),
@@ -99,7 +100,7 @@ class _RawiPageState extends State<RawiPage> {
                       ),
                       const Divider(
                         thickness: 2,
-                        color: greyColor1,
+                        color: Colors.grey,
                       ),
                     ],
                   ),

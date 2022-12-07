@@ -31,7 +31,7 @@ class HadistRemoteDataSourceImpl implements HadistRemoteDataSource {
 
   @override
   Future<ListHadistModel> getListHadist(String id) async {
-    final response = await dio.get('$BASE_URL_HADIST/books/$id?range=1-300');
+    final response = await dio.get('$BASE_URL_HADIST/books/$id?range=1-100');
 
     if (response.statusCode == 200) {
       return ListHadistResponse.fromJson(response.data).surahDetailModel;
