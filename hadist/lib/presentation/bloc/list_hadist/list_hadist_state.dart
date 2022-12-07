@@ -1,29 +1,29 @@
 part of 'list_hadist_bloc.dart';
 
-abstract class SurahDetailState extends Equatable {
-  const SurahDetailState();
+abstract class ListHadistState extends Equatable {
+  const ListHadistState();
 
   @override
   List<Object> get props => [];
 }
 
-class SurahDetailEmpty extends SurahDetailState {}
+class ListHadistEmpty extends ListHadistState {}
 
-class SurahDetailLoading extends SurahDetailState {}
+class ListHadistLoading extends ListHadistState {}
 
-class SurahDetailHasData extends SurahDetailState {
+class ListHadistHasData extends ListHadistState {
   final ListHadist result;
 
-  const SurahDetailHasData(this.result);
+  const ListHadistHasData(this.result);
 
   @override
   List<Object> get props => [result];
 }
 
-class SurahDetailError extends SurahDetailState {
+class ListHadistError extends ListHadistState {
   final String message;
 
-  const SurahDetailError(this.message);
+  const ListHadistError(this.message);
   @override
   List<Object> get props => [message];
 }

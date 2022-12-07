@@ -1,16 +1,16 @@
 part of 'list_hadist_bloc.dart';
 
-abstract class SurahDetailEvent extends Equatable {
-  const SurahDetailEvent();
+abstract class ListHadistEvent extends Equatable {
+  const ListHadistEvent();
 
   @override
   List<Object> get props => [];
 }
 
-class FetchSurahDetailEvent extends SurahDetailEvent {
+class FetchListHadistEvent extends ListHadistEvent {
   final String id;
 
-  const FetchSurahDetailEvent(this.id);
+  const FetchListHadistEvent(this.id);
 
   @override
   List<Object> get props => [id];

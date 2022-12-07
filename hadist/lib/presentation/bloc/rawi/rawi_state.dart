@@ -1,37 +1,37 @@
 part of 'rawi_bloc.dart';
 
-abstract class SurahState extends Equatable {
-  const SurahState();
+abstract class RawiState extends Equatable {
+  const RawiState();
 
   @override
   List<Object> get props => [];
 }
 
-class SurahEmpty extends SurahState {}
+class RawiEmpty extends RawiState {}
 
-class SurahLoading extends SurahState {}
+class RawiLoading extends RawiState {}
 
-class SurahHasData extends SurahState {
+class RawiHasData extends RawiState {
   final List<Rawi> result;
 
-  const SurahHasData(this.result);
+  const RawiHasData(this.result);
 
   @override
   List<Object> get props => [result];
 }
 
-class SurahError extends SurahState {
+class RawiError extends RawiState {
   final String message;
 
-  const SurahError(this.message);
+  const RawiError(this.message);
   @override
   List<Object> get props => [message];
 }
 
-class SurahDetailHasData extends SurahState {
+class RawiDetailHasData extends RawiState {
   final ListHadist result;
 
-  const SurahDetailHasData(this.result);
+  const RawiDetailHasData(this.result);
 
   @override
   List<Object> get props => [result];

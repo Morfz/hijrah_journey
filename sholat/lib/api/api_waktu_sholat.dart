@@ -1,7 +1,7 @@
-import 'package:hijrah_journey/models/waktu_sholat.dart';
-import 'package:hijrah_journey/models/wilayah_sholat.dart';
 import 'dart:convert';
 import 'package:http/http.dart' as http;
+import 'package:sholat/models/waktu_sholat.dart';
+import 'package:sholat/models/wilayah_sholat.dart';
 
 class WaktuSholatApiService {
   static const String _baseUrl = 'https://api.myquran.com/v1/';

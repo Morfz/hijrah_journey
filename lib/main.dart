@@ -6,15 +6,15 @@ import 'package:core/core.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:hadist/presentation/bloc/list_hadist/list_hadist_bloc.dart';
 import 'package:hadist/presentation/bloc/rawi/rawi_bloc.dart';
-import 'package:hadist/presentation/pages/surah/list_hadist_page.dart';
-import 'package:hadist/presentation/pages/surah/rawi_page.dart';
-import 'package:hijrah_journey/views/wilayah_sholat.dart';
+import 'package:hadist/presentation/pages/list_hadist_page.dart';
+import 'package:hadist/presentation/pages/rawi_page.dart';
+import 'package:sholat/views/waktu_sholat.dart';
+import 'package:sholat/views/wilayah_sholat.dart';
 import 'package:user/presentation/pages/login_page.dart';
 import 'package:user/presentation/pages/profile_page.dart';
 import 'locator.dart' as di;
 
 import 'firebase_options.dart';
-import 'views/waktu_sholat.dart';
 
 Future<void> main() async {
   await di.init();
@@ -32,11 +32,11 @@ class MyApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return MultiBlocProvider(
         providers: [
-          BlocProvider<SurahBloc>(
-            create: (context) => di.locator<SurahBloc>(),
+          BlocProvider<RawiBloc>(
+            create: (context) => di.locator<RawiBloc>(),
           ),
-          BlocProvider<SurahDetailBloc>(
-            create: (context) => di.locator<SurahDetailBloc>(),
+          BlocProvider<ListHadistBloc>(
+            create: (context) => di.locator<ListHadistBloc>(),
           ),
         ],
         child: MaterialApp(
@@ -71,7 +71,7 @@ class MyApp extends StatelessWidget {
               case LIST_HADIST_PAGE:
                 final id = settings.arguments as String;
                 return MaterialPageRoute(
-                  builder: (_) => SurahDetailPage(
+                  builder: (_) => ListHadistPage(
                     id: id,
                   ),
                   settings: settings,

@@ -1,8 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:hadist/common/color_theme.dart';
 import 'package:core/core.dart';
-import 'package:hadist/common/style_text_theme.dart';
 import 'package:hadist/presentation/bloc/rawi/rawi_bloc.dart';
 
 class RawiPage extends StatefulWidget {
@@ -13,13 +11,13 @@ class RawiPage extends StatefulWidget {
 }
 
 class _RawiPageState extends State<RawiPage> {
-  // bloc surah
-  late SurahBloc _surahBloc;
+  // bloc rawi
+  late RawiBloc _rawiBloc;
 
   @override
   void initState() {
-    _surahBloc = BlocProvider.of<SurahBloc>(context);
-    _surahBloc.add(FetchSurahEvent());
+    _rawiBloc = BlocProvider.of<RawiBloc>(context);
+    _rawiBloc.add(FetchRawiEvent());
     super.initState();
   }
 
@@ -28,24 +26,24 @@ class _RawiPageState extends State<RawiPage> {
     return Scaffold(
       backgroundColor: Colors.white,
       appBar: AppBar(
-        elevation: 0.0,
+        backgroundColor: Theme.of(context).primaryColor,
         title: Text(
-          'Al-Quran',
+          'Hadist',
           style: openSansMedium,
         ),
       ),
-      body: BlocBuilder<SurahBloc, SurahState>(
+      body: BlocBuilder<RawiBloc, RawiState>(
         builder: (context, state) {
-          if (state is SurahLoading) {
+          if (state is RawiLoading) {
             return const Center(
               child: CircularProgressIndicator(),
             );
-          } else if (state is SurahHasData) {
+          } else if (state is RawiHasData) {
             return ListView.builder(
               shrinkWrap: true,
               itemCount: state.result.length,
               itemBuilder: (context, int index) {
-                final surah = state.result[index];
+                final rawi = state.result[index];
                 return GestureDetector(
                   onTap: () {
                     Navigator.pushNamed(
@@ -70,28 +68,29 @@ class _RawiPageState extends State<RawiPage> {
                               alignment: Alignment.center,
                               decoration: const BoxDecoration(
                                 shape: BoxShape.circle,
-                                color: greyColor1,
+                                color: greyColor,
                               ),
-                              // child: Text(
-                              //   surah.number.toString(),
-                              //   style: openSansMedium.copyWith(
-                              //     fontSize: 16,
-                              //     color: blueColor,
-                              //   ),
-                              // ),
+                              child: Text(
+                                "${index+1}",
+                                style: openSansMedium.copyWith(
+                                  fontSize: 16,
+                                  color: kPrimaryColor,
+                                ),
+                              ),
                             ),
                             title: Text(
-                              surah.name,
+                              rawi.name,
                               style: openSansNormal.copyWith(
-                                fontSize: 14,
-                                color: blackColor,
+                                fontSize: 16,
+                                fontWeight: FontWeight.bold,
+                                color: Colors.black,
                               ),
                             ),
-                            subtitle: Text(
-                              '${surah.available}',
+                            trailing: Text(
+                              '${rawi.available}',
                               style: openSansNormal.copyWith(
-                                fontSize: 12,
-                                color: blackColor,
+                                fontSize: 14,
+                                color: Colors.black,
                               ),
                             ),
                           ),
@@ -99,18 +98,18 @@ class _RawiPageState extends State<RawiPage> {
                       ),
                       const Divider(
                         thickness: 2,
-                        color: greyColor1,
+                        color: Colors.grey,
                       ),
                     ],
                   ),
                 );
               },
             );
-          } else if (state is SurahError) {
+          } else if (state is RawiError) {
             return Center(
               child: Text(state.message),
             );
-          } else if (state is SurahEmpty) {
+          } else if (state is RawiEmpty) {
             return Container();
           } else {
             return Container();

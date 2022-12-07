@@ -1,8 +1,8 @@
 import 'package:equatable/equatable.dart';
 import 'package:hadist/domain/entities/rawi.dart';
 
-class SurahModel extends Equatable {
-  SurahModel({
+class RawiModel extends Equatable {
+  RawiModel({
     required this.name,
     required this.id,
     required this.available,
@@ -12,7 +12,7 @@ class SurahModel extends Equatable {
   String id;
   int? available;
 
-  factory SurahModel.fromJson(Map<String, dynamic> json) => SurahModel(
+  factory RawiModel.fromJson(Map<String, dynamic> json) => RawiModel(
         name: json["name"],
         id: json["id"],
         available: json["available"],
