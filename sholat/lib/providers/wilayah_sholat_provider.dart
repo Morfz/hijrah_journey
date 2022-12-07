@@ -1,39 +1,46 @@
-import 'dart:async';
 import 'dart:io';
-import 'package:flutter/material.dart';
-import 'package:hijrah_journey/api/api_waktu_sholat.dart';
-import 'package:hijrah_journey/utility/result_state.dart';
 
-import '../models/waktu_sholat.dart';
+import 'package:flutter/cupertino.dart';
+import 'package:core/core.dart';
 
-class HarianJadwalSholatProvider extends ChangeNotifier {
+import '../api/api_waktu_sholat.dart';
+import '../models/wilayah_sholat.dart';
+
+class WilayahSholatProvider extends ChangeNotifier {
   final WaktuSholatApiService apiService;
+  String query;
 
-  HarianJadwalSholatProvider({required this.apiService}) {
-    _fetchHarianJadwalSholat();
+  WilayahSholatProvider({required this.apiService, required this.query}) {
+    _fetchAllWilayahSholat(query);
   }
 
-  late WaktuSholat _waktuSholatStatus;
+  late WilayahSholat _wilayahSholatdata;
   late ResultState _state;
   String _message = '';
 
-  WaktuSholat get list => _waktuSholatStatus;
+  WilayahSholat get list => _wilayahSholatdata;
   ResultState get state => _state;
   String get message => _message;
 
-  Future _fetchHarianJadwalSholat() async {
+  runSearch(String query) {
+    this.query = query;
+    _fetchAllWilayahSholat(this.query);
+    notifyListeners();
+  }
+
+  Future _fetchAllWilayahSholat(String query) async {
     try {
       _state = ResultState.loading;
       notifyListeners();
-      final waktuSholat = await apiService.harianWaktuSholat();
-      if (waktuSholat.status == false) {
+      final wilayahSholat = await apiService.getWilayahByName(query);
+      if (wilayahSholat.data.isEmpty) {
         _state = ResultState.noData;
         notifyListeners();
         return _message = 'Tidak ada data';
       } else {
         _state = ResultState.hasData;
         notifyListeners();
-        return _waktuSholatStatus = waktuSholat;
+        return _wilayahSholatdata = wilayahSholat;
       }
     } on SocketException {
       _state = ResultState.error;

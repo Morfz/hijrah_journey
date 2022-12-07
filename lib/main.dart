@@ -8,13 +8,13 @@ import 'package:hadist/presentation/bloc/list_hadist/list_hadist_bloc.dart';
 import 'package:hadist/presentation/bloc/rawi/rawi_bloc.dart';
 import 'package:hadist/presentation/pages/list_hadist_page.dart';
 import 'package:hadist/presentation/pages/rawi_page.dart';
-import 'package:hijrah_journey/views/wilayah_sholat.dart';
+import 'package:sholat/views/waktu_sholat.dart';
+import 'package:sholat/views/wilayah_sholat.dart';
 import 'package:user/presentation/pages/login_page.dart';
 import 'package:user/presentation/pages/profile_page.dart';
 import 'locator.dart' as di;
 
 import 'firebase_options.dart';
-import 'views/waktu_sholat.dart';
 
 Future<void> main() async {
   await di.init();

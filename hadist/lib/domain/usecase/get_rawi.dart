@@ -1,6 +1,6 @@
 import 'package:fpdart/fpdart.dart';
+import 'package:core/core.dart';
 
-import '../../common/failure.dart';
 import '../entities/rawi.dart';
 import '../repositories/hadist_repository.dart';
 

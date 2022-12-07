@@ -8,6 +8,13 @@ packages:
       url: "https://pub.dartlang.org"
     source: hosted
     version: "1.0.9"
+  alquran:
+    dependency: "direct main"
+    description:
+      path: alquran
+      relative: true
+    source: path
+    version: "0.0.1"
   async:
     dependency: transitive
     description:
@@ -504,6 +511,13 @@ packages:
       url: "https://pub.dartlang.org"
     source: hosted
     version: "2.1.1"
+  sholat:
+    dependency: "direct main"
+    description:
+      path: sholat
+      relative: true
+    source: path
+    version: "0.0.1"
   sky_engine:
     dependency: transitive
     description: flutter
@@ -615,5 +629,5 @@ packages:
     source: hosted
     version: "6.1.0"
 sdks:
-  dart: ">=2.18.4 <3.0.0"
+  dart: ">=2.18.5 <3.0.0"
   flutter: ">=3.3.0"

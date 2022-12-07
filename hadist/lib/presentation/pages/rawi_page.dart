@@ -1,8 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:hadist/common/color_theme.dart';
 import 'package:core/core.dart';
-import 'package:hadist/common/style_text_theme.dart';
 import 'package:hadist/presentation/bloc/rawi/rawi_bloc.dart';
 
 class RawiPage extends StatefulWidget {

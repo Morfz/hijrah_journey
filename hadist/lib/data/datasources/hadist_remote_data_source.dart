@@ -1,5 +1,5 @@
 import 'package:dio/dio.dart';
-import 'package:hadist/common/exception.dart';
+import 'package:core/core.dart';
 import 'package:hadist/data/models/list_hadist_model.dart';
 import 'package:hadist/data/models/list_hadist_response.dart';
 import 'package:hadist/data/models/rawi_model.dart';

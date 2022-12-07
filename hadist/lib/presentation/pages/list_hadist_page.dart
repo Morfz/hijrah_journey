@@ -1,12 +1,10 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:hadist/common/style_text_theme.dart';
+import 'package:core/core.dart';
 import 'package:hadist/domain/entities/list_hadist.dart';
 import 'package:hadist/presentation/bloc/list_hadist/list_hadist_bloc.dart';
 import 'package:core/core.dart';
-
-import '../../common/color_theme.dart';
 
 class ListHadistPage extends StatefulWidget {
   final String id;
@@ -208,38 +206,38 @@ class _ListHadistPageState extends State<ListHadistPage> {
   showModalBottomSheet(
     context: context,
     builder: (context) {
-    return Column(
-      mainAxisSize: MainAxisSize.min,
-      children: <Widget>[
-      ListTile(
-      leading: new Icon(Icons.photo),
-      title: new Text('Photo'),
-      onTap: () {
-      Navigator.pop(context);
-      },
-      ),
-      ListTile(
-      leading: new Icon(Icons.music_note),
-      title: new Text('Music'),
-      onTap: () {
-      Navigator.pop(context);
-      },
-      ),
-      ListTile(
-      leading: new Icon(Icons.videocam),
-      title: new Text('Video'),
-      onTap: () {
-      Navigator.pop(context);
-      },
-      ),
-      ListTile(
-      leading: new Icon(Icons.share),
-      title: new Text('Share'),
-      onTap: () {
-      Navigator.pop(context);
-      },
-      ),
-      ],
+      return Column(
+        mainAxisSize: MainAxisSize.min,
+        children: <Widget>[
+          ListTile(
+            leading: new Icon(Icons.photo),
+            title: new Text('Photo'),
+            onTap: () {
+              Navigator.pop(context);
+            },
+          ),
+          ListTile(
+            leading: new Icon(Icons.music_note),
+            title: new Text('Music'),
+            onTap: () {
+              Navigator.pop(context);
+            },
+          ),
+          ListTile(
+            leading: new Icon(Icons.videocam),
+            title: new Text('Video'),
+            onTap: () {
+              Navigator.pop(context);
+            },
+          ),
+          ListTile(
+            leading: new Icon(Icons.share),
+            title: new Text('Share'),
+            onTap: () {
+              Navigator.pop(context);
+            },
+          ),
+        ],
       );
     });
   }
