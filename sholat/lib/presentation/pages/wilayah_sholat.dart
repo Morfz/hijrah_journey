@@ -1,14 +1,10 @@
+import 'package:core/utils/result_state.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 import 'package:sholat/presentation/providers/wilayah_sholat_provider.dart';
 
-<<<<<<< HEAD:sholat/lib/presentation/pages/wilayah_sholat.dart
 import '../../data/api/api_waktu_sholat.dart';
-=======
-import '../api/api_waktu_sholat.dart';
-import 'package:core/core.dart';
->>>>>>> 750575e5e4f3fc138da6808d64dacd61b360dc9a:sholat/lib/views/wilayah_sholat.dart
 
 class WilayahSholatPage extends StatefulWidget {
   const WilayahSholatPage({super.key});
