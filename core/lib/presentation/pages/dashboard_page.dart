@@ -316,6 +316,7 @@ class _PageMainState extends State<PageMain> {
                       ),
                     ),
                     child: Row(
+                      mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                       children: [
                         Expanded(
                           child: Padding(
@@ -326,13 +327,22 @@ class _PageMainState extends State<PageMain> {
                                     padding: EdgeInsets.all(5),
                                     child: Column(
                                       children: [
-                                        Image.asset('assets/tasbih.png', scale: 6.5),
-                                        Text("Do'a Harian", style: TextStyle(fontWeight: FontWeight.bold)),
+                                        Image.asset('assets/tasbih.png',
+                                            scale: 6.5),
+                                        const Text("Do'a Harian",
+                                            style: TextStyle(
+                                                fontWeight: FontWeight.bold)),
                                         OutlinedButton(
-                                            onPressed: () {
-                                              Navigator.push(context, MaterialPageRoute(builder: (context) => DoaPage()),
-                                              );
-                                            }, child: Text("Pilih"),)
+                                          onPressed: () {
+                                            Navigator.push(
+                                              context,
+                                              MaterialPageRoute(
+                                                  builder: (context) =>
+                                                      DoaPage()),
+                                            );
+                                          },
+                                          child: Text("Pilih"),
+                                        )
                                       ],
                                     )),
                               ],
@@ -348,13 +358,22 @@ class _PageMainState extends State<PageMain> {
                                     padding: EdgeInsets.all(5),
                                     child: Column(
                                       children: [
-                                        Image.asset('assets/tasbih.png', scale: 6.5),
-                                        Text("Do'a Harian", style: TextStyle(fontWeight: FontWeight.bold)),
+                                        Image.asset('assets/tasbih.png',
+                                            scale: 6.5),
+                                        const Text("Do'a Harian",
+                                            style: TextStyle(
+                                                fontWeight: FontWeight.bold)),
                                         OutlinedButton(
                                           onPressed: () {
-                                            Navigator.push(context, MaterialPageRoute(builder: (context) => DoaPage()),
+                                            Navigator.push(
+                                              context,
+                                              MaterialPageRoute(
+                                                  builder: (context) =>
+                                                      DoaPage()),
                                             );
-                                          }, child: Text("Pilih"),)
+                                          },
+                                          child: Text("Pilih"),
+                                        )
                                       ],
                                     )),
                               ],
@@ -370,13 +389,22 @@ class _PageMainState extends State<PageMain> {
                                     padding: EdgeInsets.all(5),
                                     child: Column(
                                       children: [
-                                        Image.asset('assets/sujud.png', scale: 6.5),
-                                        Text("Jadwal Sholat", style: TextStyle(fontWeight: FontWeight.bold)),
+                                        Image.asset('assets/sujud.png',
+                                            scale: 6.5),
+                                        Text("Jadwal Sholat",
+                                            style: TextStyle(
+                                                fontWeight: FontWeight.bold)),
                                         OutlinedButton(
                                           onPressed: () {
-                                            Navigator.push(context, MaterialPageRoute(builder: (context) => DoaPage()),
+                                            Navigator.push(
+                                              context,
+                                              MaterialPageRoute(
+                                                  builder: (context) =>
+                                                      DoaPage()),
                                             );
-                                          }, child: Text("Pilih"),)
+                                          },
+                                          child: Text("Pilih"),
+                                        )
                                       ],
                                     )),
                               ],
