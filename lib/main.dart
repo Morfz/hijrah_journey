@@ -68,8 +68,7 @@ class MyApp extends StatelessWidget {
                 return MaterialPageRoute(
                     builder: (context) => const ProfilePage());
               case DOA_PAGE:
-                return MaterialPageRoute(
-                    builder: (context) => const DoaPage());
+                return MaterialPageRoute(builder: (context) => const DoaPage());
               case HADIST_PAGE:
                 return MaterialPageRoute(
                     builder: (context) => const RawiPage());
@@ -80,6 +79,7 @@ class MyApp extends StatelessWidget {
               case WAKTU_SHOLAT_PAGE:
                 return MaterialPageRoute(
                     builder: (context) => const WaktuSholatPage());
+
               default:
                 return MaterialPageRoute(builder: (_) {
                   return const Scaffold(
