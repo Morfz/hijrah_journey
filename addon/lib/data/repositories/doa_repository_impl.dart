@@ -7,16 +7,16 @@ import 'package:core/core.dart';
 import 'package:dartz/dartz.dart';
 
 class DoaRepositoryImpl implements DoaRepository {
-  final DoaRemoteDataSource doaRemoteDataSource;
+  final DoaRemoteDataSource remoteDataSource;
 
   DoaRepositoryImpl({
-    required this.doaRemoteDataSource,
+    required this.remoteDataSource,
   });
 
   @override
-  Future<Either<Failure, List<Doa>>> getDoaList() async {
+  Future<Either<Failure, List<Doa>>> getDoa() async {
     try {
-      final result = await doaRemoteDataSource.getDoaList();
+      final result = await remoteDataSource.getDoa();
       return Right(result.map((model) => model.toEntity()).toList());
     } on ServerException {
       return const Left(ServerFailure(''));
