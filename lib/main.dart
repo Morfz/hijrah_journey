@@ -9,8 +9,7 @@ import 'package:hadist/presentation/bloc/list_hadist/list_hadist_bloc.dart';
 import 'package:hadist/presentation/bloc/rawi/rawi_bloc.dart';
 import 'package:hadist/presentation/pages/list_hadist_page.dart';
 import 'package:hadist/presentation/pages/rawi_page.dart';
-import 'package:sholat/views/waktu_sholat.dart';
-import 'package:sholat/views/wilayah_sholat.dart';
+import 'package:sholat/presentation/pages/waktu_sholat.dart';
 import 'package:user/presentation/pages/login_page.dart';
 import 'package:user/presentation/pages/profile_page.dart';
 
@@ -49,7 +48,6 @@ class MyApp extends StatelessWidget {
           ),
           title: 'Hijrah Journey App',
           home: StreamBuilder<User?>(
-<<<<<<< HEAD
               stream: FirebaseAuth.instance.authStateChanges(),
               builder: (context, snapshot) {
                 if (snapshot.hasData) {
@@ -57,16 +55,6 @@ class MyApp extends StatelessWidget {
                 }
                 return LoginPage();
               }),
-=======
-            stream: FirebaseAuth.instance.authStateChanges(),
-            builder: (context, snapshot) {
-              if (snapshot.hasData) {
-                return const HijrahHomePage();
-              }
-              return const LoginPage();
-            }
-          ),
->>>>>>> 750575e5e4f3fc138da6808d64dacd61b360dc9a
           navigatorObservers: [routeObserver],
           onGenerateRoute: (RouteSettings settings) {
             switch (settings.name) {
@@ -92,9 +80,6 @@ class MyApp extends StatelessWidget {
               case WAKTU_SHOLAT_PAGE:
                 return MaterialPageRoute(
                     builder: (context) => const WaktuSholatPage());
-              case WILAYAH_SHOLAT_PAGE:
-                return MaterialPageRoute(
-                    builder: (context) => const WilayahSholatPage());
               default:
                 return MaterialPageRoute(builder: (_) {
                   return const Scaffold(

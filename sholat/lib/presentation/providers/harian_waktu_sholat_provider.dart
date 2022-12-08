@@ -1,11 +1,10 @@
 import 'dart:async';
 import 'dart:io';
-
 import 'package:core/core.dart';
 import 'package:flutter/material.dart';
 import 'package:sholat/data/api/api_waktu_sholat.dart';
 import 'package:intl/intl.dart';
-import '../../data/models/waktu_sholat.dart';
+import 'package:sholat/data/models/waktu_sholat.dart';
 
 class HarianJadwalSholatProvider extends ChangeNotifier {
   final WaktuSholatApiService apiService;
