@@ -5,6 +5,8 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:hadist/presentation/bloc/list_hadist/list_hadist_bloc.dart';
 
 class ListHadistPage extends StatefulWidget {
+  static const routeName = '/list-hadist-page';
+
   final String id;
   const ListHadistPage({super.key, required this.id});
 
