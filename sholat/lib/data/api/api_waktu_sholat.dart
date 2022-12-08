@@ -1,5 +1,4 @@
 import 'dart:convert';
-
 import 'package:http/http.dart' as http;
 import 'package:sholat/data/models/waktu_sholat.dart';
 import 'package:sholat/data/models/wilayah_sholat.dart';

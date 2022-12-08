@@ -1,7 +1,7 @@
 import 'dart:io';
 
-import 'package:core/core.dart';
 import 'package:flutter/cupertino.dart';
+import 'package:core/core.dart';
 
 import '../../data/api/api_waktu_sholat.dart';
 import '../../data/models/wilayah_sholat.dart';

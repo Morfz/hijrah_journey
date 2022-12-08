@@ -152,7 +152,7 @@ class _ListHadistPageState extends State<ListHadistPage> {
                               ],
                             ),
                             Text(
-                              data.id ?? "",
+                              data.id,
                               style: openSansNormal.copyWith(
                                 fontSize: 14,
                                 letterSpacing: 0.3,

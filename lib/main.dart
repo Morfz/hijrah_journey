@@ -1,7 +1,8 @@
+import 'package:addon/presentation/bloc/doa/doa_bloc.dart';
+import 'package:addon/presentation/pages/doa_page.dart';
 import 'package:core/core.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:firebase_core/firebase_core.dart';
-import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:hadist/presentation/bloc/list_hadist/list_hadist_bloc.dart';
@@ -38,6 +39,9 @@ class MyApp extends StatelessWidget {
           BlocProvider<ListHadistBloc>(
             create: (context) => di.locator<ListHadistBloc>(),
           ),
+          BlocProvider<DoaBloc>(
+            create: (context) => di.locator<DoaBloc>(),
+          ),
         ],
         child: MaterialApp(
           theme: ThemeData(
@@ -45,6 +49,7 @@ class MyApp extends StatelessWidget {
           ),
           title: 'Hijrah Journey App',
           home: StreamBuilder<User?>(
+<<<<<<< HEAD
               stream: FirebaseAuth.instance.authStateChanges(),
               builder: (context, snapshot) {
                 if (snapshot.hasData) {
@@ -52,18 +57,31 @@ class MyApp extends StatelessWidget {
                 }
                 return LoginPage();
               }),
+=======
+            stream: FirebaseAuth.instance.authStateChanges(),
+            builder: (context, snapshot) {
+              if (snapshot.hasData) {
+                return const HijrahHomePage();
+              }
+              return const LoginPage();
+            }
+          ),
+>>>>>>> 750575e5e4f3fc138da6808d64dacd61b360dc9a
           navigatorObservers: [routeObserver],
           onGenerateRoute: (RouteSettings settings) {
             switch (settings.name) {
               case HOME_PAGE:
                 return MaterialPageRoute(
-                    builder: (context) => HijrahHomePage());
+                    builder: (context) => const HijrahHomePage());
               case LOGIN_PAGE:
                 return MaterialPageRoute(
                     builder: (context) => const LoginPage());
               case PROFIL_PAGE:
                 return MaterialPageRoute(
                     builder: (context) => const ProfilePage());
+              case DOA_PAGE:
+                return MaterialPageRoute(
+                    builder: (context) => const DoaPage());
               case HADIST_PAGE:
                 return MaterialPageRoute(
                     builder: (context) => const RawiPage());

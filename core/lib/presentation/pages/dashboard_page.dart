@@ -1,5 +1,6 @@
 import 'dart:async';
 
+import 'package:addon/presentation/pages/doa_page.dart';
 import 'package:core/core.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
@@ -13,7 +14,7 @@ class PageMain extends StatefulWidget {
 }
 
 class _PageMainState extends State<PageMain> {
-  User? _user = FirebaseAuth.instance.currentUser;
+  final User? _user = FirebaseAuth.instance.currentUser;
 
   String _displayName() {
     if (_user?.displayName == null) {
@@ -24,7 +25,7 @@ class _PageMainState extends State<PageMain> {
   }
 
   String _time() {
-    Timer.periodic(Duration(seconds: 1), (timer) {
+    Timer.periodic(const Duration(seconds: 1), (timer) {
       setState(() {});
     });
     final now = DateTime.now();
@@ -32,10 +33,22 @@ class _PageMainState extends State<PageMain> {
     final formatted = formatter.format(now);
     return formatted;
   }
+
+  String _date() {
+    Timer.periodic(const Duration(seconds: 1), (timer) {
+      setState(() {});
+    });
+    final now = DateTime.now();
+    final formatter = DateFormat('dd-MM-yyyy');
+    final formatted = formatter.format(now);
+    return formatted;
+  }
+
   @override
   void initState() {
     super.initState();
     _time();
+    _date();
   }
 
   @override
@@ -58,13 +71,13 @@ class _PageMainState extends State<PageMain> {
           child: Material(
             color: kPrimaryColor,
             child: Container(
-              margin: EdgeInsets.only(top: 12),
+              margin: const EdgeInsets.only(top: 12),
               child: Column(
                 mainAxisAlignment: MainAxisAlignment.start,
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
                   Container(
-                    padding: EdgeInsets.symmetric(horizontal: 16),
+                    padding: const EdgeInsets.symmetric(horizontal: 16),
                     child: const Text(
                       "Assalamu'alaikum",
                       style: TextStyle(
@@ -97,7 +110,7 @@ class _PageMainState extends State<PageMain> {
                       horizontal: 16,
                       vertical: 12,
                     ),
-                    padding: EdgeInsets.all(12),
+                    padding: const EdgeInsets.all(12),
                     decoration: BoxDecoration(
                       color: kSecondaryColor,
                       borderRadius: BorderRadius.circular(12),
@@ -116,7 +129,7 @@ class _PageMainState extends State<PageMain> {
                         Row(
                           children: [
                             Container(
-                              margin: EdgeInsets.only(right: 8),
+                              margin: const EdgeInsets.only(right: 8),
                               child: const Icon(
                                 Icons.place,
                                 color: Colors.white,
@@ -137,7 +150,7 @@ class _PageMainState extends State<PageMain> {
                             ),
                             Text(
                               DateFormat("dd MMM yyyy").format(DateTime.now()),
-                              style: TextStyle(
+                              style: const TextStyle(
                                 fontSize: 12,
                                 color: Colors.white,
                                 fontWeight: FontWeight.w500,
@@ -147,20 +160,18 @@ class _PageMainState extends State<PageMain> {
                           ],
                         ),
                         Container(
-                          margin: EdgeInsets.only(top: 20, bottom: 12),
+                          margin: const EdgeInsets.only(top: 20, bottom: 12),
                           child: Column(
                             children: [
-                              Container(
-                                child: Text(
-                                  _time(),
-                                  style: TextStyle(
-                                    fontSize: 32,
-                                    color: Colors.white,
-                                    fontWeight: FontWeight.bold,
-                                  ),
+                              Text(
+                                _time(),
+                                style: const TextStyle(
+                                  fontSize: 32,
+                                  color: Colors.white,
+                                  fontWeight: FontWeight.bold,
                                 ),
                               ),
-                              Text(
+                              const Text(
                                 "Menuju Ashar",
                                 style: TextStyle(
                                   fontSize: 12,
@@ -172,121 +183,170 @@ class _PageMainState extends State<PageMain> {
                           ),
                         ),
                         Container(
-                          margin: EdgeInsets.only(top: 12),
+                          margin: const EdgeInsets.only(top: 12),
                           child: Row(
                             mainAxisAlignment: MainAxisAlignment.spaceBetween,
                             children: [
-                              Container(
-                                child: Column(
-                                  children: [
-                                    Text(
-                                      "Subuh",
-                                      style: TextStyle(
-                                        fontSize: 12,
-                                        color: Colors.white,
-                                        fontWeight: FontWeight.w300,
-                                      ),
+                              Column(
+                                children: const [
+                                  Text(
+                                    "Subuh",
+                                    style: TextStyle(
+                                      fontSize: 12,
+                                      color: Colors.white,
+                                      fontWeight: FontWeight.w300,
                                     ),
-                                    Text(
-                                      "04:20",
-                                      style: TextStyle(
-                                        fontSize: 12,
-                                        color: Colors.white,
-                                        fontWeight: FontWeight.w300,
-                                      ),
+                                  ),
+                                  Text(
+                                    "04:20",
+                                    style: TextStyle(
+                                      fontSize: 12,
+                                      color: Colors.white,
+                                      fontWeight: FontWeight.w300,
                                     ),
-                                  ],
-                                ),
+                                  ),
+                                ],
                               ),
-                              Container(
-                                child: Column(
-                                  children: [
-                                    Text(
-                                      "Dzuhur",
-                                      style: TextStyle(
-                                        fontSize: 12,
-                                        color: Colors.white,
-                                        fontWeight: FontWeight.w300,
-                                      ),
+                              Column(
+                                children: const [
+                                  Text(
+                                    "Dzuhur",
+                                    style: TextStyle(
+                                      fontSize: 12,
+                                      color: Colors.white,
+                                      fontWeight: FontWeight.w300,
                                     ),
-                                    Text(
-                                      "12:30",
-                                      style: TextStyle(
-                                        fontSize: 12,
-                                        color: Colors.white,
-                                        fontWeight: FontWeight.w300,
-                                      ),
+                                  ),
+                                  Text(
+                                    "12:30",
+                                    style: TextStyle(
+                                      fontSize: 12,
+                                      color: Colors.white,
+                                      fontWeight: FontWeight.w300,
                                     ),
-                                  ],
-                                ),
+                                  ),
+                                ],
                               ),
-                              Container(
-                                child: Column(
-                                  children: [
-                                    Text(
-                                      "Ashar",
-                                      style: TextStyle(
-                                        fontSize: 12,
-                                        color: Colors.white,
-                                        fontWeight: FontWeight.w300,
-                                      ),
+                              Column(
+                                children: const [
+                                  Text(
+                                    "Ashar",
+                                    style: TextStyle(
+                                      fontSize: 12,
+                                      color: Colors.white,
+                                      fontWeight: FontWeight.w300,
                                     ),
-                                    Text(
-                                      "15:20",
-                                      style: TextStyle(
-                                        fontSize: 12,
-                                        color: Colors.white,
-                                        fontWeight: FontWeight.w300,
-                                      ),
+                                  ),
+                                  Text(
+                                    "15:20",
+                                    style: TextStyle(
+                                      fontSize: 12,
+                                      color: Colors.white,
+                                      fontWeight: FontWeight.w300,
                                     ),
-                                  ],
-                                ),
+                                  ),
+                                ],
                               ),
-                              Container(
-                                child: Column(
-                                  children: [
-                                    Text(
-                                      "Maghrib",
-                                      style: TextStyle(
-                                        fontSize: 12,
-                                        color: Colors.white,
-                                        fontWeight: FontWeight.w300,
-                                      ),
+                              Column(
+                                children: const [
+                                  Text(
+                                    "Maghrib",
+                                    style: TextStyle(
+                                      fontSize: 12,
+                                      color: Colors.white,
+                                      fontWeight: FontWeight.w300,
                                     ),
-                                    Text(
-                                      "18:00",
-                                      style: TextStyle(
-                                        fontSize: 12,
-                                        color: Colors.white,
-                                        fontWeight: FontWeight.w300,
-                                      ),
+                                  ),
+                                  Text(
+                                    "18:00",
+                                    style: TextStyle(
+                                      fontSize: 12,
+                                      color: Colors.white,
+                                      fontWeight: FontWeight.w300,
                                     ),
-                                  ],
-                                ),
+                                  ),
+                                ],
                               ),
-                              Container(
-                                child: Column(
-                                  children: [
-                                    Text(
-                                      "Isya",
-                                      style: TextStyle(
-                                        fontSize: 12,
-                                        color: Colors.white,
-                                        fontWeight: FontWeight.w300,
-                                      ),
+                              Column(
+                                children: const [
+                                  Text(
+                                    "Isya",
+                                    style: TextStyle(
+                                      fontSize: 12,
+                                      color: Colors.white,
+                                      fontWeight: FontWeight.w300,
                                     ),
-                                    Text(
-                                      "20:10",
-                                      style: TextStyle(
-                                        fontSize: 12,
-                                        color: Colors.white,
-                                        fontWeight: FontWeight.w300,
-                                      ),
+                                  ),
+                                  Text(
+                                    "20:10",
+                                    style: TextStyle(
+                                      fontSize: 12,
+                                      color: Colors.white,
+                                      fontWeight: FontWeight.w300,
                                     ),
-                                  ],
-                                ),
+                                  ),
+                                ],
                               ),
                             ],
+                          ),
+                        ),
+                      ],
+                    ),
+                  ),
+                  Container(
+                    width: MediaQuery.of(context).size.width,
+                    height: 440,
+                    margin: const EdgeInsets.only(top: 40),
+                    decoration: const BoxDecoration(
+                      color: Colors.white,
+                      borderRadius: BorderRadius.vertical(
+                        top: Radius.circular(20),
+                      ),
+                    ),
+                    child: Row(
+                      children: [
+                        Expanded(
+                          child: Padding(
+                            padding: const EdgeInsets.fromLTRB(10, 15, 10, 15),
+                            child: Column(
+                              children: [
+                                Padding(
+                                    padding: const EdgeInsets.all(5),
+                                    child: Column(
+                                      children: [
+                                        Image.asset('assets/tasbih.png', scale: 6.5),
+                                        const Text("Do'a Harian", style: TextStyle(fontWeight: FontWeight.bold)),
+                                        OutlinedButton(
+                                            onPressed: () {
+                                              Navigator.push(context, MaterialPageRoute(builder: (context) => const DoaPage()),
+                                              );
+                                            }, child: const Text("Pilih"),)
+                                      ],
+                                    )),
+                              ],
+                            ),
+                          ),
+                        ),
+                        Expanded(
+                          child: Padding(
+                            padding: const EdgeInsets.fromLTRB(10, 15, 10, 15),
+                            child: Column(
+                              children: [
+                                Padding(
+                                    padding: const EdgeInsets.all(5),
+                                    child: Column(
+                                      children: [
+                                        Image.asset('assets/sujud.png', scale: 6.5),
+                                        const Text("Jadwal Sholat", style: TextStyle(fontWeight: FontWeight.bold)),
+                                        OutlinedButton(
+                                          onPressed: () {
+                                            Navigator.push(context, MaterialPageRoute(builder: (context) => const DoaPage()),
+                                            );
+                                          }, child: const Text("Pilih"),)
+                                      ],
+                                    )),
+                              ],
+                            ),
                           ),
                         ),
                       ],

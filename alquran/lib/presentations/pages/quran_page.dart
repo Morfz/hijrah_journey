@@ -10,10 +10,8 @@ class QuranPage extends StatefulWidget {
 class _QuranPageState extends State<QuranPage> {
   @override
   Widget build(BuildContext context) {
-    return Container(
-      child: Center(
-        child: Text('Masih dalam tahap pengembangan', style: TextStyle(color: Colors.white, fontWeight: FontWeight.bold),),
-      ),
+    return const Center(
+      child: Text('Masih dalam tahap pengembangan', style: TextStyle(color: Colors.white, fontWeight: FontWeight.bold),),
     );
   }
 }

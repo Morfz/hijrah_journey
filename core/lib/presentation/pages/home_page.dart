@@ -10,6 +10,8 @@ import 'dashboard_page.dart';
 class HijrahHomePage extends StatefulWidget {
   static const routeName = '/home';
 
+  const HijrahHomePage({super.key});
+
   @override
   State createState() => _HijrahHomePageState();
 }
@@ -19,7 +21,7 @@ class _HijrahHomePageState extends State<HijrahHomePage>{
 
   @override
   void initState() {
-    _child = PageMain();
+    _child = const PageMain();
     super.initState();
   }
 
@@ -33,27 +35,30 @@ class _HijrahHomePageState extends State<HijrahHomePage>{
           icons: [
             FluidNavBarIcon(
               icon: Icons.home,
-              backgroundColor: Colors.white,
+              backgroundColor: kPrimaryColor,
               extras: {'label': 'Home'},
             ),
             FluidNavBarIcon(
               icon: Icons.menu_book_rounded,
-              backgroundColor: Colors.white,
+              backgroundColor: kPrimaryColor,
               extras: {'label': 'Al-Quran'},
             ),
             FluidNavBarIcon(
               icon: Icons.library_books_rounded,
-              backgroundColor: Colors.white,
+              backgroundColor: kPrimaryColor,
               extras: {'label': 'Hadist'},
             ),
             FluidNavBarIcon(
               icon: Icons.person,
-              backgroundColor: Colors.white,
+              backgroundColor: kPrimaryColor,
               extras: {'label': 'Profile'},
             ),
           ],
           onChange: _handleNavigationChange,
-          style: FluidNavBarStyle(iconUnselectedForegroundColor: Colors.black),
+          style: const FluidNavBarStyle(
+              iconUnselectedForegroundColor: Colors.white54,
+          iconSelectedForegroundColor: Colors.white,
+          barBackgroundColor: kPrimaryColor),
           scaleFactor: 1.5,
           defaultIndex: 0,
           itemBuilder: (icon, item) => Semantics(
@@ -68,20 +73,20 @@ class _HijrahHomePageState extends State<HijrahHomePage>{
     setState(() {
       switch (index) {
         case 0:
-          _child = PageMain();
+          _child = const PageMain();
           break;
         case 1:
-          _child = QuranPage();
+          _child = const QuranPage();
           break;
         case 2:
-          _child = RawiPage();
+          _child = const RawiPage();
           break;
         case 3:
-          _child = ProfilePage();
+          _child = const ProfilePage();
           break;
       }
       _child = AnimatedSwitcher(
-          duration: Duration(milliseconds: 500),
+          duration: const Duration(milliseconds: 500),
           switchInCurve: Curves.easeOut,
           switchOutCurve: Curves.easeIn,
           child: _child);
