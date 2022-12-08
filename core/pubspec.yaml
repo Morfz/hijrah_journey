@@ -10,6 +10,12 @@ environment:
 dependencies:
   user:
     path: ../user
+  hadist:
+    path: ../hadist
+  sholat:
+    path: ../sholat
+  alquran:
+    path: ../alquran
   flutter:
     sdk: flutter
   firebase_core: ^2.3.0
@@ -17,6 +23,8 @@ dependencies:
   google_fonts: ^3.0.1
   dio: ^4.0.6
   equatable: ^2.0.5
+  fluid_bottom_nav_bar: ^1.4.0
+  intl: ^0.17.0
 
 dev_dependencies:
   flutter_test:

@@ -26,10 +26,9 @@ class _RawiPageState extends State<RawiPage> {
     return Scaffold(
       backgroundColor: Colors.white,
       appBar: AppBar(
-        backgroundColor: Theme.of(context).primaryColor,
+        backgroundColor: kPrimaryColor,
         title: Text(
           'Hadist',
-          style: openSansMedium,
         ),
       ),
       body: BlocBuilder<RawiBloc, RawiState>(
