@@ -1,9 +1,9 @@
+import 'package:core/core.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 
 import '../providers/harian_waktu_sholat_provider.dart';
-import 'package:core/core.dart';
 
 class CardJadwalSholatHarian extends StatefulWidget {
   const CardJadwalSholatHarian({

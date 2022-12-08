@@ -1,8 +1,9 @@
 import 'dart:async';
 import 'dart:io';
+
+import 'package:core/core.dart';
 import 'package:flutter/material.dart';
 import 'package:sholat/api/api_waktu_sholat.dart';
-import 'package:core/core.dart';
 
 import '../models/waktu_sholat.dart';
 

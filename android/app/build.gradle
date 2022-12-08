@@ -39,6 +39,10 @@ android {
         jvmTarget = '1.8'
     }
 
+    lintOptions {
+        check 'unused', 'cast', 'deprecation', 'synthetic-access', '-Xlint:unchecked'
+    }
+
     sourceSets {
         main.java.srcDirs += 'src/main/kotlin'
     }

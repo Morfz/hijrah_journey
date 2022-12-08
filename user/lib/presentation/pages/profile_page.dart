@@ -150,13 +150,11 @@ class _ProfilePageState extends State<ProfilePage> {
                           ),
                         ),
                       ),
-                      Text(user.email ?? user.phoneNumber ?? 'User'),
+                      Text(user.email ?? 'User'),
                       const SizedBox(height: 10),
                       Row(
                         mainAxisAlignment: MainAxisAlignment.center,
                         children: [
-                          if (userProviders.contains('phone'))
-                            const Icon(Icons.phone),
                           if (userProviders.contains('password'))
                             const Icon(Icons.mail),
                           if (userProviders.contains('google.com'))
@@ -168,7 +166,20 @@ class _ProfilePageState extends State<ProfilePage> {
                             ),
                         ],
                       ),
-                      const SizedBox(height: 20),
+                      const SizedBox(height: 5),
+                      Positioned(
+                        child: AnimatedSwitcher(
+                          duration: const Duration(milliseconds: 200),
+                          child: !showSaveButton
+                              ? SizedBox(key: UniqueKey())
+                              : OutlinedButton(
+                                  onPressed:
+                                      isLoading ? null : updateDisplayName,
+                                  child: const Text('Save Name'),
+                                ),
+                        ),
+                      ),
+                      const SizedBox(height: 10),
                       ElevatedButton(
                         style: ElevatedButton.styleFrom(
                           backgroundColor: kPrimaryColor,
@@ -180,20 +191,6 @@ class _ProfilePageState extends State<ProfilePage> {
                   ),
                 ),
               ),
-              Positioned.directional(
-                textDirection: Directionality.of(context),
-                end: 50,
-                top: 50,
-                child: AnimatedSwitcher(
-                  duration: const Duration(milliseconds: 200),
-                  child: !showSaveButton
-                      ? SizedBox(key: UniqueKey())
-                      : TextButton(
-                          onPressed: isLoading ? null : updateDisplayName,
-                          child: const Text('Save changes'),
-                        ),
-                ),
-              )
             ],
           ),
         ),
@@ -203,8 +200,6 @@ class _ProfilePageState extends State<ProfilePage> {
 
   Future<String?> getPhotoURLFromUser() async {
     String? photoURL;
-
-    // Update the UI - wait for the user to enter the SMS code
     await showDialog<String>(
       context: context,
       barrierDismissible: false,
@@ -213,6 +208,9 @@ class _ProfilePageState extends State<ProfilePage> {
           title: const Text('New image Url:'),
           actions: [
             ElevatedButton(
+              style: ElevatedButton.styleFrom(
+                backgroundColor: kPrimaryColor,
+              ),
               onPressed: () {
                 Navigator.of(context).pop();
               },

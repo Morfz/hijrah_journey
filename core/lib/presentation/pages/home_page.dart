@@ -1,8 +1,7 @@
 import 'package:alquran/presentations/pages/quran_page.dart';
+import 'package:core/core.dart';
 import 'package:fluid_bottom_nav_bar/fluid_bottom_nav_bar.dart';
 import 'package:flutter/material.dart';
-import 'package:firebase_auth/firebase_auth.dart';
-import 'package:core/core.dart';
 import 'package:hadist/presentation/pages/rawi_page.dart';
 import 'package:user/presentation/pages/profile_page.dart';
 
@@ -15,7 +14,7 @@ class HijrahHomePage extends StatefulWidget {
   State createState() => _HijrahHomePageState();
 }
 
-class _HijrahHomePageState extends State<HijrahHomePage> with RouteAware {
+class _HijrahHomePageState extends State<HijrahHomePage>{
   Widget? _child;
 
   @override
@@ -26,8 +25,7 @@ class _HijrahHomePageState extends State<HijrahHomePage> with RouteAware {
 
   @override
   Widget build(context) {
-    return MaterialApp(
-      home: Scaffold(
+    return Scaffold(
         backgroundColor: kPrimaryColor,
         extendBody: true,
         body: _child,
@@ -63,8 +61,7 @@ class _HijrahHomePageState extends State<HijrahHomePage> with RouteAware {
             child: item,
           ),
         ),
-      ),
-    );
+      );
   }
 
   void _handleNavigationChange(int index) {
@@ -90,64 +87,4 @@ class _HijrahHomePageState extends State<HijrahHomePage> with RouteAware {
           child: _child);
     });
   }
-
-// @override
-// Widget build(BuildContext context) {
-//   var menu = [
-//     {
-//       "nama": "Al-Qur'an",
-//       "deskripsi": "Fitur Membaca Al-Qur'an",
-//       "pict": "assets/quran.png",
-//       "routes": "",
-//     },
-//     {
-//       "nama": "Hadist",
-//       "deskripsi": "Fitur Hadist",
-//       "pict": "assets/tasbih.png",
-//       "routes": "/hadist-page",
-//     },
-//     {
-//       "nama": "Waktu Sholat",
-//       "deskripsi": "Fitur Notifikasi Sholat dan Melihat waktu sholat",
-//       "pict": "assets/sujud.png",
-//       "routes": "/waktu-sholat",
-//     }
-//   ];
-//
-//   return Scaffold(
-//       appBar: AppBar(
-//         backgroundColor: Theme.of(context).primaryColor,
-//         title: Row(
-//           mainAxisAlignment: MainAxisAlignment.spaceBetween,
-//           children: <Widget>[
-//             const Text('Hijrah Journey App'),
-//             IconButton(
-//               icon: const Icon(
-//                 Icons.person,
-//                 size: 20.0,
-//                 color: Colors.white,
-//               ),
-//               onPressed: () {
-//                 if (_user != null) {
-//                   Navigator.of(context).pushNamed(PROFIL_PAGE);
-//                 } else {
-//                   Navigator.of(context).pushNamed(LOGIN_PAGE);
-//                 }
-//               },
-//             ),
-//           ],
-//         ),
-//       ),
-//       body: Column(
-//         children: [
-//           Container(
-//               padding: const EdgeInsets.all(20),
-//               child: Text('Assalamualaikum ${_displayName()}',
-//                   style: const TextStyle(
-//                       fontSize: 20, fontWeight: FontWeight.bold))),
-//           Expanded(
-//               child: CardHomeMenu(menu: menu)),
-//         ],
-//       ));
-// }
 }

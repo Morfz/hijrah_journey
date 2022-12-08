@@ -1,9 +1,9 @@
 import 'dart:async';
 
-import 'package:flutter/material.dart';
-import 'package:intl/intl.dart';
 import 'package:core/core.dart';
 import 'package:firebase_auth/firebase_auth.dart';
+import 'package:flutter/material.dart';
+import 'package:intl/intl.dart';
 
 class PageMain extends StatefulWidget {
   const PageMain({Key? key}) : super(key: key);
@@ -32,7 +32,6 @@ class _PageMainState extends State<PageMain> {
     final formatted = formatter.format(now);
     return formatted;
   }
-  //auto update second in time
   @override
   void initState() {
     super.initState();
@@ -66,7 +65,7 @@ class _PageMainState extends State<PageMain> {
                 children: [
                   Container(
                     padding: EdgeInsets.symmetric(horizontal: 16),
-                    child: Text(
+                    child: const Text(
                       "Assalamu'alaikum",
                       style: TextStyle(
                         fontSize: 14,

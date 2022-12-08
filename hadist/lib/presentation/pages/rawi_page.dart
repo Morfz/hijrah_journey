@@ -1,6 +1,6 @@
+import 'package:core/core.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:core/core.dart';
 import 'package:hadist/presentation/bloc/rawi/rawi_bloc.dart';
 
 class RawiPage extends StatefulWidget {
@@ -45,7 +45,7 @@ class _RawiPageState extends State<RawiPage> {
                 final rawi = state.result[index];
                 return GestureDetector(
                   onTap: () {
-                    Navigator.pushNamed(
+                    Navigator.pushReplacementNamed(
                       context,
                       LIST_HADIST_PAGE,
                       arguments: state.result[index].id,

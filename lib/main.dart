@@ -1,8 +1,8 @@
-import 'package:firebase_core/firebase_core.dart';
+import 'package:core/core.dart';
 import 'package:firebase_auth/firebase_auth.dart';
+import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'package:core/core.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:hadist/presentation/bloc/list_hadist/list_hadist_bloc.dart';
 import 'package:hadist/presentation/bloc/rawi/rawi_bloc.dart';
@@ -12,11 +12,11 @@ import 'package:sholat/views/waktu_sholat.dart';
 import 'package:sholat/views/wilayah_sholat.dart';
 import 'package:user/presentation/pages/login_page.dart';
 import 'package:user/presentation/pages/profile_page.dart';
-import 'locator.dart' as di;
 
 import 'firebase_options.dart';
+import 'locator.dart' as di;
 
-Future<void> main() async {
+void main() async {
   await di.init();
   WidgetsFlutterBinding.ensureInitialized();
   await Firebase.initializeApp(
@@ -71,10 +71,8 @@ class MyApp extends StatelessWidget {
               case LIST_HADIST_PAGE:
                 final id = settings.arguments as String;
                 return MaterialPageRoute(
-                  builder: (_) => ListHadistPage(
-                    id: id,
-                  ),
-                  settings: settings,
+                  builder: (_) => ListHadistPage(id: id),
+                  settings: settings
                 );
               case WAKTU_SHOLAT_PAGE:
                 return MaterialPageRoute(

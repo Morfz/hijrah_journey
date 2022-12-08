@@ -1,10 +1,8 @@
+import 'package:core/core.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:core/core.dart';
-import 'package:hadist/domain/entities/list_hadist.dart';
 import 'package:hadist/presentation/bloc/list_hadist/list_hadist_bloc.dart';
-import 'package:core/core.dart';
 
 class ListHadistPage extends StatefulWidget {
   final String id;
@@ -30,10 +28,9 @@ class _ListHadistPageState extends State<ListHadistPage> {
       appBar: AppBar(
         backgroundColor: Theme.of(context).primaryColor,
         elevation: 0.0,
-        // title: Text(
-        //   'List Hadist',
-        //   style: openSansMedium,
-        // ),
+        title: Text(
+          'List Hadist',
+        ),
         actions: <Widget>[
           IconButton(
             icon: Icon(

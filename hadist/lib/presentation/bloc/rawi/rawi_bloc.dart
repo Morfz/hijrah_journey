@@ -1,9 +1,8 @@
 import 'package:equatable/equatable.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:hadist/domain/entities/rawi.dart';
 import 'package:hadist/domain/entities/list_hadist.dart';
+import 'package:hadist/domain/entities/rawi.dart';
 import 'package:hadist/domain/usecase/get_rawi.dart';
-import 'package:hadist/domain/usecase/get_list_hadist.dart';
 
 part 'rawi_event.dart';
 part 'rawi_state.dart';
