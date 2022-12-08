@@ -27,7 +27,7 @@ class HarianJadwalSholatProvider extends ChangeNotifier {
     final now = DateTime.now();
     final formatter = DateFormat('d');
     final formatted = formatter.format(now);
-    return int.parse(formatted) + 1;
+    return int.parse(formatted) - 1;
   }
 
   Future _fetchHarianJadwalSholat() async {

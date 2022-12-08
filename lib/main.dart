@@ -12,6 +12,7 @@ import 'package:hadist/presentation/pages/rawi_page.dart';
 import 'package:sholat/presentation/pages/waktu_sholat.dart';
 import 'package:user/presentation/pages/login_page.dart';
 import 'package:user/presentation/pages/profile_page.dart';
+
 import 'firebase_options.dart';
 import 'locator.dart' as di;
 
