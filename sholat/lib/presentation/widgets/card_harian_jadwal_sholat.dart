@@ -35,9 +35,8 @@ class _CardJadwalSholatHarianState extends State<CardJadwalSholatHarian> {
                       child: Card(
                         child: Padding(
                           padding: const EdgeInsets.all(8.0),
-                          child: Column(
-                            children: <Widget>[
-                              Text(
+                          child: ExpansionTile(
+                              title: Text(
                                 date[index],
                                 overflow: TextOverflow.ellipsis,
                                 style: const TextStyle(
@@ -45,244 +44,250 @@ class _CardJadwalSholatHarianState extends State<CardJadwalSholatHarian> {
                                   fontSize: 18.0,
                                 ),
                               ),
-                              Row(
-                                mainAxisAlignment:
-                                    MainAxisAlignment.spaceAround,
-                                crossAxisAlignment: CrossAxisAlignment.center,
-                                children: <Widget>[
-                                  Padding(
-                                    padding: const EdgeInsets.all(5.0),
-                                    child: Card(
-                                      child: Padding(
-                                        padding: const EdgeInsets.all(10.0),
-                                        child: Column(
-                                          children: <Widget>[
-                                            const Padding(
-                                              padding: EdgeInsets.fromLTRB(
-                                                  0, 0, 0, 10),
-                                              child: Center(
-                                                child: Text(
-                                                  "Subuh",
-                                                  overflow:
-                                                      TextOverflow.ellipsis,
-                                                  style: TextStyle(
-                                                    fontWeight: FontWeight.w500,
-                                                    fontSize: 14.0,
+                              children: <Widget>[
+                                Row(
+                                  mainAxisAlignment:
+                                      MainAxisAlignment.spaceAround,
+                                  crossAxisAlignment: CrossAxisAlignment.center,
+                                  children: <Widget>[
+                                    Padding(
+                                      padding: const EdgeInsets.all(5.0),
+                                      child: Card(
+                                        child: Padding(
+                                          padding: const EdgeInsets.all(10.0),
+                                          child: Column(
+                                            children: <Widget>[
+                                              const Padding(
+                                                padding: EdgeInsets.fromLTRB(
+                                                    0, 0, 0, 10),
+                                                child: Center(
+                                                  child: Text(
+                                                    "Subuh",
+                                                    overflow:
+                                                        TextOverflow.ellipsis,
+                                                    style: TextStyle(
+                                                      fontWeight:
+                                                          FontWeight.w500,
+                                                      fontSize: 14.0,
+                                                    ),
                                                   ),
                                                 ),
                                               ),
-                                            ),
-                                            Center(
-                                              child: Text(
-                                                list[index].sunrise,
-                                                textAlign: TextAlign.justify,
-                                                overflow: TextOverflow.fade,
-                                                style: const TextStyle(
-                                                  fontSize: 12.0,
-                                                ),
-                                              ),
-                                            ),
-                                          ],
-                                        ),
-                                      ),
-                                    ),
-                                  ),
-                                  Padding(
-                                    padding: const EdgeInsets.all(5.0),
-                                    child: Card(
-                                      child: Padding(
-                                        padding: const EdgeInsets.all(10.0),
-                                        child: Column(
-                                          children: <Widget>[
-                                            const Padding(
-                                              padding: EdgeInsets.fromLTRB(
-                                                  0, 0, 0, 10),
-                                              child: Center(
+                                              Center(
                                                 child: Text(
-                                                  "Terbit",
-                                                  overflow:
-                                                      TextOverflow.ellipsis,
-                                                  style: TextStyle(
-                                                    fontWeight: FontWeight.w500,
-                                                    fontSize: 14.0,
+                                                  list[index].sunrise,
+                                                  textAlign: TextAlign.justify,
+                                                  overflow: TextOverflow.fade,
+                                                  style: const TextStyle(
+                                                    fontSize: 12.0,
                                                   ),
                                                 ),
                                               ),
-                                            ),
-                                            Center(
-                                              child: Text(
-                                                list[index].fajr,
-                                                textAlign: TextAlign.justify,
-                                                overflow: TextOverflow.fade,
-                                                style: const TextStyle(
-                                                  fontSize: 12.0,
-                                                ),
-                                              ),
-                                            ),
-                                          ],
+                                            ],
+                                          ),
                                         ),
                                       ),
                                     ),
-                                  ),
-                                  Padding(
-                                    padding: const EdgeInsets.all(5.0),
-                                    child: Card(
-                                      child: Padding(
-                                        padding: const EdgeInsets.all(10.0),
-                                        child: Column(
-                                          children: <Widget>[
-                                            const Padding(
-                                              padding: EdgeInsets.fromLTRB(
-                                                  0, 0, 0, 10),
-                                              child: Center(
-                                                child: Text(
-                                                  "Dzuhur",
-                                                  overflow:
-                                                      TextOverflow.ellipsis,
-                                                  style: TextStyle(
-                                                    fontWeight: FontWeight.w500,
-                                                    fontSize: 14.0,
+                                    Padding(
+                                      padding: const EdgeInsets.all(5.0),
+                                      child: Card(
+                                        child: Padding(
+                                          padding: const EdgeInsets.all(10.0),
+                                          child: Column(
+                                            children: <Widget>[
+                                              const Padding(
+                                                padding: EdgeInsets.fromLTRB(
+                                                    0, 0, 0, 10),
+                                                child: Center(
+                                                  child: Text(
+                                                    "Terbit",
+                                                    overflow:
+                                                        TextOverflow.ellipsis,
+                                                    style: TextStyle(
+                                                      fontWeight:
+                                                          FontWeight.w500,
+                                                      fontSize: 14.0,
+                                                    ),
                                                   ),
                                                 ),
                                               ),
-                                            ),
-                                            Center(
-                                              child: Text(
-                                                list[index].dhuhr,
-                                                textAlign: TextAlign.justify,
-                                                overflow: TextOverflow.fade,
-                                                style: const TextStyle(
-                                                  fontSize: 12.0,
-                                                ),
-                                              ),
-                                            ),
-                                          ],
-                                        ),
-                                      ),
-                                    ),
-                                  ),
-                                ],
-                              ),
-                              Row(
-                                mainAxisAlignment:
-                                    MainAxisAlignment.spaceAround,
-                                crossAxisAlignment: CrossAxisAlignment.center,
-                                children: <Widget>[
-                                  Padding(
-                                    padding: const EdgeInsets.all(5.0),
-                                    child: Card(
-                                      child: Padding(
-                                        padding: const EdgeInsets.all(10.0),
-                                        child: Column(
-                                          children: <Widget>[
-                                            const Padding(
-                                              padding: EdgeInsets.fromLTRB(
-                                                  0, 0, 0, 10),
-                                              child: Center(
+                                              Center(
                                                 child: Text(
-                                                  "Ashar",
-                                                  overflow:
-                                                      TextOverflow.ellipsis,
-                                                  style: TextStyle(
-                                                    fontWeight: FontWeight.w500,
-                                                    fontSize: 14.0,
+                                                  list[index].fajr,
+                                                  textAlign: TextAlign.justify,
+                                                  overflow: TextOverflow.fade,
+                                                  style: const TextStyle(
+                                                    fontSize: 12.0,
                                                   ),
                                                 ),
                                               ),
-                                            ),
-                                            Center(
-                                              child: Text(
-                                                list[index].asr,
-                                                textAlign: TextAlign.justify,
-                                                overflow: TextOverflow.fade,
-                                                style: const TextStyle(
-                                                  fontSize: 12.0,
-                                                ),
-                                              ),
-                                            ),
-                                          ],
+                                            ],
+                                          ),
                                         ),
                                       ),
                                     ),
-                                  ),
-                                  Padding(
-                                    padding: const EdgeInsets.all(5.0),
-                                    child: Card(
-                                      child: Padding(
-                                        padding: const EdgeInsets.all(10.0),
-                                        child: Column(
-                                          children: <Widget>[
-                                            const Padding(
-                                              padding: EdgeInsets.fromLTRB(
-                                                  0, 0, 0, 10),
-                                              child: Center(
-                                                child: Text(
-                                                  "Magrib",
-                                                  overflow:
-                                                      TextOverflow.ellipsis,
-                                                  style: TextStyle(
-                                                    fontWeight: FontWeight.w500,
-                                                    fontSize: 14.0,
+                                    Padding(
+                                      padding: const EdgeInsets.all(5.0),
+                                      child: Card(
+                                        child: Padding(
+                                          padding: const EdgeInsets.all(10.0),
+                                          child: Column(
+                                            children: <Widget>[
+                                              const Padding(
+                                                padding: EdgeInsets.fromLTRB(
+                                                    0, 0, 0, 10),
+                                                child: Center(
+                                                  child: Text(
+                                                    "Dzuhur",
+                                                    overflow:
+                                                        TextOverflow.ellipsis,
+                                                    style: TextStyle(
+                                                      fontWeight:
+                                                          FontWeight.w500,
+                                                      fontSize: 14.0,
+                                                    ),
                                                   ),
                                                 ),
                                               ),
-                                            ),
-                                            Center(
-                                              child: Text(
-                                                list[index].maghrib,
-                                                textAlign: TextAlign.justify,
-                                                overflow: TextOverflow.fade,
-                                                style: const TextStyle(
-                                                  fontSize: 12.0,
-                                                ),
-                                              ),
-                                            ),
-                                          ],
-                                        ),
-                                      ),
-                                    ),
-                                  ),
-                                  Padding(
-                                    padding: const EdgeInsets.all(5.0),
-                                    child: Card(
-                                      child: Padding(
-                                        padding: const EdgeInsets.all(10.0),
-                                        child: Column(
-                                          children: <Widget>[
-                                            const Padding(
-                                              padding: EdgeInsets.fromLTRB(
-                                                  0, 0, 0, 10),
-                                              child: Center(
+                                              Center(
                                                 child: Text(
-                                                  "Isya",
-                                                  overflow:
-                                                      TextOverflow.ellipsis,
-                                                  style: TextStyle(
-                                                    fontWeight: FontWeight.w500,
-                                                    fontSize: 14.0,
+                                                  list[index].dhuhr,
+                                                  textAlign: TextAlign.justify,
+                                                  overflow: TextOverflow.fade,
+                                                  style: const TextStyle(
+                                                    fontSize: 12.0,
                                                   ),
                                                 ),
                                               ),
-                                            ),
-                                            Center(
-                                              child: Text(
-                                                list[index].ishaA,
-                                                textAlign: TextAlign.justify,
-                                                overflow: TextOverflow.fade,
-                                                style: const TextStyle(
-                                                  fontSize: 12.0,
-                                                ),
-                                              ),
-                                            ),
-                                          ],
+                                            ],
+                                          ),
                                         ),
                                       ),
                                     ),
-                                  ),
-                                ],
-                              )
-                            ],
-                          ),
+                                  ],
+                                ),
+                                Row(
+                                  mainAxisAlignment:
+                                      MainAxisAlignment.spaceAround,
+                                  crossAxisAlignment: CrossAxisAlignment.center,
+                                  children: <Widget>[
+                                    Padding(
+                                      padding: const EdgeInsets.all(5.0),
+                                      child: Card(
+                                        child: Padding(
+                                          padding: const EdgeInsets.all(10.0),
+                                          child: Column(
+                                            children: <Widget>[
+                                              const Padding(
+                                                padding: EdgeInsets.fromLTRB(
+                                                    0, 0, 0, 10),
+                                                child: Center(
+                                                  child: Text(
+                                                    "Ashar",
+                                                    overflow:
+                                                        TextOverflow.ellipsis,
+                                                    style: TextStyle(
+                                                      fontWeight:
+                                                          FontWeight.w500,
+                                                      fontSize: 14.0,
+                                                    ),
+                                                  ),
+                                                ),
+                                              ),
+                                              Center(
+                                                child: Text(
+                                                  list[index].asr,
+                                                  textAlign: TextAlign.justify,
+                                                  overflow: TextOverflow.fade,
+                                                  style: const TextStyle(
+                                                    fontSize: 12.0,
+                                                  ),
+                                                ),
+                                              ),
+                                            ],
+                                          ),
+                                        ),
+                                      ),
+                                    ),
+                                    Padding(
+                                      padding: const EdgeInsets.all(5.0),
+                                      child: Card(
+                                        child: Padding(
+                                          padding: const EdgeInsets.all(10.0),
+                                          child: Column(
+                                            children: <Widget>[
+                                              const Padding(
+                                                padding: EdgeInsets.fromLTRB(
+                                                    0, 0, 0, 10),
+                                                child: Center(
+                                                  child: Text(
+                                                    "Magrib",
+                                                    overflow:
+                                                        TextOverflow.ellipsis,
+                                                    style: TextStyle(
+                                                      fontWeight:
+                                                          FontWeight.w500,
+                                                      fontSize: 14.0,
+                                                    ),
+                                                  ),
+                                                ),
+                                              ),
+                                              Center(
+                                                child: Text(
+                                                  list[index].maghrib,
+                                                  textAlign: TextAlign.justify,
+                                                  overflow: TextOverflow.fade,
+                                                  style: const TextStyle(
+                                                    fontSize: 12.0,
+                                                  ),
+                                                ),
+                                              ),
+                                            ],
+                                          ),
+                                        ),
+                                      ),
+                                    ),
+                                    Padding(
+                                      padding: const EdgeInsets.all(5.0),
+                                      child: Card(
+                                        child: Padding(
+                                          padding: const EdgeInsets.all(10.0),
+                                          child: Column(
+                                            children: <Widget>[
+                                              const Padding(
+                                                padding: EdgeInsets.fromLTRB(
+                                                    0, 0, 0, 10),
+                                                child: Center(
+                                                  child: Text(
+                                                    "Isya",
+                                                    overflow:
+                                                        TextOverflow.ellipsis,
+                                                    style: TextStyle(
+                                                      fontWeight:
+                                                          FontWeight.w500,
+                                                      fontSize: 14.0,
+                                                    ),
+                                                  ),
+                                                ),
+                                              ),
+                                              Center(
+                                                child: Text(
+                                                  list[index].ishaA,
+                                                  textAlign: TextAlign.justify,
+                                                  overflow: TextOverflow.fade,
+                                                  style: const TextStyle(
+                                                    fontSize: 12.0,
+                                                  ),
+                                                ),
+                                              ),
+                                            ],
+                                          ),
+                                        ),
+                                      ),
+                                    ),
+                                  ],
+                                ),
+                              ]),
                         ),
                       ),
                     );

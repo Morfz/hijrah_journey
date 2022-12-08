@@ -4,7 +4,6 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
 class DoaPage extends StatefulWidget {
-
   const DoaPage({Key? key}) : super(key: key);
 
   @override
@@ -52,8 +51,7 @@ class _DoaPageState extends State<DoaPage> {
                         title: Text(
                           doa.doa,
                           style: const TextStyle(
-                              fontSize: 16,
-                              fontWeight: FontWeight.bold),
+                              fontSize: 16, fontWeight: FontWeight.bold),
                         ),
                         children: [
                           Container(
@@ -64,41 +62,43 @@ class _DoaPageState extends State<DoaPage> {
                               children: [
                                 Expanded(
                                     child: Container(
-                                      padding: const EdgeInsets.only(bottom: 8),
-                                      child: Column(
-                                        mainAxisAlignment: MainAxisAlignment.center,
-                                        crossAxisAlignment: CrossAxisAlignment.start,
-                                        children: [
-                                          Padding(
-                                            padding: const EdgeInsets.only(
-                                                left: 8, right: 8),
-                                            child: Text(
-                                              doa.ayat,
-                                              style: const TextStyle(
-                                                  fontSize: 16,
-                                                  fontWeight: FontWeight.bold),
-                                            ),
-                                          ),
-                                          Padding(
-                                            padding: const EdgeInsets.only(left: 8, right: 8),
-                                            child: Text(
-                                              doa.latin,
-                                              style: const TextStyle(
-                                                  fontSize: 14,
-                                                  fontStyle: FontStyle.italic),
-                                            ),
-                                          ),
-                                          Padding(
-                                            padding: const EdgeInsets.only(left: 8, right: 8, top: 5),
-                                            child: Text(
-                                                doa.artinya,
-                                                style: const TextStyle(
-                                                  fontSize: 12,
-                                                )),
-                                          )
-                                        ],
+                                  padding: const EdgeInsets.only(bottom: 8),
+                                  child: Column(
+                                    mainAxisAlignment: MainAxisAlignment.center,
+                                    crossAxisAlignment:
+                                        CrossAxisAlignment.start,
+                                    children: [
+                                      Padding(
+                                        padding: const EdgeInsets.only(
+                                            left: 8, right: 8),
+                                        child: Text(
+                                          doa.ayat,
+                                          style: const TextStyle(
+                                              fontSize: 16,
+                                              fontWeight: FontWeight.bold),
+                                        ),
                                       ),
-                                    ))
+                                      Padding(
+                                        padding: const EdgeInsets.only(
+                                            left: 8, right: 8),
+                                        child: Text(
+                                          doa.latin,
+                                          style: const TextStyle(
+                                              fontSize: 14,
+                                              fontStyle: FontStyle.italic),
+                                        ),
+                                      ),
+                                      Padding(
+                                        padding: const EdgeInsets.only(
+                                            left: 8, right: 8, top: 5),
+                                        child: Text(doa.artinya,
+                                            style: const TextStyle(
+                                              fontSize: 12,
+                                            )),
+                                      )
+                                    ],
+                                  ),
+                                ))
                               ],
                             ),
                           ),

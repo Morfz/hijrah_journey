@@ -4,7 +4,6 @@ import 'package:sholat/data/api/api_waktu_sholat.dart';
 import 'package:sholat/presentation/providers/harian_waktu_sholat_provider.dart';
 import 'package:sholat/presentation/widgets/card_harian_jadwal_sholat.dart';
 
-
 class WaktuSholatPage extends StatelessWidget {
   const WaktuSholatPage({super.key});
 
@@ -20,30 +19,15 @@ class WaktuSholatPage extends StatelessWidget {
               mainAxisAlignment: MainAxisAlignment.spaceBetween,
               children: <Widget>[
                 const Text('Waktu Sholat'),
-                Row(
-                  mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-                  children: <Widget>[
-                    IconButton(
-                      icon: const Icon(
-                        Icons.location_on,
-                        size: 20.0,
-                        color: Colors.white,
-                      ),
-                      onPressed: () {
-                        Navigator.pushNamed(context, '/wilayah-sholat');
-                      },
-                    ),
-                    IconButton(
-                      icon: const Icon(
-                        Icons.settings,
-                        size: 20.0,
-                        color: Colors.white,
-                      ),
-                      onPressed: () {
-                        Navigator.pushNamed(context, '/settings');
-                      },
-                    ),
-                  ],
+                IconButton(
+                  icon: const Icon(
+                    Icons.settings,
+                    size: 20.0,
+                    color: Colors.white,
+                  ),
+                  onPressed: () {
+                    Navigator.pushNamed(context, '/settings');
+                  },
                 ),
               ],
             ),
