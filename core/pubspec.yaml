@@ -12,6 +12,8 @@ dependencies:
     path: ../user
   hadist:
     path: ../hadist
+  addon:
+    path: ../addon
   sholat:
     path: ../sholat
   alquran:

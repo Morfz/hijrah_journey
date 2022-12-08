@@ -51,6 +51,8 @@ dependencies:
     path: sholat
   user:
     path: user
+  addon:
+    path: addon
 
 dev_dependencies:
   flutter_test:

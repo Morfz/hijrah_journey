@@ -33,27 +33,30 @@ class _HijrahHomePageState extends State<HijrahHomePage>{
           icons: [
             FluidNavBarIcon(
               icon: Icons.home,
-              backgroundColor: Colors.white,
+              backgroundColor: kPrimaryColor,
               extras: {'label': 'Home'},
             ),
             FluidNavBarIcon(
               icon: Icons.menu_book_rounded,
-              backgroundColor: Colors.white,
+              backgroundColor: kPrimaryColor,
               extras: {'label': 'Al-Quran'},
             ),
             FluidNavBarIcon(
               icon: Icons.library_books_rounded,
-              backgroundColor: Colors.white,
+              backgroundColor: kPrimaryColor,
               extras: {'label': 'Hadist'},
             ),
             FluidNavBarIcon(
               icon: Icons.person,
-              backgroundColor: Colors.white,
+              backgroundColor: kPrimaryColor,
               extras: {'label': 'Profile'},
             ),
           ],
           onChange: _handleNavigationChange,
-          style: FluidNavBarStyle(iconUnselectedForegroundColor: Colors.black),
+          style: FluidNavBarStyle(
+              iconUnselectedForegroundColor: Colors.white54,
+          iconSelectedForegroundColor: Colors.white,
+          barBackgroundColor: kPrimaryColor),
           scaleFactor: 1.5,
           defaultIndex: 0,
           itemBuilder: (icon, item) => Semantics(

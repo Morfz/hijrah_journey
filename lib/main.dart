@@ -1,3 +1,4 @@
+import 'package:addon/presentation/pages/doa_page.dart';
 import 'package:core/core.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:firebase_core/firebase_core.dart';
@@ -65,6 +66,9 @@ class MyApp extends StatelessWidget {
               case PROFIL_PAGE:
                 return MaterialPageRoute(
                     builder: (context) => const ProfilePage());
+              case DOA_PAGE:
+                return MaterialPageRoute(
+                    builder: (context) => const DoaPage());
               case HADIST_PAGE:
                 return MaterialPageRoute(
                     builder: (context) => const RawiPage());

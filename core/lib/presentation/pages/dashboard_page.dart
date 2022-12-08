@@ -1,5 +1,6 @@
 import 'dart:async';
 
+import 'package:addon/presentation/pages/doa_page.dart';
 import 'package:core/core.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
@@ -32,10 +33,22 @@ class _PageMainState extends State<PageMain> {
     final formatted = formatter.format(now);
     return formatted;
   }
+
+  String _date() {
+    Timer.periodic(Duration(seconds: 1), (timer) {
+      setState(() {});
+    });
+    final now = DateTime.now();
+    final formatter = DateFormat('dd-MM-yyyy');
+    final formatted = formatter.format(now);
+    return formatted;
+  }
+
   @override
   void initState() {
     super.initState();
     _time();
+    _date();
   }
 
   @override
@@ -287,6 +300,87 @@ class _PageMainState extends State<PageMain> {
                                 ),
                               ),
                             ],
+                          ),
+                        ),
+                      ],
+                    ),
+                  ),
+                  Container(
+                    width: MediaQuery.of(context).size.width,
+                    height: 440,
+                    margin: const EdgeInsets.only(top: 40),
+                    decoration: BoxDecoration(
+                      color: Colors.white,
+                      borderRadius: BorderRadius.vertical(
+                        top: Radius.circular(20),
+                      ),
+                    ),
+                    child: Row(
+                      children: [
+                        Expanded(
+                          child: Padding(
+                            padding: const EdgeInsets.fromLTRB(10, 15, 10, 15),
+                            child: Column(
+                              children: [
+                                Padding(
+                                    padding: EdgeInsets.all(5),
+                                    child: Column(
+                                      children: [
+                                        Image.asset('assets/tasbih.png', scale: 6.5),
+                                        Text("Do'a Harian", style: TextStyle(fontWeight: FontWeight.bold)),
+                                        OutlinedButton(
+                                            onPressed: () {
+                                              Navigator.push(context, MaterialPageRoute(builder: (context) => DoaPage()),
+                                              );
+                                            }, child: Text("Pilih"),)
+                                      ],
+                                    )),
+                              ],
+                            ),
+                          ),
+                        ),
+                        Expanded(
+                          child: Padding(
+                            padding: const EdgeInsets.fromLTRB(10, 15, 10, 15),
+                            child: Column(
+                              children: [
+                                Padding(
+                                    padding: EdgeInsets.all(5),
+                                    child: Column(
+                                      children: [
+                                        Image.asset('assets/tasbih.png', scale: 6.5),
+                                        Text("Do'a Harian", style: TextStyle(fontWeight: FontWeight.bold)),
+                                        OutlinedButton(
+                                          onPressed: () {
+                                            Navigator.push(context, MaterialPageRoute(builder: (context) => DoaPage()),
+                                            );
+                                          }, child: Text("Pilih"),)
+                                      ],
+                                    )),
+                              ],
+                            ),
+                          ),
+                        ),
+                        Expanded(
+                          child: Padding(
+                            padding: const EdgeInsets.fromLTRB(10, 15, 10, 15),
+                            child: Column(
+                              children: [
+                                Padding(
+                                    padding: EdgeInsets.all(5),
+                                    child: Column(
+                                      children: [
+                                        Image.asset('assets/sujud.png', scale: 6.5),
+                                        Text("Jadwal Sholat", style: TextStyle(fontWeight: FontWeight.bold)),
+                                        OutlinedButton(
+                                          onPressed: () {
+                                            Navigator.push(context, MaterialPageRoute(builder: (context) => DoaPage()),
+                                            );
+                                          }, child: Text("Pilih"),)
+                                      ],
+                                    )),
+                              ],
+                            ),
                           ),
                         ),
                       ],
