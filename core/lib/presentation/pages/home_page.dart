@@ -10,6 +10,8 @@ import 'dashboard_page.dart';
 class HijrahHomePage extends StatefulWidget {
   static const routeName = '/home';
 
+  const HijrahHomePage({super.key});
+
   @override
   State createState() => _HijrahHomePageState();
 }
@@ -19,7 +21,7 @@ class _HijrahHomePageState extends State<HijrahHomePage>{
 
   @override
   void initState() {
-    _child = PageMain();
+    _child = const PageMain();
     super.initState();
   }
 
@@ -53,7 +55,7 @@ class _HijrahHomePageState extends State<HijrahHomePage>{
             ),
           ],
           onChange: _handleNavigationChange,
-          style: FluidNavBarStyle(
+          style: const FluidNavBarStyle(
               iconUnselectedForegroundColor: Colors.white54,
           iconSelectedForegroundColor: Colors.white,
           barBackgroundColor: kPrimaryColor),
@@ -71,20 +73,20 @@ class _HijrahHomePageState extends State<HijrahHomePage>{
     setState(() {
       switch (index) {
         case 0:
-          _child = PageMain();
+          _child = const PageMain();
           break;
         case 1:
-          _child = QuranPage();
+          _child = const QuranPage();
           break;
         case 2:
-          _child = RawiPage();
+          _child = const RawiPage();
           break;
         case 3:
-          _child = ProfilePage();
+          _child = const ProfilePage();
           break;
       }
       _child = AnimatedSwitcher(
-          duration: Duration(milliseconds: 500),
+          duration: const Duration(milliseconds: 500),
           switchInCurve: Curves.easeOut,
           switchOutCurve: Curves.easeIn,
           child: _child);

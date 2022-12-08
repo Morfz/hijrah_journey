@@ -1,10 +1,9 @@
-import 'package:addon/presentation/bloc/doa_list/doa_list_bloc.dart';
-import 'package:addon/presentation/widget/doa_widget.dart';
+import 'package:addon/presentation/bloc/doa/doa_bloc.dart';
+import 'package:core/core.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
 class DoaPage extends StatefulWidget {
-  static const routeName = '/doa-page';
 
   const DoaPage({Key? key}) : super(key: key);
 
@@ -17,7 +16,7 @@ class _DoaPageState extends State<DoaPage> {
   void initState() {
     super.initState();
     Future.microtask(() {
-      context.read<DoaListBloc>().add(GetDoaListEvent());
+      context.read<DoaBloc>().add(GetDoaListEvent());
     });
   }
 
@@ -25,25 +24,91 @@ class _DoaPageState extends State<DoaPage> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: const Text('Kumpulan Doa'),
+        backgroundColor: kPrimaryColor,
+        title: const Text('Doa'),
       ),
       body: Padding(
         padding: const EdgeInsets.all(8.0),
-        child: BlocBuilder<DoaListBloc, DoaListState>(
+        child: BlocBuilder<DoaBloc, DoaState>(
           builder: (context, state) {
-            if (state is DoaListLoading) {
+            if (state is DoaLoading) {
               return const Center(
                 child: CircularProgressIndicator(),
               );
-            } else if (state is DoaListLoaded) {
+            } else if (state is DoaLoaded) {
               return ListView.builder(
+                itemCount: state.result.length,
                 itemBuilder: (context, index) {
                   final doa = state.result[index];
-                  return DoaWidget(doa);
+                  return Card(
+                    shape: RoundedRectangleBorder(
+                        borderRadius: BorderRadius.circular(10)),
+                    elevation: 5,
+                    margin: const EdgeInsets.all(5),
+                    child: Theme(
+                      data: Theme.of(context)
+                          .copyWith(dividerColor: Colors.transparent),
+                      child: ExpansionTile(
+                        title: Text(
+                          doa.doa,
+                          style: const TextStyle(
+                              fontSize: 16,
+                              fontWeight: FontWeight.bold),
+                        ),
+                        children: [
+                          Container(
+                            padding: const EdgeInsets.all(8),
+                            child: Row(
+                              mainAxisAlignment: MainAxisAlignment.center,
+                              crossAxisAlignment: CrossAxisAlignment.center,
+                              children: [
+                                Expanded(
+                                    child: Container(
+                                      padding: const EdgeInsets.only(bottom: 8),
+                                      child: Column(
+                                        mainAxisAlignment: MainAxisAlignment.center,
+                                        crossAxisAlignment: CrossAxisAlignment.start,
+                                        children: [
+                                          Padding(
+                                            padding: const EdgeInsets.only(
+                                                left: 8, right: 8),
+                                            child: Text(
+                                              doa.ayat,
+                                              style: const TextStyle(
+                                                  fontSize: 16,
+                                                  fontWeight: FontWeight.bold),
+                                            ),
+                                          ),
+                                          Padding(
+                                            padding: const EdgeInsets.only(left: 8, right: 8),
+                                            child: Text(
+                                              doa.latin,
+                                              style: const TextStyle(
+                                                  fontSize: 14,
+                                                  fontStyle: FontStyle.italic),
+                                            ),
+                                          ),
+                                          Padding(
+                                            padding: const EdgeInsets.only(left: 8, right: 8, top: 5),
+                                            child: Text(
+                                                doa.artinya,
+                                                style: const TextStyle(
+                                                  fontSize: 12,
+                                                )),
+                                          )
+                                        ],
+                                      ),
+                                    ))
+                              ],
+                            ),
+                          ),
+                        ],
+                      ),
+                    ),
+                  );
                 },
-                itemCount: state.result.length,
               );
-            } else if (state is DoaListEmpty) {
+            } else if (state is DoaEmpty) {
               return Center(
                 child: Text(
                   state.message,
@@ -52,7 +117,7 @@ class _DoaPageState extends State<DoaPage> {
                   ),
                 ),
               );
-            } else if (state is DoaListError) {
+            } else if (state is DoaError) {
               return Center(
                 key: const Key('error_message'),
                 child: Text(

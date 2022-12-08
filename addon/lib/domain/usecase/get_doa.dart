@@ -3,12 +3,12 @@ import 'package:addon/domain/repositories/doa_repository.dart';
 import 'package:core/core.dart';
 import 'package:dartz/dartz.dart';
 
-class GetDoaList {
-  final DoaRepository doaRepository;
+class GetDoa {
+  final DoaRepository repository;
 
-  GetDoaList(this.doaRepository);
+  GetDoa(this.repository);
 
   Future<Either<Failure, List<Doa>>> execute() {
-    return doaRepository.getDoaList();
+    return repository.getDoa();
   }
 }
