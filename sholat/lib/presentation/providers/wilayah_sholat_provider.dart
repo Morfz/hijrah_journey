@@ -3,8 +3,8 @@ import 'dart:io';
 import 'package:core/core.dart';
 import 'package:flutter/cupertino.dart';
 
-import '../api/api_waktu_sholat.dart';
-import '../models/wilayah_sholat.dart';
+import '../../data/api/api_waktu_sholat.dart';
+import '../../data/models/wilayah_sholat.dart';
 
 class WilayahSholatProvider extends ChangeNotifier {
   final WaktuSholatApiService apiService;

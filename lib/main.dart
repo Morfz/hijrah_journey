@@ -45,14 +45,13 @@ class MyApp extends StatelessWidget {
           ),
           title: 'Hijrah Journey App',
           home: StreamBuilder<User?>(
-            stream: FirebaseAuth.instance.authStateChanges(),
-            builder: (context, snapshot) {
-              if (snapshot.hasData) {
-                return HijrahHomePage();
-              }
-              return LoginPage();
-            }
-          ),
+              stream: FirebaseAuth.instance.authStateChanges(),
+              builder: (context, snapshot) {
+                if (snapshot.hasData) {
+                  return HijrahHomePage();
+                }
+                return LoginPage();
+              }),
           navigatorObservers: [routeObserver],
           onGenerateRoute: (RouteSettings settings) {
             switch (settings.name) {
@@ -71,9 +70,7 @@ class MyApp extends StatelessWidget {
               case LIST_HADIST_PAGE:
                 final id = settings.arguments as String;
                 return MaterialPageRoute(
-                  builder: (_) => ListHadistPage(id: id),
-                  settings: settings
-                );
+                    builder: (_) => ListHadistPage(id: id), settings: settings);
               case WAKTU_SHOLAT_PAGE:
                 return MaterialPageRoute(
                     builder: (context) => const WaktuSholatPage());
@@ -81,14 +78,13 @@ class MyApp extends StatelessWidget {
                 return MaterialPageRoute(
                     builder: (context) => const WilayahSholatPage());
               default:
-                return MaterialPageRoute(
-                    builder: (_) {
-                      return const Scaffold(
-                        body: Center(
-                          child: Text('Page Not Found'),
-                        ),
-                      );
-                    });
+                return MaterialPageRoute(builder: (_) {
+                  return const Scaffold(
+                    body: Center(
+                      child: Text('Page Not Found'),
+                    ),
+                  );
+                });
             }
           },
         ));

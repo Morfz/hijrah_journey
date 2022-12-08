@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
-import 'package:sholat/api/api_waktu_sholat.dart';
-import 'package:sholat/providers/harian_waktu_sholat_provider.dart';
-import 'package:sholat/widgets/card_harian_jadwal_sholat.dart';
+import 'package:sholat/data/api/api_waktu_sholat.dart';
+import 'package:sholat/presentation/providers/harian_waktu_sholat_provider.dart';
+import 'package:sholat/presentation/widgets/card_harian_jadwal_sholat.dart';
 
 
 class WaktuSholatPage extends StatelessWidget {
