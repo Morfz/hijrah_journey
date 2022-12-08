@@ -5,6 +5,8 @@ import 'package:core/core.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:intl/intl.dart';
+import 'package:sholat/data/models/waktu_sholat.dart';
+import 'package:sholat/presentation/pages/waktu_sholat.dart';
 
 class PageMain extends StatefulWidget {
   const PageMain({Key? key}) : super(key: key);
@@ -314,13 +316,22 @@ class _PageMainState extends State<PageMain> {
                                     padding: const EdgeInsets.all(5),
                                     child: Column(
                                       children: [
-                                        Image.asset('assets/tasbih.png', scale: 6.5),
-                                        const Text("Do'a Harian", style: TextStyle(fontWeight: FontWeight.bold)),
+                                        Image.asset('assets/tasbih.png',
+                                            scale: 6.5),
+                                        const Text("Do'a Harian",
+                                            style: TextStyle(
+                                                fontWeight: FontWeight.bold)),
                                         OutlinedButton(
-                                            onPressed: () {
-                                              Navigator.push(context, MaterialPageRoute(builder: (context) => const DoaPage()),
-                                              );
-                                            }, child: const Text("Pilih"),)
+                                          onPressed: () {
+                                            Navigator.push(
+                                              context,
+                                              MaterialPageRoute(
+                                                  builder: (context) =>
+                                                      const DoaPage()),
+                                            );
+                                          },
+                                          child: const Text("Pilih"),
+                                        )
                                       ],
                                     )),
                               ],
@@ -336,13 +347,22 @@ class _PageMainState extends State<PageMain> {
                                     padding: const EdgeInsets.all(5),
                                     child: Column(
                                       children: [
-                                        Image.asset('assets/sujud.png', scale: 6.5),
-                                        const Text("Jadwal Sholat", style: TextStyle(fontWeight: FontWeight.bold)),
+                                        Image.asset('assets/sujud.png',
+                                            scale: 6.5),
+                                        const Text("Jadwal Sholat",
+                                            style: TextStyle(
+                                                fontWeight: FontWeight.bold)),
                                         OutlinedButton(
                                           onPressed: () {
-                                            Navigator.push(context, MaterialPageRoute(builder: (context) => const DoaPage()),
+                                            Navigator.push(
+                                              context,
+                                              MaterialPageRoute(
+                                                  builder: (context) =>
+                                                      const WaktuSholatPage()),
                                             );
-                                          }, child: const Text("Pilih"),)
+                                          },
+                                          child: const Text("Pilih"),
+                                        )
                                       ],
                                     )),
                               ],

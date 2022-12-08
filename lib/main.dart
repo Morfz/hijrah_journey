@@ -10,7 +10,6 @@ import 'package:hadist/presentation/bloc/rawi/rawi_bloc.dart';
 import 'package:hadist/presentation/pages/list_hadist_page.dart';
 import 'package:hadist/presentation/pages/rawi_page.dart';
 import 'package:sholat/presentation/pages/waktu_sholat.dart';
-import 'package:sholat/presentation/pages/wilayah_sholat.dart';
 import 'package:user/presentation/pages/login_page.dart';
 import 'package:user/presentation/pages/profile_page.dart';
 
@@ -80,9 +79,7 @@ class MyApp extends StatelessWidget {
               case WAKTU_SHOLAT_PAGE:
                 return MaterialPageRoute(
                     builder: (context) => const WaktuSholatPage());
-              case WILAYAH_SHOLAT_PAGE:
-                return MaterialPageRoute(
-                    builder: (context) => const WilayahSholatPage());
+
               default:
                 return MaterialPageRoute(builder: (_) {
                   return const Scaffold(
