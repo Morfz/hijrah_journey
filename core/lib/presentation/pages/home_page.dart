@@ -26,8 +26,7 @@ class _HijrahHomePageState extends State<HijrahHomePage> with RouteAware {
 
   @override
   Widget build(context) {
-    return MaterialApp(
-      home: Scaffold(
+    return Scaffold(
         backgroundColor: kPrimaryColor,
         extendBody: true,
         body: _child,
@@ -63,8 +62,7 @@ class _HijrahHomePageState extends State<HijrahHomePage> with RouteAware {
             child: item,
           ),
         ),
-      ),
-    );
+      );
   }
 
   void _handleNavigationChange(int index) {
