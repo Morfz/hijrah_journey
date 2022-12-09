@@ -87,7 +87,7 @@ class MyApp extends StatelessWidget {
                 if (snapshot.hasData) {
                   return const HijrahHomePage();
                 }
-                return const HijrahHomePage();
+                return const LoginPage();
               }),
           navigatorObservers: [routeObserver],
           onGenerateRoute: (RouteSettings settings) {
