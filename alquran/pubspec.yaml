@@ -10,6 +10,17 @@ environment:
 dependencies:
   flutter:
     sdk: flutter
+  core:
+    path: ../core
+  cupertino_icons: ^1.0.2
+  equatable: ^2.0.5
+  fpdart: ^0.2.0
+  dio: ^4.0.6
+  flutter_bloc: ^8.1.1
+  get_it: ^7.2.0
+  google_fonts: ^3.0.1
+  flutter_svg: ^1.1.5
+  sqflite: ^2.0.3+1
 
 dev_dependencies:
   flutter_test:

@@ -1,5 +1,12 @@
 import 'package:addon/presentation/bloc/doa/doa_bloc.dart';
 import 'package:addon/presentation/pages/doa_page.dart';
+import 'package:alquran/presentation/bloc/juz_detail/juz_detail_bloc.dart';
+import 'package:alquran/presentation/bloc/surah/surah_bloc.dart';
+import 'package:alquran/presentation/bloc/surah_detail/surah_detail_bloc.dart';
+import 'package:alquran/presentation/pages/juz/juz_detail_page.dart';
+import 'package:alquran/presentation/pages/juz/juz_page.dart';
+import 'package:alquran/presentation/pages/surah/surah_detail_page.dart';
+import 'package:alquran/presentation/pages/surah/surah_page.dart';
 import 'package:core/core.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:firebase_core/firebase_core.dart';
@@ -42,6 +49,15 @@ class MyApp extends StatelessWidget {
           BlocProvider<DoaBloc>(
             create: (context) => di.locator<DoaBloc>(),
           ),
+          BlocProvider<SurahBloc>(
+            create: (context) => di.locator<SurahBloc>(),
+          ),
+          BlocProvider<SurahDetailBloc>(
+            create: (context) => di.locator<SurahDetailBloc>(),
+          ),
+          BlocProvider<JuzDetailBloc>(
+            create: (context) => di.locator<JuzDetailBloc>(),
+          ),
         ],
         child: MaterialApp(
           theme: ThemeData(
@@ -83,6 +99,20 @@ class MyApp extends StatelessWidget {
               case NOTIFICATION_SETTINGS_PAGE:
                 return MaterialPageRoute(
                     builder: (context) => const NotificationSettingsPages());
+              case SURAH_PAGE:
+                return MaterialPageRoute(
+                    builder: (context) => const SurahPage());
+              case SURAH_DETAIL_PAGE:
+                final id = settings.arguments as int;
+                return MaterialPageRoute(
+                    builder: (_) => SurahDetailPage(id: id), settings: settings);
+              case JUZ_PAGE:
+                return MaterialPageRoute(
+                    builder: (context) => const JuzPage());
+              case JUZ_DETAIL_PAGE:
+                final id = settings.arguments as int;
+                return MaterialPageRoute(
+                    builder: (_) => JuzDetailPage(id: id), settings: settings);
               default:
                 return MaterialPageRoute(builder: (_) {
                   return const Scaffold(

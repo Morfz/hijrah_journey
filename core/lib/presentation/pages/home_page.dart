@@ -1,4 +1,4 @@
-import 'package:alquran/presentations/pages/quran_page.dart';
+import 'package:alquran/presentation/pages/home/quran_page.dart';
 import 'package:core/core.dart';
 import 'package:fluid_bottom_nav_bar/fluid_bottom_nav_bar.dart';
 import 'package:flutter/material.dart';
