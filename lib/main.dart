@@ -33,12 +33,12 @@ void main() async {
 
   AwesomeNotifications().initialize(
       // set the icon to null if you want to use the default app icon
-      null,
+      'resource://drawable/icon',
       [
         NotificationChannel(
           channelKey: 'scheduled_channel',
           channelName: 'Scheduled Notifications',
-          defaultColor: Color(0xFF9D50DD),
+          defaultColor: kPrimaryColor,
           channelDescription: 'Scheduled Notifications',
           channelShowBadge: true,
           importance: NotificationImportance.High,
@@ -87,7 +87,7 @@ class MyApp extends StatelessWidget {
                 if (snapshot.hasData) {
                   return const HijrahHomePage();
                 }
-                return const LoginPage();
+                return const HijrahHomePage();
               }),
           navigatorObservers: [routeObserver],
           onGenerateRoute: (RouteSettings settings) {

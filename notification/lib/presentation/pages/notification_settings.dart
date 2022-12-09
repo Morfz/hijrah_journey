@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
+import 'package:shared_preferences/shared_preferences.dart';
 import 'package:sholat/data/api/api_waktu_sholat.dart';
 import 'package:sholat/presentation/providers/harian_waktu_sholat_provider.dart';
 import '../../common/notification.dart';
@@ -14,12 +15,46 @@ class NotificationSettingsPages extends StatefulWidget {
 }
 
 class _NotificationSettingsPagesState extends State<NotificationSettingsPages> {
-  bool isSubuh = false;
-  bool isDzuhur = false;
-  bool isAshar = false;
-  bool isMaghrib = false;
-  bool isIsya = false;
+  late bool _isSubuh;
+  late bool _isDzuhur;
+  late bool _isAshar;
+  late bool _isMaghrib;
+  late bool _isIsya;
   late var isi;
+
+  void _loadSetting() async {
+    final prefs = await SharedPreferences.getInstance();
+    setState(() {
+      _isSubuh = prefs.getBool('notification-setting-1') ?? false;
+      _isDzuhur = prefs.getBool('notification-setting-2') ?? false;
+      _isAshar = prefs.getBool('notification-setting-3') ?? false;
+      _isMaghrib = prefs.getBool('notification-setting-4') ?? false;
+      _isIsya = prefs.getBool('notification-setting-5') ?? false;
+    });
+  }
+
+  void _changeSetting(idNotif, trigger) async {
+    final prefs = await SharedPreferences.getInstance();
+
+    if (trigger) {
+      prefs.setBool('notification-setting-$idNotif', true);
+      trigger = prefs.getBool('notification-setting')!;
+    } else {
+      prefs.setBool('notification-setting-$idNotif', false);
+      trigger = prefs.getBool('notification-setting$idNotif')!;
+    }
+  }
+
+  @override
+  void initState() {
+    super.initState();
+    _loadSetting();
+  }
+
+  @override
+  void dispose() {
+    super.dispose();
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -57,9 +92,9 @@ class _NotificationSettingsPagesState extends State<NotificationSettingsPages> {
                                   ),
                                 ),
                                 Text(
-                                  isSubuh
+                                  _isSubuh
                                       ? "Notifikasi Aktif"
-                                      : "Nitifikasi tidak aktif",
+                                      : "N0tifikasi tidak aktif",
                                   overflow: TextOverflow.ellipsis,
                                   style: const TextStyle(
                                     fontWeight: FontWeight.w400,
@@ -69,12 +104,13 @@ class _NotificationSettingsPagesState extends State<NotificationSettingsPages> {
                               ],
                             ),
                             Switch(
-                                value: isSubuh,
+                                value: _isSubuh,
                                 onChanged: (value) {
                                   setState(() {
-                                    isSubuh = value;
-                                    if (isSubuh == true) {
+                                    _isSubuh = value;
+                                    if (_isSubuh == true) {
                                       final prayerTime = list[state.days].fajr;
+                                      _changeSetting(1, _isSubuh);
                                       isi =
                                           prayerTime.substring(0, 5).split(':');
                                       final hour = int.parse(isi[0]);
@@ -87,6 +123,7 @@ class _NotificationSettingsPagesState extends State<NotificationSettingsPages> {
                                         'Selamat melaksanakan ibadah sholat Subuh',
                                       );
                                     } else {
+                                      _changeSetting(1, _isSubuh);
                                       cancelWaktuSholatNotification(1);
                                     }
                                   });
@@ -111,9 +148,9 @@ class _NotificationSettingsPagesState extends State<NotificationSettingsPages> {
                                   ),
                                 ),
                                 Text(
-                                  isDzuhur
+                                  _isDzuhur
                                       ? "Notifikasi Aktif"
-                                      : "Nitifikasi tidak aktif",
+                                      : "Notifikasi tidak aktif",
                                   overflow: TextOverflow.ellipsis,
                                   style: const TextStyle(
                                     fontWeight: FontWeight.w400,
@@ -123,12 +160,13 @@ class _NotificationSettingsPagesState extends State<NotificationSettingsPages> {
                               ],
                             ),
                             Switch(
-                                value: isDzuhur,
+                                value: _isDzuhur,
                                 onChanged: (value) {
                                   setState(() {
-                                    isDzuhur = value;
-                                    if (isDzuhur == true) {
+                                    _isDzuhur = value;
+                                    if (_isDzuhur == true) {
                                       final prayerTime = list[state.days].dhuhr;
+                                      _changeSetting(2, _isDzuhur);
                                       isi =
                                           prayerTime.substring(0, 5).split(':');
                                       final hour = int.parse(isi[0]);
@@ -141,6 +179,7 @@ class _NotificationSettingsPagesState extends State<NotificationSettingsPages> {
                                         'Selamat melaksanakan ibadah sholat Dzuhur',
                                       );
                                     } else {
+                                      _changeSetting(2, _isDzuhur);
                                       cancelWaktuSholatNotification(2);
                                     }
                                   });
@@ -165,9 +204,9 @@ class _NotificationSettingsPagesState extends State<NotificationSettingsPages> {
                                   ),
                                 ),
                                 Text(
-                                  isAshar
+                                  _isAshar
                                       ? "Notifikasi Aktif"
-                                      : "Nitifikasi tidak aktif",
+                                      : "Notifikasi tidak aktif",
                                   overflow: TextOverflow.ellipsis,
                                   style: const TextStyle(
                                     fontWeight: FontWeight.w400,
@@ -177,12 +216,13 @@ class _NotificationSettingsPagesState extends State<NotificationSettingsPages> {
                               ],
                             ),
                             Switch(
-                                value: isAshar,
+                                value: _isAshar,
                                 onChanged: (value) {
                                   setState(() {
-                                    isAshar = value;
-                                    if (isAshar == true) {
+                                    _isAshar = value;
+                                    if (_isAshar == true) {
                                       final prayerTime = list[state.days].asr;
+                                      _changeSetting(3, _isDzuhur);
                                       isi =
                                           prayerTime.substring(0, 5).split(':');
                                       final hour = int.parse(isi[0]);
@@ -195,6 +235,7 @@ class _NotificationSettingsPagesState extends State<NotificationSettingsPages> {
                                         'Selamat melaksanakan ibadah sholat Ashar',
                                       );
                                     } else {
+                                      _changeSetting(3, _isDzuhur);
                                       cancelWaktuSholatNotification(3);
                                     }
                                   });
@@ -219,9 +260,9 @@ class _NotificationSettingsPagesState extends State<NotificationSettingsPages> {
                                   ),
                                 ),
                                 Text(
-                                  isMaghrib
+                                  _isMaghrib
                                       ? "Notifikasi Aktif"
-                                      : "Nitifikasi tidak aktif",
+                                      : "Notifikasi tidak aktif",
                                   overflow: TextOverflow.ellipsis,
                                   style: const TextStyle(
                                     fontWeight: FontWeight.w400,
@@ -231,13 +272,14 @@ class _NotificationSettingsPagesState extends State<NotificationSettingsPages> {
                               ],
                             ),
                             Switch(
-                                value: isMaghrib,
+                                value: _isMaghrib,
                                 onChanged: (value) {
                                   setState(() {
-                                    isMaghrib = value;
-                                    if (isMaghrib == true) {
+                                    _isMaghrib = value;
+                                    if (_isMaghrib == true) {
                                       final prayerTime =
                                           list[state.days].maghrib;
+                                      _changeSetting(4, _isMaghrib);
                                       isi =
                                           prayerTime.substring(0, 5).split(':');
                                       final hour = int.parse(isi[0]);
@@ -250,6 +292,7 @@ class _NotificationSettingsPagesState extends State<NotificationSettingsPages> {
                                         'Selamat melaksanakan ibadah sholat Maghrib',
                                       );
                                     } else {
+                                      _changeSetting(4, _isMaghrib);
                                       cancelWaktuSholatNotification(4);
                                     }
                                   });
@@ -274,9 +317,9 @@ class _NotificationSettingsPagesState extends State<NotificationSettingsPages> {
                                   ),
                                 ),
                                 Text(
-                                  isIsya
+                                  _isIsya
                                       ? "Notifikasi Aktif"
-                                      : "Nitifikasi tidak aktif",
+                                      : "Notifikasi tidak aktif",
                                   overflow: TextOverflow.ellipsis,
                                   style: const TextStyle(
                                     fontWeight: FontWeight.w400,
@@ -286,12 +329,13 @@ class _NotificationSettingsPagesState extends State<NotificationSettingsPages> {
                               ],
                             ),
                             Switch(
-                                value: isIsya,
+                                value: _isIsya,
                                 onChanged: (value) {
                                   setState(() {
-                                    isIsya = value;
-                                    if (isIsya == true) {
+                                    _isIsya = value;
+                                    if (_isIsya == true) {
                                       final prayerTime = list[state.days].ishaA;
+                                      _changeSetting(5, _isIsya);
                                       isi =
                                           prayerTime.substring(0, 5).split(':');
                                       final hour = int.parse(isi[0]);
@@ -304,6 +348,7 @@ class _NotificationSettingsPagesState extends State<NotificationSettingsPages> {
                                         'Selamat melaksanakan ibadah sholat Subuh',
                                       );
                                     } else {
+                                      _changeSetting(5, _isIsya);
                                       cancelWaktuSholatNotification(5);
                                     }
                                   });
