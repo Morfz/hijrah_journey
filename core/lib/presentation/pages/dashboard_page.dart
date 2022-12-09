@@ -1,11 +1,8 @@
-import 'dart:async';
-
 import 'package:addon/presentation/pages/doa_page.dart';
 import 'package:core/core.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:intl/intl.dart';
-import 'package:sholat/data/models/waktu_sholat.dart';
 import 'package:sholat/presentation/pages/waktu_sholat.dart';
 
 class PageMain extends StatefulWidget {
@@ -27,19 +24,13 @@ class _PageMainState extends State<PageMain> {
   }
 
   String _time() {
-    Timer.periodic(const Duration(seconds: 1), (timer) {
-      setState(() {});
-    });
     final now = DateTime.now();
-    final formatter = DateFormat('HH:mm:ss');
+    final formatter = DateFormat('HH:mm');
     final formatted = formatter.format(now);
     return formatted;
   }
 
   String _date() {
-    Timer.periodic(const Duration(seconds: 1), (timer) {
-      setState(() {});
-    });
     final now = DateTime.now();
     final formatter = DateFormat('dd-MM-yyyy');
     final formatted = formatter.format(now);

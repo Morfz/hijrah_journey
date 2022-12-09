@@ -135,7 +135,7 @@ class _LoginPageState extends State<LoginPage> {
                               controller: emailController,
                               decoration: const InputDecoration(
                                 prefixIcon: Icon(Icons.email),
-                                hintText: 'Email',
+                                hintText: 'Enter Email Address',
                                 border: OutlineInputBorder(),
                               ),
                               validator: (value) =>
@@ -149,7 +149,7 @@ class _LoginPageState extends State<LoginPage> {
                               obscureText: true,
                               decoration: const InputDecoration(
                                 prefixIcon: Icon(Icons.lock),
-                                hintText: 'Password',
+                                hintText: 'Enter Password',
                                 border: OutlineInputBorder(),
                               ),
                               validator: (value) =>
