@@ -49,6 +49,8 @@ dependencies:
     path: hadist
   sholat:
     path: sholat
+  notification:
+    path: notification
   user:
     path: user
   addon:
