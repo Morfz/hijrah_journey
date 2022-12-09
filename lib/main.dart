@@ -20,7 +20,7 @@ import 'package:sholat/presentation/pages/waktu_sholat.dart';
 import 'package:notification/presentation/pages/notification_settings.dart';
 import 'package:user/presentation/pages/login_page.dart';
 import 'package:user/presentation/pages/profile_page.dart';
-
+import 'package:awesome_notifications/awesome_notifications.dart';
 import 'firebase_options.dart';
 import 'locator.dart' as di;
 
@@ -30,6 +30,23 @@ void main() async {
   await Firebase.initializeApp(
     options: DefaultFirebaseOptions.currentPlatform,
   );
+
+  AwesomeNotifications().initialize(
+      // set the icon to null if you want to use the default app icon
+      null,
+      [
+        NotificationChannel(
+          channelKey: 'scheduled_channel',
+          channelName: 'Scheduled Notifications',
+          defaultColor: Color(0xFF9D50DD),
+          channelDescription: 'Scheduled Notifications',
+          channelShowBadge: true,
+          importance: NotificationImportance.High,
+        )
+      ],
+      // Channel groups are only visual and are not required
+      debug: true);
+
   runApp(MyApp());
 }
 
@@ -68,9 +85,9 @@ class MyApp extends StatelessWidget {
               stream: FirebaseAuth.instance.authStateChanges(),
               builder: (context, snapshot) {
                 if (snapshot.hasData) {
-                  return HijrahHomePage();
+                  return const HijrahHomePage();
                 }
-                return LoginPage();
+                return const LoginPage();
               }),
           navigatorObservers: [routeObserver],
           onGenerateRoute: (RouteSettings settings) {
@@ -105,10 +122,10 @@ class MyApp extends StatelessWidget {
               case SURAH_DETAIL_PAGE:
                 final id = settings.arguments as int;
                 return MaterialPageRoute(
-                    builder: (_) => SurahDetailPage(id: id), settings: settings);
+                    builder: (_) => SurahDetailPage(id: id),
+                    settings: settings);
               case JUZ_PAGE:
-                return MaterialPageRoute(
-                    builder: (context) => const JuzPage());
+                return MaterialPageRoute(builder: (context) => const JuzPage());
               case JUZ_DETAIL_PAGE:
                 final id = settings.arguments as int;
                 return MaterialPageRoute(

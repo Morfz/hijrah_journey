@@ -10,6 +10,12 @@ environment:
 dependencies:
   flutter:
     sdk: flutter
+  awesome_notifications: ^0.7.4+1
+  provider: ^6.0.4
+  sholat:
+    path: ../sholat
+  core:
+    path: ../core
 
 dev_dependencies:
   flutter_test:
