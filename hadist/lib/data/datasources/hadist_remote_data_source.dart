@@ -1,5 +1,8 @@
+import 'dart:convert';
+
 import 'package:core/core.dart';
 import 'package:dio/dio.dart';
+import 'package:http/http.dart' as http;
 import 'package:hadist/data/models/list_hadist_model.dart';
 import 'package:hadist/data/models/list_hadist_response.dart';
 import 'package:hadist/data/models/rawi_model.dart';
@@ -12,18 +15,16 @@ abstract class HadistRemoteDataSource {
 
 class HadistRemoteDataSourceImpl implements HadistRemoteDataSource {
   static const String BASE_URL_HADIST = 'https://api.hadith.gading.dev';
-  final Dio dio;
+  final http.Client client;
 
-  HadistRemoteDataSourceImpl(this.dio);
+  HadistRemoteDataSourceImpl({required this.client});
 
   @override
   Future<List<RawiModel>> getRawi() async {
-    final response = await dio.get(
-      '$BASE_URL_HADIST/books',
-    );
+    final response = await client.get(Uri.parse('$BASE_URL_HADIST/books'));
 
     if (response.statusCode == 200) {
-      return RawiResponse.fromJson(response.data).surahList;
+      return RawiResponse.fromJson(json.decode(response.body)).surahList;
     } else {
       throw ServerException();
     }
@@ -31,10 +32,10 @@ class HadistRemoteDataSourceImpl implements HadistRemoteDataSource {
 
   @override
   Future<ListHadistModel> getListHadist(String id) async {
-    final response = await dio.get('$BASE_URL_HADIST/books/$id?range=1-100');
+    final response = await client.get(Uri.parse('$BASE_URL_HADIST/books/$id?range=1-100'));
 
     if (response.statusCode == 200) {
-      return ListHadistResponse.fromJson(response.data).surahDetailModel;
+      return ListHadistResponse.fromJson(json.decode(response.body)).surahDetailModel;
     } else {
       throw ServerException();
     }
