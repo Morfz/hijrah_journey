@@ -37,7 +37,7 @@ class JuzDetailModel extends Equatable {
 
   JuzDetail toEntity() {
     return JuzDetail(
-      juz: juz,
+      juz: juz ?? -1,
       verses: verses
           ?.map(
             (e) => VerseJuz(
