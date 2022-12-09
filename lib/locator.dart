@@ -36,7 +36,7 @@ Future<void> init() async {
 
   // data source
   locator.registerLazySingleton<HadistRemoteDataSource>(
-          () => HadistRemoteDataSourceImpl(locator()));
+          () => HadistRemoteDataSourceImpl(client: locator()));
   locator.registerLazySingleton<DoaRemoteDataSource>(
           () => DoaRemoteDataSourceImpl(client: locator()));
   locator.registerLazySingleton<AlquranRemoteDataSource>(
