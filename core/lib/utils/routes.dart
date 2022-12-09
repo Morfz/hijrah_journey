@@ -5,4 +5,5 @@ const WAKTU_SHOLAT_PAGE = '/waktu-sholat';
 const WILAYAH_SHOLAT_PAGE = '/wilayah-sholat';
 const HADIST_PAGE = '/hadist-page';
 const LIST_HADIST_PAGE = '/list-hadist-page';
+const NOTIFICATION_SETTINGS_PAGE = '/notification-settings-page';
 const DOA_PAGE = '/doa-page';

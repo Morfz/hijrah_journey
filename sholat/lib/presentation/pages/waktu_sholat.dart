@@ -26,7 +26,7 @@ class WaktuSholatPage extends StatelessWidget {
                     color: Colors.white,
                   ),
                   onPressed: () {
-                    Navigator.pushNamed(context, '/settings');
+                    Navigator.pushNamed(context, '/notification-settings-page');
                   },
                 ),
               ],
