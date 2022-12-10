@@ -2,6 +2,7 @@ import 'package:core/core.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
+import 'package:flutter_vibrate/flutter_vibrate.dart';
 
 class TasbihPage extends StatefulWidget {
   @override
@@ -40,7 +41,7 @@ class _TasbihPageState extends State<TasbihPage> {
       backgroundColor: kBackgroundColor,
       appBar: AppBar(
         leading: IconButton(
-          icon: const Icon(Icons.arrow_back_ios),
+          icon: const Icon(Icons.arrow_back),
           onPressed: () {
             Navigator.pop(context);
           },
@@ -52,6 +53,7 @@ class _TasbihPageState extends State<TasbihPage> {
             icon: const Icon(
               Icons.refresh,
               color: Colors.white,
+              semanticLabel: 'Reset',
             ),
             onPressed: () {
               _resetEveryThing();
@@ -60,11 +62,13 @@ class _TasbihPageState extends State<TasbihPage> {
         ],
       ),
       body: GestureDetector(
-        onTap: () {
+        onTap: () async {
           _clicked();
+          await Vibrate.vibrate();
         },
-        onVerticalDragStart: (details) {
+        onVerticalDragStart: (details) async {
           _clicked();
+          await Vibrate.vibrate();
         },
         child: Container(
           color: kBackgroundColor,
