@@ -39,6 +39,7 @@ dev_dependencies:
 flutter:
   assets:
     - ../assets/data/asmaulhusna.json
+    - ../assets/data/niatshalat.json
   # To add assets to your package, add an assets section, like this:
   # assets:
   #   - images/a_dot_burr.jpeg

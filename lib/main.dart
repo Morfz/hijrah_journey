@@ -20,6 +20,7 @@ import 'package:hadist/presentation/pages/list_hadist_page.dart';
 import 'package:hadist/presentation/pages/rawi_page.dart';
 import 'package:sholat/presentation/pages/waktu_sholat.dart';
 import 'package:addon/presentation/pages/asmaulhusna_page.dart';
+import 'package:addon/presentation/pages/niatshalat_page.dart';
 import 'package:notification/presentation/pages/notification_settings.dart';
 import 'package:user/presentation/pages/login_page.dart';
 import 'package:user/presentation/pages/profile_page.dart';
@@ -139,6 +140,8 @@ class MyApp extends StatelessWidget {
                     builder: (_) => JuzDetailPage(id: id), settings: settings);
               case ASMAUL_HUSNA:
                 return MaterialPageRoute(builder: (context) => AsmaulHusnaPage());
+              case NIAT_SHALAT:
+                return MaterialPageRoute(builder: (context) => NiatShalatPage());
               case TASBIH_PAGE:
                 return MaterialPageRoute(
                     builder: (context) => TasbihPage());
