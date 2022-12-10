@@ -67,6 +67,7 @@ class _JuzPageState extends State<JuzPage> {
                           style: openSansNormal.copyWith(
                             fontSize: 14,
                             color: Colors.black,
+                            fontWeight: FontWeight.bold
                           ),
                         ),
                       ),

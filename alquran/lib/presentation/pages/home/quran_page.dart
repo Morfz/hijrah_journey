@@ -35,6 +35,8 @@ class _QuranPageState extends State<QuranPage> with TickerProviderStateMixin {
           ),
           Container(
             child: TabBar(
+              indicatorColor: greenColor,
+              indicatorSize: TabBarIndicatorSize.label,
               controller: _tabController,
               labelColor: Colors.black,
               unselectedLabelColor: Colors.grey,

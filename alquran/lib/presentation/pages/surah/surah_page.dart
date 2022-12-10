@@ -77,12 +77,13 @@ class _SurahPageState extends State<SurahPage> {
                               style: openSansNormal.copyWith(
                                 fontSize: 14,
                                 color: Colors.black,
+                                fontWeight: FontWeight.bold
                               ),
                             ),
                             subtitle: Text(
                               '${surah.translation.id} | ${surah.numberOfVerse} Ayat',
                               style: openSansNormal.copyWith(
-                                fontSize: 12,
+                                fontSize: 14,
                                 color: Colors.black,
                               ),
                             ),
