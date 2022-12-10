@@ -8,6 +8,7 @@ import 'package:sholat/data/api/api_waktu_sholat.dart';
 import 'package:sholat/presentation/pages/waktu_sholat.dart';
 import 'package:sholat/presentation/providers/harian_waktu_sholat_provider.dart';
 
+
 class PageMain extends StatefulWidget {
   const PageMain({Key? key}) : super(key: key);
 
@@ -40,11 +41,16 @@ class _PageMainState extends State<PageMain> {
     return formatted;
   }
 
+
+
   @override
   void initState() {
     super.initState();
     _time();
     _date();
+    WidgetsBinding.instance.addPostFrameCallback((timeStamp) {
+      Provider.of<HarianJadwalSholatProvider>(context, listen: false);
+    });
   }
 
   @override

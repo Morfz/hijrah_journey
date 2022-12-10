@@ -54,6 +54,10 @@ class _ListHadistPageState extends State<ListHadistPage> {
               return const Center(
                 child: CircularProgressIndicator(),
               );
+            } else if (state is ListHadistError) {
+              return Center(
+                child: Text(state.message),
+              );
             } else if (state is ListHadistHasData) {
               return ListView(
                 children: [
