@@ -18,6 +18,19 @@ final TextStyle openSansMedium = GoogleFonts.openSans(
 final TextStyle robotMonoNormal = GoogleFonts.robotoMono(
   fontSize: 12, fontWeight: FontWeight.w400,);
 
+TextStyle textFontWeight00 = GoogleFonts.poppins(
+  fontWeight: FontWeight.w700,
+);
+
+TextStyle googlePoppinsMedium = GoogleFonts.poppins(
+  fontWeight: FontWeight.w500,
+);
+
+TextStyle googlePoppinsRegular = GoogleFonts.poppins(
+  fontWeight: FontWeight.w400,
+);
+
+
 final kTextTheme = TextTheme(
   headline5: kHeading5,
   headline6: kHeading6,

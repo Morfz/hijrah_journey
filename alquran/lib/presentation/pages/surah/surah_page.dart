@@ -24,14 +24,7 @@ class _SurahPageState extends State<SurahPage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: Colors.white,
-      appBar: AppBar(
-        elevation: 0.0,
-        title: Text(
-          'Al-Quran',
-          style: openSansMedium,
-        ),
-      ),
+      backgroundColor: greenColor5,
       body: BlocBuilder<SurahBloc, SurahState>(
         builder: (context, state) {
           if (state is SurahLoading) {
@@ -58,23 +51,24 @@ class _SurahPageState extends State<SurahPage> {
                     children: [
                       Center(
                         child: Card(
+                          color: greenColor5,
                           elevation: 0.0,
                           child: ListTile(
                             dense: true,
-                            minLeadingWidth: 5,
                             leading: Container(
                               width: 36,
-                              height: 36,
+                              height: 30,
                               alignment: Alignment.center,
-                              decoration: const BoxDecoration(
-                                shape: BoxShape.circle,
-                                color: Colors.grey,
+                              decoration: BoxDecoration(
+                                shape: BoxShape.rectangle,
+                                borderRadius: BorderRadius.circular(8),
+                                color: greenColor4,
                               ),
                               child: Text(
                                 surah.number.toString(),
                                 style: openSansMedium.copyWith(
                                   fontSize: 16,
-                                  color: kPrimaryColor,
+                                  color: Colors.black,
                                 ),
                               ),
                             ),
@@ -108,7 +102,7 @@ class _SurahPageState extends State<SurahPage> {
                         ),
                       ),
                       const Divider(
-                        thickness: 2,
+                        thickness: 1,
                         color: Colors.grey,
                       ),
                     ],

@@ -76,7 +76,7 @@ class _HijrahHomePageState extends State<HijrahHomePage>{
           _child = const PageMain();
           break;
         case 1:
-          _child = const QuranPage();
+          _child = QuranPage();
           break;
         case 2:
           _child = const RawiPage();

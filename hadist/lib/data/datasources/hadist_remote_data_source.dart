@@ -1,7 +1,6 @@
 import 'dart:convert';
 
 import 'package:core/core.dart';
-import 'package:dio/dio.dart';
 import 'package:http/http.dart' as http;
 import 'package:hadist/data/models/list_hadist_model.dart';
 import 'package:hadist/data/models/list_hadist_response.dart';
