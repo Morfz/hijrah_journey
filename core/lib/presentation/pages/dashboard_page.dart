@@ -58,51 +58,24 @@ class _PageMainState extends State<PageMain> {
           HarianJadwalSholatProvider(apiService: WaktuSholatApiService()),
       child: CustomScrollView(
         slivers: [
-          const SliverAppBar(
-            backgroundColor: kPrimaryColor,
-            title: Text(
-              "Hijrah Journey",
-              style: TextStyle(
-                color: Colors.white,
-                fontWeight: FontWeight.bold,
-              ),
-            ),
-            centerTitle: true,
-            pinned: true,
-          ),
           SliverToBoxAdapter(
             child: Material(
               color: kPrimaryColor,
               child: Container(
-                margin: const EdgeInsets.only(top: 12),
+                margin: const EdgeInsets.only(top: 50),
                 child: Column(
                   mainAxisAlignment: MainAxisAlignment.start,
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
                     Container(
-                      padding: const EdgeInsets.symmetric(horizontal: 16),
-                      child: const Text(
-                        "Assalamu'alaikum",
-                        style: TextStyle(
-                          fontSize: 14,
-                          color: Colors.white70,
-                          fontWeight: FontWeight.w500,
-                        ),
-                        textAlign: TextAlign.left,
-                      ),
-                    ),
-                    Container(
-                      margin: const EdgeInsets.only(
-                        top: 4,
-                        bottom: 8,
-                      ),
-                      padding: const EdgeInsets.symmetric(horizontal: 16),
+                      margin: const EdgeInsets.only(bottom: 8),
+                      padding: const EdgeInsets.symmetric(horizontal: 20),
                       child: Text(
-                        _displayName(),
+                        "Assalamu'alaikum, "+ _displayName(),
                         style: const TextStyle(
                           fontSize: 24,
                           color: Colors.white,
-                          fontWeight: FontWeight.w700,
+                          fontWeight: FontWeight.bold,
                         ),
                         textAlign: TextAlign.left,
                       ),
@@ -111,7 +84,7 @@ class _PageMainState extends State<PageMain> {
                       // height: Get.width / 2,
                       margin: const EdgeInsets.symmetric(
                         horizontal: 16,
-                        vertical: 12,
+                        vertical: 20,
                       ),
                       padding: const EdgeInsets.all(12),
                       decoration: BoxDecoration(
@@ -321,21 +294,30 @@ class _PageMainState extends State<PageMain> {
                       }),
                     ),
                     Container(
+                      height: MediaQuery.of(context).size.height,
                       width: MediaQuery.of(context).size.width,
-                      height: 440,
-                      margin: const EdgeInsets.only(top: 40),
                       decoration: const BoxDecoration(
-                        color: Colors.white,
+                        color: kBackgroundColor,
                         borderRadius: BorderRadius.vertical(
-                          top: Radius.circular(20),
+                          top: Radius.circular(30),
                         ),
                       ),
-                      child: Padding(
-                          padding: EdgeInsets.all(10),
+                      alignment: Alignment.topCenter,
+                      child: Container(
+                        alignment: Alignment.center,
+                        height: 300,
+                        margin: const EdgeInsets.symmetric(vertical: 20, horizontal: 15),
+                        decoration: const BoxDecoration(
+                          color: Colors.white,
+                          borderRadius: BorderRadius.vertical(
+                            top: Radius.circular(20),
+                            bottom: Radius.circular(20),
+                          ),
+                        ),
                           child: Wrap(
                             children: <Widget>[
                               Padding(
-                                padding: EdgeInsets.fromLTRB(8.5, 10, 8.5, 10),
+                                padding: const EdgeInsets.fromLTRB(8.5, 10, 8.5, 10),
                                 child: Expanded(
                                   child: Column(
                                     children: [
@@ -344,14 +326,14 @@ class _PageMainState extends State<PageMain> {
                                         width: 60,
                                         height: 60,
                                       ),
-                                      Text("Doa Harian"),
+                                      const Text("Doa Harian"),
                                       OutlinedButton(
                                         onPressed: () {
                                           Navigator.push(
                                             context,
                                             MaterialPageRoute(
                                                 builder: (context) =>
-                                                    const DoaPage()),
+                                                const DoaPage()),
                                           );
                                         },
                                         child: const Text("Pilih"),
@@ -361,7 +343,7 @@ class _PageMainState extends State<PageMain> {
                                 ),
                               ),
                               Padding(
-                                padding: EdgeInsets.fromLTRB(8.5, 10, 8.5, 10),
+                                padding: const EdgeInsets.fromLTRB(8.5, 10, 8.5, 10),
                                 child: Expanded(
                                   child: Column(
                                     children: [
@@ -370,14 +352,14 @@ class _PageMainState extends State<PageMain> {
                                         width: 60,
                                         height: 60,
                                       ),
-                                      Text("Jadwal Shalat"),
+                                      const Text("Jadwal Shalat"),
                                       OutlinedButton(
                                         onPressed: () {
                                           Navigator.push(
                                             context,
                                             MaterialPageRoute(
                                                 builder: (context) =>
-                                                    const WaktuSholatPage()),
+                                                const WaktuSholatPage()),
                                           );
                                         },
                                         child: const Text("Pilih"),
@@ -387,7 +369,7 @@ class _PageMainState extends State<PageMain> {
                                 ),
                               ),
                               Padding(
-                                padding: EdgeInsets.fromLTRB(8.5, 10, 8.5, 10),
+                                padding: const EdgeInsets.fromLTRB(8.5, 10, 8.5, 10),
                                 child: Expanded(
                                   child: Column(
                                     children: [
@@ -396,14 +378,14 @@ class _PageMainState extends State<PageMain> {
                                         width: 60,
                                         height: 60,
                                       ),
-                                      Text("Niat Shalat"),
+                                      const Text("Niat Shalat"),
                                       OutlinedButton(
                                         onPressed: () {
                                           Navigator.push(
                                             context,
                                             MaterialPageRoute(
                                                 builder: (context) =>
-                                                    const NiatShalatPage()),
+                                                const NiatShalatPage()),
                                           );
                                         },
                                         child: const Text("Pilih"),
@@ -413,7 +395,7 @@ class _PageMainState extends State<PageMain> {
                                 ),
                               ),
                               Padding(
-                                padding: EdgeInsets.fromLTRB(8.5, 10, 8.5, 10),
+                                padding: const EdgeInsets.fromLTRB(8.5, 10, 8.5, 10),
                                 child: Expanded(
                                   child: Column(
                                     children: [
@@ -422,14 +404,14 @@ class _PageMainState extends State<PageMain> {
                                         width: 60,
                                         height: 60,
                                       ),
-                                      Text("Arah Kiblat"),
+                                      const Text("Arah Kiblat"),
                                       OutlinedButton(
                                         onPressed: () {
                                           Navigator.push(
                                             context,
                                             MaterialPageRoute(
                                                 builder: (context) =>
-                                                    const KiblatPage()),
+                                                const KiblatPage()),
                                           );
                                         },
                                         child: const Text("Pilih"),
@@ -439,7 +421,7 @@ class _PageMainState extends State<PageMain> {
                                 ),
                               ),
                               Padding(
-                                padding: EdgeInsets.fromLTRB(8.5, 10, 8.5, 10),
+                                padding: const EdgeInsets.fromLTRB(8.5, 10, 8.5, 10),
                                 child: Expanded(
                                   child: Column(
                                     children: [
@@ -448,7 +430,7 @@ class _PageMainState extends State<PageMain> {
                                         width: 60,
                                         height: 60,
                                       ),
-                                      Text("The Tasbih"),
+                                      const Text("The Tasbih"),
                                       OutlinedButton(
                                         onPressed: () {
                                           Navigator.push(
@@ -465,7 +447,7 @@ class _PageMainState extends State<PageMain> {
                                 ),
                               ),
                               Padding(
-                                padding: EdgeInsets.fromLTRB(8.5, 10, 8.5, 10),
+                                padding: const EdgeInsets.fromLTRB(8.5, 10, 8.5, 10),
                                 child: Expanded(
                                   child: Column(
                                     children: [
@@ -474,14 +456,14 @@ class _PageMainState extends State<PageMain> {
                                         width: 60,
                                         height: 60,
                                       ),
-                                      Text("Asmaul Husna"),
+                                      const Text("Asmaul Husna"),
                                       OutlinedButton(
                                         onPressed: () {
                                           Navigator.push(
                                             context,
                                             MaterialPageRoute(
                                                 builder: (context) =>
-                                                    const AsmaulHusnaPage()),
+                                                const AsmaulHusnaPage()),
                                           );
                                         },
                                         child: const Text("Pilih"),
@@ -491,8 +473,10 @@ class _PageMainState extends State<PageMain> {
                                 ),
                               ),
                             ],
-                          )),
-                    )
+                          )
+                      ),
+                    ),
+
                   ],
                 ),
               ),
