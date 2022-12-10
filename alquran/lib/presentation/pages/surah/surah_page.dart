@@ -24,7 +24,7 @@ class _SurahPageState extends State<SurahPage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: greenColor5,
+      backgroundColor: kBackgroundColor,
       body: BlocBuilder<SurahBloc, SurahState>(
         builder: (context, state) {
           if (state is SurahLoading) {
@@ -51,7 +51,7 @@ class _SurahPageState extends State<SurahPage> {
                     children: [
                       Center(
                         child: Card(
-                          color: greenColor5,
+                          color: kBackgroundColor,
                           elevation: 0.0,
                           child: ListTile(
                             dense: true,

@@ -25,11 +25,8 @@ class _SurahDetailPageState extends State<SurahDetailPage> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
+        backgroundColor: kPrimaryColor,
         elevation: 0.0,
-        title: Text(
-          'Surah',
-          style: openSansMedium,
-        ),
       ),
       body: BlocBuilder<SurahDetailBloc, SurahDetailState>(
           builder: (context, state) {
@@ -106,7 +103,7 @@ class _SurahDetailPageState extends State<SurahDetailPage> {
                                 right: 20,
                                 bottom: 16,
                               ),
-                              color: index % 2 == 0 ? Colors.black12 : Colors.white,
+                              color: index % 2 == 0 ? kBackgroundColor : Colors.white,
                               child: Column(
                                 crossAxisAlignment: CrossAxisAlignment.start,
                                 children: [

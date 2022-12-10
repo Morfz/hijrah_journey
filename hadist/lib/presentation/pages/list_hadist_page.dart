@@ -3,7 +3,6 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:hadist/presentation/bloc/list_hadist/list_hadist_bloc.dart';
-import 'package:hadist/presentation/pages/rawi_page.dart';
 
 class ListHadistPage extends StatefulWidget {
   static const routeName = '/list-hadist-page';
@@ -29,13 +28,7 @@ class _ListHadistPageState extends State<ListHadistPage> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        leading: IconButton(
-          icon: const Icon(Icons.arrow_back),
-          onPressed: () {
-            Navigator.pop(context);
-          },
-        ),
-        backgroundColor: Theme.of(context).primaryColor,
+        backgroundColor: kPrimaryColor,
         elevation: 0.0,
         title: Text(
           'List Hadist',
@@ -81,8 +74,8 @@ class _ListHadistPageState extends State<ListHadistPage> {
                         decoration: BoxDecoration(
                             gradient: LinearGradient(
                                 colors: [
-                                  greenColor,
-                                  greenColor2
+                                  kPrimaryColor,
+                                  kSecondaryColor
                                 ]
                             ),
                             borderRadius: BorderRadius.circular(16)),
@@ -169,28 +162,6 @@ class _ListHadistPageState extends State<ListHadistPage> {
                                 letterSpacing: 0.3,
                               ),
                             ),
-                            // Row(
-                            //   mainAxisSize: MainAxisSize.max,
-                            //   crossAxisAlignment:
-                            //       CrossAxisAlignment.center,
-                            //   mainAxisAlignment: MainAxisAlignment.end,
-                            //   children: [
-                            //     IconButton(
-                            //       onPressed: () {
-                            //         // context.read<SurahLocalBloc>().add(
-                            //         //   RemoveSurahEvent(
-                            //         //     state.result,
-                            //         //     data ?? VerseSurah(),
-                            //         //   ),
-                            //         // );
-                            //       },
-                            //       icon: const Icon(
-                            //         Icons.bookmark_border_outlined,
-                            //         size: 16,
-                            //       ),
-                            //     ),
-                            //   ],
-                            // )
                           ],
                         ),
                       );

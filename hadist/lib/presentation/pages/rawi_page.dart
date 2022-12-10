@@ -24,7 +24,7 @@ class _RawiPageState extends State<RawiPage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: greenColor5,
+      backgroundColor: kBackgroundColor,
       body: BlocBuilder<RawiBloc, RawiState>(
         builder: (context, state) {
           if (state is RawiLoading) {
@@ -46,9 +46,6 @@ class _RawiPageState extends State<RawiPage> {
                     ),
                   ),
                 ),
-                const SizedBox(
-                  height: 20,
-                ),
                 Flexible(
                     child: ListView.builder(
                       shrinkWrap: true,
@@ -69,7 +66,7 @@ class _RawiPageState extends State<RawiPage> {
                             children: [
                               Center(
                                 child: Card(
-                                  color: greenColor5,
+                                  color: kBackgroundColor,
                                   elevation: 0.0,
                                   child: ListTile(
                                     dense: true,
