@@ -1,3 +1,4 @@
+import 'package:alquran/presentation/pages/juz/juz_detail_page.dart';
 import 'package:flutter/material.dart';
 import 'package:core/core.dart';
 
@@ -21,23 +22,17 @@ class _JuzPageState extends State<JuzPage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: Colors.white,
-      appBar: AppBar(
-        elevation: 0.0,
-        title: Text(
-          'Al-Quran',
-          style: openSansMedium,
-        ),
-      ),
+        backgroundColor: greenColor5,
       body: ListView.builder(
           itemCount: titles.length,
           itemBuilder: (context, index) {
             return GestureDetector(
               onTap: () {
-                Navigator.pushNamed(
+                Navigator.push(
                   context,
-                  JUZ_DETAIL_PAGE,
-                  arguments: index+1,
+                    MaterialPageRoute(
+                    builder: (context) => JuzDetailPage(id: index+1)
+                    )
                 );
               },
               child: Column(
@@ -46,15 +41,33 @@ class _JuzPageState extends State<JuzPage> {
                 children: [
                   Center(
                     child: Card(
+                      color: greenColor5,
                       elevation: 0.0,
                       child: ListTile(
                         dense: true,
-                        minLeadingWidth: 5,
+                        // leading: Container(
+                        //   width: 36,
+                        //   height: 30,
+                        //   alignment: Alignment.center,
+                        //   decoration: BoxDecoration(
+                        //     shape: BoxShape.rectangle,
+                        //     borderRadius: BorderRadius.circular(8),
+                        //     color: greenColor4,
+                        //   ),
+                        //   child: Text(
+                        //     '${index+1}',
+                        //     style: openSansMedium.copyWith(
+                        //       fontSize: 16,
+                        //       color: Colors.black,
+                        //     ),
+                        //   ),
+                        // ),
                         title: Text(
                           titles[index],
                           style: openSansNormal.copyWith(
                             fontSize: 14,
                             color: Colors.black,
+                            fontWeight: FontWeight.bold
                           ),
                         ),
                       ),

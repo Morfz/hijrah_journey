@@ -14,5 +14,6 @@ class WaktuSholatApiService {
       throw Exception('Gagal untuk memuat list Waktu Sholat');
     }
   }
+  
 
 }

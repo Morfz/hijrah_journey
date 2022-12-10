@@ -1,3 +1,4 @@
+import 'package:core/core.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 import 'package:sholat/data/api/api_waktu_sholat.dart';
@@ -14,7 +15,7 @@ class WaktuSholatPage extends StatelessWidget {
           HarianJadwalSholatProvider(apiService: WaktuSholatApiService()),
       child: Scaffold(
           appBar: AppBar(
-            backgroundColor: Theme.of(context).primaryColor,
+            backgroundColor: kPrimaryColor,
             title: Row(
               mainAxisAlignment: MainAxisAlignment.spaceBetween,
               children: <Widget>[

@@ -30,6 +30,7 @@ class HarianJadwalSholatProvider extends ChangeNotifier {
     return int.parse(formatted) - 1;
   }
 
+
   Future _fetchHarianJadwalSholat() async {
     try {
       _state = ResultState.loading;
