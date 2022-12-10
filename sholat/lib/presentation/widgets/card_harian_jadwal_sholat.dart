@@ -1,7 +1,7 @@
 import 'package:core/core.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
-import '../providers/harian_waktu_sholat_provider.dart';
+import 'package:sholat/presentation/providers/harian_waktu_sholat_provider.dart';
 import 'package:intl/intl.dart';
 
 class CardJadwalSholatHarian extends StatefulWidget {
@@ -114,7 +114,7 @@ class _CardJadwalSholatHarianState extends State<CardJadwalSholatHarian> {
                                                     ),
                                                     Center(
                                                       child: Text(
-                                                        list[index].sunrise,
+                                                        list[index].fajr,
                                                         textAlign:
                                                             TextAlign.justify,
                                                         overflow:
@@ -156,7 +156,7 @@ class _CardJadwalSholatHarianState extends State<CardJadwalSholatHarian> {
                                                     ),
                                                     Center(
                                                       child: Text(
-                                                        list[index].fajr,
+                                                        list[index].sunrise,
                                                         textAlign:
                                                             TextAlign.justify,
                                                         overflow:

@@ -3,7 +3,10 @@ import 'package:core/core.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:intl/intl.dart';
+import 'package:provider/provider.dart';
+import 'package:sholat/data/api/api_waktu_sholat.dart';
 import 'package:sholat/presentation/pages/waktu_sholat.dart';
+import 'package:sholat/presentation/providers/harian_waktu_sholat_provider.dart';
 
 class PageMain extends StatefulWidget {
   const PageMain({Key? key}) : super(key: key);
@@ -37,16 +40,25 @@ class _PageMainState extends State<PageMain> {
     return formatted;
   }
 
+
+
   @override
   void initState() {
     super.initState();
     _time();
     _date();
+    WidgetsBinding.instance.addPostFrameCallback((timeStamp) {
+      Provider.of<HarianJadwalSholatProvider>(context, listen: false);
+    });
   }
 
   @override
   Widget build(BuildContext context) {
-    return CustomScrollView(
+    return
+      ChangeNotifierProvider(
+        create: (context) =>
+        HarianJadwalSholatProvider(apiService: WaktuSholatApiService()),
+    child: CustomScrollView(
       slivers: [
         const SliverAppBar(
           backgroundColor: kPrimaryColor,
@@ -129,17 +141,36 @@ class _PageMainState extends State<PageMain> {
                                 size: 14,
                               ),
                             ),
-                            const Expanded(
-                              child: Text(
-                                "Banjarmasin",
-                                style: TextStyle(
-                                  fontSize: 14,
-                                  color: Colors.white,
-                                  fontWeight: FontWeight.w500,
-                                ),
-                                maxLines: 1,
-                                overflow: TextOverflow.ellipsis,
-                              ),
+                            Consumer<HarianJadwalSholatProvider>(
+                              builder: (context, state, _) {
+                                if (state.state == ResultState.hasData) {
+                                  var date = state.status.praytimes.keys.toList();
+                                  var list = state.status.praytimes.values.toList();
+                                  return                             Expanded(
+                                    child: Text(
+                                      state.status.location,
+                                      style: const TextStyle(
+                                        fontSize: 14,
+                                        color: Colors.white,
+                                        fontWeight: FontWeight.w500,
+                                      ),
+                                      maxLines: 1,
+                                      overflow: TextOverflow.ellipsis,
+                                    ),
+                                  );
+                                } else {
+                                  return const Text(
+                                    'Loading...',
+                                    style: TextStyle(
+                                      fontSize: 14,
+                                      color: Colors.white,
+                                      fontWeight: FontWeight.w500,
+                                    ),
+                                      maxLines: 1,
+                                      overflow: TextOverflow.ellipsis
+                                  );
+                                }
+                              },
                             ),
                             Text(
                               DateFormat("dd MMM yyyy").format(DateTime.now()),
@@ -164,14 +195,6 @@ class _PageMainState extends State<PageMain> {
                                   fontWeight: FontWeight.bold,
                                 ),
                               ),
-                              const Text(
-                                "Menuju Ashar",
-                                style: TextStyle(
-                                  fontSize: 12,
-                                  color: Colors.white,
-                                  fontWeight: FontWeight.w300,
-                                ),
-                              ),
                             ],
                           ),
                         ),
@@ -181,8 +204,8 @@ class _PageMainState extends State<PageMain> {
                             mainAxisAlignment: MainAxisAlignment.spaceBetween,
                             children: [
                               Column(
-                                children: const [
-                                  Text(
+                                children: [
+                                  const Text(
                                     "Subuh",
                                     style: TextStyle(
                                       fontSize: 12,
@@ -191,7 +214,7 @@ class _PageMainState extends State<PageMain> {
                                     ),
                                   ),
                                   Text(
-                                    "04:20",
+                                    "04:00",
                                     style: TextStyle(
                                       fontSize: 12,
                                       color: Colors.white,
@@ -201,8 +224,8 @@ class _PageMainState extends State<PageMain> {
                                 ],
                               ),
                               Column(
-                                children: const [
-                                  Text(
+                                children: [
+                                  const Text(
                                     "Dzuhur",
                                     style: TextStyle(
                                       fontSize: 12,
@@ -369,6 +392,6 @@ class _PageMainState extends State<PageMain> {
           ),
         ),
       ],
-    );
+    ));
   }
 }

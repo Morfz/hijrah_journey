@@ -45,7 +45,7 @@ class _RawiPageState extends State<RawiPage> {
                 final rawi = state.result[index];
                 return GestureDetector(
                   onTap: () {
-                    Navigator.pushReplacementNamed(
+                    Navigator.pushNamed(
                       context,
                       LIST_HADIST_PAGE,
                       arguments: state.result[index].id,

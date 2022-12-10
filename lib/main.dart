@@ -8,6 +8,7 @@ import 'package:alquran/presentation/pages/juz/juz_page.dart';
 import 'package:alquran/presentation/pages/surah/surah_detail_page.dart';
 import 'package:alquran/presentation/pages/surah/surah_page.dart';
 import 'package:core/core.dart';
+import 'package:core/presentation/pages/dashboard_page.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
@@ -78,6 +79,9 @@ class MyApp extends StatelessWidget {
               case HOME_PAGE:
                 return MaterialPageRoute(
                     builder: (context) => const HijrahHomePage());
+              case DASHBOARD_PAGE:
+                return MaterialPageRoute(
+                    builder: (context) => const PageMain());
               case LOGIN_PAGE:
                 return MaterialPageRoute(
                     builder: (context) => const LoginPage());
@@ -92,7 +96,7 @@ class MyApp extends StatelessWidget {
               case LIST_HADIST_PAGE:
                 final id = settings.arguments as String;
                 return MaterialPageRoute(
-                    builder: (_) => ListHadistPage(id: id), settings: settings);
+                    builder: (context) => ListHadistPage(id: id), settings: settings);
               case WAKTU_SHOLAT_PAGE:
                 return MaterialPageRoute(
                     builder: (context) => const WaktuSholatPage());

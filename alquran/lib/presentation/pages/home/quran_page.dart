@@ -2,8 +2,13 @@ import 'package:flutter/material.dart';
 import 'package:flutter/src/widgets/framework.dart';
 import 'package:core/core.dart';
 
-class QuranPage extends StatelessWidget {
-  const QuranPage({super.key});
+class QuranPage extends StatefulWidget {
+  const QuranPage({Key? key}) : super(key: key);
+
+  @override
+  _QuranPageState createState() => _QuranPageState();
+}
+class _QuranPageState extends State<QuranPage>{
 
   @override
   Widget build(BuildContext context) {
