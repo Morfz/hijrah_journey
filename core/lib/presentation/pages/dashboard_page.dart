@@ -7,6 +7,7 @@ import 'package:provider/provider.dart';
 import 'package:sholat/data/api/api_waktu_sholat.dart';
 import 'package:sholat/presentation/pages/waktu_sholat.dart';
 import 'package:sholat/presentation/providers/harian_waktu_sholat_provider.dart';
+import 'package:addon/presentation/pages/asmaulhusna_page.dart';
 
 class PageMain extends StatefulWidget {
   const PageMain({Key? key}) : super(key: key);
@@ -126,7 +127,7 @@ class _PageMainState extends State<PageMain> {
                           builder: (context, state, _) {
                         if (state.state == ResultState.loading) {
                           return const Center(
-                              child: CircularProgressIndicator());
+                              child: CircularProgressIndicator(color: kPrimaryColor,));
                         } else if (state.state == ResultState.hasData) {
                           var list = state.status.praytimes.values.toList();
                           return Column(
@@ -177,14 +178,6 @@ class _PageMainState extends State<PageMain> {
                                         fontSize: 32,
                                         color: Colors.white,
                                         fontWeight: FontWeight.bold,
-                                      ),
-                                    ),
-                                    const Text(
-                                      "Menuju Ashar",
-                                      style: TextStyle(
-                                        fontSize: 12,
-                                        color: Colors.white,
-                                        fontWeight: FontWeight.w300,
                                       ),
                                     ),
                                   ],
@@ -388,6 +381,38 @@ class _PageMainState extends State<PageMain> {
                                                 MaterialPageRoute(
                                                     builder: (context) =>
                                                         const WaktuSholatPage()),
+                                              );
+                                            },
+                                            child: const Text("Pilih"),
+                                          )
+                                        ],
+                                      )),
+                                ],
+                              ),
+                            ),
+                          ),
+                          Expanded(
+                            child: Padding(
+                              padding:
+                              const EdgeInsets.fromLTRB(10, 15, 10, 15),
+                              child: Column(
+                                children: [
+                                  Padding(
+                                      padding: const EdgeInsets.all(5),
+                                      child: Column(
+                                        children: [
+                                          Image.asset('assets/asmaicon.png',
+                                              scale: 6.5),
+                                          const Text("Asmaul Husna",
+                                              style: TextStyle(
+                                                  fontWeight: FontWeight.bold)),
+                                          OutlinedButton(
+                                            onPressed: () {
+                                              Navigator.push(
+                                                context,
+                                                MaterialPageRoute(
+                                                    builder: (context) =>
+                                                    const AsmaulHusnaPage()),
                                               );
                                             },
                                             child: const Text("Pilih"),
