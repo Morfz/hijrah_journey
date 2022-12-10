@@ -10,6 +10,7 @@ import 'package:sholat/data/api/api_waktu_sholat.dart';
 import 'package:sholat/presentation/pages/waktu_sholat.dart';
 import 'package:sholat/presentation/providers/harian_waktu_sholat_provider.dart';
 import 'package:addon/presentation/pages/asmaulhusna_page.dart';
+import 'package:addon/presentation/pages/niatshalat_page.dart';
 
 class PageMain extends StatefulWidget {
   const PageMain({Key? key}) : super(key: key);
@@ -129,7 +130,9 @@ class _PageMainState extends State<PageMain> {
                           builder: (context, state, _) {
                         if (state.state == ResultState.loading) {
                           return const Center(
-                              child: CircularProgressIndicator(color: kPrimaryColor,));
+                              child: CircularProgressIndicator(
+                            color: kPrimaryColor,
+                          ));
                         } else if (state.state == ResultState.hasData) {
                           var list = state.status.praytimes.values.toList();
                           return Column(
@@ -327,169 +330,169 @@ class _PageMainState extends State<PageMain> {
                           top: Radius.circular(20),
                         ),
                       ),
-                      child: Row(
-                        children: [
-                          Expanded(
-                            child: Padding(
-                              padding:
-                                  const EdgeInsets.fromLTRB(10, 15, 10, 15),
-                              child: Column(
-                                children: [
-                                  Padding(
-                                      padding: const EdgeInsets.all(5),
-                                      child: Column(
-                                        children: [
-                                          Image.asset('assets/doaa.png',
-                                              scale: 6.5),
-                                          const Text("Do'a Harian",
-                                              style: TextStyle(
-                                                  fontWeight: FontWeight.bold)),
-                                          OutlinedButton(
-                                            onPressed: () {
-                                              Navigator.push(
-                                                context,
-                                                MaterialPageRoute(
-                                                    builder: (context) =>
-                                                        const DoaPage()),
-                                              );
-                                            },
-                                            child: const Text("Pilih"),
-                                          )
-                                        ],
-                                      )),
-                                ],
+                      child: Padding(
+                          padding: EdgeInsets.all(10),
+                          child: Wrap(
+                            children: <Widget>[
+                              Padding(
+                                padding: EdgeInsets.fromLTRB(8.5, 10, 8.5, 10),
+                                child: Expanded(
+                                  child: Column(
+                                    children: [
+                                      Image.asset(
+                                        "assets/doaa.png",
+                                        width: 60,
+                                        height: 60,
+                                      ),
+                                      Text("Doa Harian"),
+                                      OutlinedButton(
+                                        onPressed: () {
+                                          Navigator.push(
+                                            context,
+                                            MaterialPageRoute(
+                                                builder: (context) =>
+                                                    const DoaPage()),
+                                          );
+                                        },
+                                        child: const Text("Pilih"),
+                                      )
+                                    ],
+                                  ),
+                                ),
                               ),
-                            ),
-                          ),
-                          Expanded(
-                            child: Padding(
-                              padding:
-                                  const EdgeInsets.fromLTRB(10, 15, 10, 15),
-                              child: Column(
-                                children: [
-                                  Padding(
-                                      padding: const EdgeInsets.all(5),
-                                      child: Column(
-                                        children: [
-                                          Image.asset('assets/sujud.png',
-                                              scale: 6.5),
-                                          const Text("Jadwal Sholat",
-                                              style: TextStyle(
-                                                  fontWeight: FontWeight.bold)),
-                                          OutlinedButton(
-                                            onPressed: () {
-                                              Navigator.push(
-                                                context,
-                                                MaterialPageRoute(
-                                                    builder: (context) =>
-                                                        const WaktuSholatPage()),
-                                              );
-                                            },
-                                            child: const Text("Pilih"),
-                                          )
-                                        ],
-                                      )),
-                                ],
+                              Padding(
+                                padding: EdgeInsets.fromLTRB(8.5, 10, 8.5, 10),
+                                child: Expanded(
+                                  child: Column(
+                                    children: [
+                                      Image.asset(
+                                        "assets/sujud.png",
+                                        width: 60,
+                                        height: 60,
+                                      ),
+                                      Text("Jadwal Shalat"),
+                                      OutlinedButton(
+                                        onPressed: () {
+                                          Navigator.push(
+                                            context,
+                                            MaterialPageRoute(
+                                                builder: (context) =>
+                                                    const WaktuSholatPage()),
+                                          );
+                                        },
+                                        child: const Text("Pilih"),
+                                      )
+                                    ],
+                                  ),
+                                ),
                               ),
-                            ),
-                          ),
-                          Expanded(
-                            child: Padding(
-                              padding:
-                              const EdgeInsets.fromLTRB(10, 15, 10, 15),
-                              child: Column(
-                                children: [
-                                  Padding(
-                                      padding: const EdgeInsets.all(5),
-                                      child: Column(
-                                        children: [
-                                          Image.asset('assets/asmaicon.png',
-                                              scale: 6.5),
-                                          const Text("Asmaul Husna",
-                                              style: TextStyle(
-                                                  fontWeight: FontWeight.bold)),
-                                          OutlinedButton(
-                                            onPressed: () {
-                                              Navigator.push(
-                                                context,
-                                                MaterialPageRoute(
-                                                    builder: (context) =>
+                              Padding(
+                                padding: EdgeInsets.fromLTRB(8.5, 10, 8.5, 10),
+                                child: Expanded(
+                                  child: Column(
+                                    children: [
+                                      Image.asset(
+                                        "assets/carpet.png",
+                                        width: 60,
+                                        height: 60,
+                                      ),
+                                      Text("Niat Shalat"),
+                                      OutlinedButton(
+                                        onPressed: () {
+                                          Navigator.push(
+                                            context,
+                                            MaterialPageRoute(
+                                                builder: (context) =>
+                                                    const NiatShalatPage()),
+                                          );
+                                        },
+                                        child: const Text("Pilih"),
+                                      )
+                                    ],
+                                  ),
+                                ),
+                              ),
+                              Padding(
+                                padding: EdgeInsets.fromLTRB(8.5, 10, 8.5, 10),
+                                child: Expanded(
+                                  child: Column(
+                                    children: [
+                                      Image.asset(
+                                        "assets/kiblat.png",
+                                        width: 60,
+                                        height: 60,
+                                      ),
+                                      Text("Arah Kiblat"),
+                                      OutlinedButton(
+                                        onPressed: () {
+                                          Navigator.push(
+                                            context,
+                                            MaterialPageRoute(
+                                                builder: (context) =>
+                                                    const KiblatPage()),
+                                          );
+                                        },
+                                        child: const Text("Pilih"),
+                                      )
+                                    ],
+                                  ),
+                                ),
+                              ),
+                              Padding(
+                                padding: EdgeInsets.fromLTRB(8.5, 10, 8.5, 10),
+                                child: Expanded(
+                                  child: Column(
+                                    children: [
+                                      Image.asset(
+                                        "assets/tasbih.png",
+                                        width: 60,
+                                        height: 60,
+                                      ),
+                                      Text("The Tasbih"),
+                                      OutlinedButton(
+                                        onPressed: () {
+                                          Navigator.push(
+                                            context,
+                                            MaterialPageRoute(
+                                                builder: (context) =>
+                                                    TasbihPage()),
+                                          );
+                                        },
+                                        child: const Text("Pilih"),
+                                      )
+                                    ],
+                                  ),
+                                ),
+                              ),
+                              Padding(
+                                padding: EdgeInsets.fromLTRB(8.5, 10, 8.5, 10),
+                                child: Expanded(
+                                  child: Column(
+                                    children: [
+                                      Image.asset(
+                                        "assets/asmaicon.png",
+                                        width: 60,
+                                        height: 60,
+                                      ),
+                                      Text("Asmaul Husna"),
+                                      OutlinedButton(
+                                        onPressed: () {
+                                          Navigator.push(
+                                            context,
+                                            MaterialPageRoute(
+                                                builder: (context) =>
                                                     const AsmaulHusnaPage()),
-                                              );
-                                            },
-                                            child: const Text("Pilih"),
-                                          )
-                                        ],
-                                      )),
-                                ],
+                                          );
+                                        },
+                                        child: const Text("Pilih"),
+                                      )
+                                    ],
+                                  ),
+                                ),
                               ),
-                            ),
-                          ),
-                          Expanded(
-                            child: Padding(
-                              padding:
-                              const EdgeInsets.fromLTRB(10, 15, 10, 15),
-                              child: Column(
-                                children: [
-                                  Padding(
-                                      padding: const EdgeInsets.all(5),
-                                      child: Column(
-                                        children: [
-                                          Image.asset('assets/tasbih.png',
-                                              scale: 6.5),
-                                          const Text("The Tasbih",
-                                              style: TextStyle(
-                                                  fontWeight: FontWeight.bold)),
-                                          OutlinedButton(
-                                            onPressed: () {
-                                              Navigator.push(
-                                                context,
-                                                MaterialPageRoute(
-                                                    builder: (context) => TasbihPage()),
-                                              );
-                                            },
-                                            child: const Text("Pilih"),
-                                          )
-                                        ],
-                                      )),
-                                ],
-                              ),
-                            ),
-                          ),
-                          Expanded(
-                            child: Padding(
-                              padding:
-                              const EdgeInsets.fromLTRB(10, 15, 10, 15),
-                              child: Column(
-                                children: [
-                                  Padding(
-                                      padding: const EdgeInsets.all(5),
-                                      child: Column(
-                                        children: [
-                                          Image.asset('assets/kiblat.png',
-                                              scale: 6.5),
-                                          const Text("Arah Kiblat",
-                                              style: TextStyle(
-                                                  fontWeight: FontWeight.bold)),
-                                          OutlinedButton(
-                                            onPressed: () {
-                                              Navigator.push(
-                                                context,
-                                                MaterialPageRoute(
-                                                    builder: (context) => KiblatPage()),
-                                              );
-                                            },
-                                            child: const Text("Pilih"),
-                                          )
-                                        ],
-                                      )),
-                                ],
-                              ),
-                            ),
-                          ),
-                        ],
-                      ),
-                    ),
+                            ],
+                          )),
+                    )
                   ],
                 ),
               ),
