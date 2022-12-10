@@ -241,11 +241,8 @@ class _ProfilePageState extends State<ProfilePage> {
     return photoURL;
   }
 
-  /// Example code for sign out.
   Future<void> _signOut() async {
-    await FirebaseAuth.instance.signOut().then((_) {
-      Navigator.of(context).pushReplacementNamed(LOGIN_PAGE);
-    });
+    await FirebaseAuth.instance.signOut();
     await GoogleSignIn().signOut();
   }
 }
