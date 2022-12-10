@@ -25,7 +25,7 @@ class _JuzPageState extends State<JuzPage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-        backgroundColor: greenColor5,
+        backgroundColor: kBackgroundColor,
       body: ListView.builder(
           itemCount: titles.length,
           itemBuilder: (context, index) {
@@ -44,7 +44,7 @@ class _JuzPageState extends State<JuzPage> {
                 children: [
                   Center(
                     child: Card(
-                      color: greenColor5,
+                      color: kBackgroundColor,
                       elevation: 0.0,
                       child: ListTile(
                         dense: true,

@@ -28,7 +28,7 @@ class _ListHadistPageState extends State<ListHadistPage> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        backgroundColor: Theme.of(context).primaryColor,
+        backgroundColor: kPrimaryColor,
         elevation: 0.0,
         title: Text(
           'List Hadist',
@@ -74,8 +74,8 @@ class _ListHadistPageState extends State<ListHadistPage> {
                         decoration: BoxDecoration(
                             gradient: LinearGradient(
                                 colors: [
-                                  greenColor,
-                                  greenColor2
+                                  kPrimaryColor,
+                                  kSecondaryColor
                                 ]
                             ),
                             borderRadius: BorderRadius.circular(16)),
@@ -162,28 +162,6 @@ class _ListHadistPageState extends State<ListHadistPage> {
                                 letterSpacing: 0.3,
                               ),
                             ),
-                            // Row(
-                            //   mainAxisSize: MainAxisSize.max,
-                            //   crossAxisAlignment:
-                            //       CrossAxisAlignment.center,
-                            //   mainAxisAlignment: MainAxisAlignment.end,
-                            //   children: [
-                            //     IconButton(
-                            //       onPressed: () {
-                            //         // context.read<SurahLocalBloc>().add(
-                            //         //   RemoveSurahEvent(
-                            //         //     state.result,
-                            //         //     data ?? VerseSurah(),
-                            //         //   ),
-                            //         // );
-                            //       },
-                            //       icon: const Icon(
-                            //         Icons.bookmark_border_outlined,
-                            //         size: 16,
-                            //       ),
-                            //     ),
-                            //   ],
-                            // )
                           ],
                         ),
                       );

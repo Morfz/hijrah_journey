@@ -1,19 +1,16 @@
 import 'package:flutter/material.dart';
 
 // colors
-const Color kPrimaryColor = Color(0xFF4CA86E);
-const Color kSecondaryColor= Color(0xFF0085FF);
-const Color kBackgroundColor = Color(0xFFFFFFFF);
+const Color kPrimaryColor = Color(0xFF53C889);
+const Color kSecondaryColor= Color(0xFF40BD79);
+const Color kBackgroundColor = Color(0xFFEFFCF5);
 const Color kMikadoYellow = Color(0xFF4CA86E);
 const Color kDavysGrey = Color(0xFF4B5358);
 const Color kGrey = Color(0xFF303030);
 const Color kBlueColor = Color(0xFFF0F5FC);
 
-const Color greenColor = Color(0xFF53C889);
-const Color greenColor2 = Color(0xFF40BD79);
 const Color greenColor3 = Color(0xFF16B960);
 const Color greenColor4 = Color(0xFFCFF9E3);
-const Color greenColor5 = Color(0xFFEFFCF5);
 const Color greyColor = Color(0xFFECECEC);
 
 const Color whiteColor = Colors.white;

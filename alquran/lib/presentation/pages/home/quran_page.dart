@@ -15,7 +15,7 @@ class _QuranPageState extends State<QuranPage> with TickerProviderStateMixin {
   Widget build(BuildContext context) {
     TabController _tabController = TabController(length: 2, vsync: this);
     return Scaffold(
-      backgroundColor: greenColor5,
+      backgroundColor: kBackgroundColor,
       body: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
@@ -41,7 +41,7 @@ class _QuranPageState extends State<QuranPage> with TickerProviderStateMixin {
               borderRadius: BorderRadius.circular(20),
             ),
             child: TabBar(
-              indicatorColor: greenColor,
+              indicatorColor: kPrimaryColor,
               indicatorSize: TabBarIndicatorSize.label,
               controller: _tabController,
               labelColor: Colors.black,
@@ -52,7 +52,7 @@ class _QuranPageState extends State<QuranPage> with TickerProviderStateMixin {
               ],
             ),
           ),
-          Flexible(
+          Expanded(
               child: Container(
                 width: double.maxFinite,
                 height: MediaQuery.of(context).size.height,
