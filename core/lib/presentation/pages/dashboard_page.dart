@@ -338,7 +338,7 @@ class _PageMainState extends State<PageMain> {
                                       padding: const EdgeInsets.all(5),
                                       child: Column(
                                         children: [
-                                          Image.asset('assets/tasbih.png',
+                                          Image.asset('assets/doaa.png',
                                               scale: 6.5),
                                           const Text("Do'a Harian",
                                               style: TextStyle(
@@ -436,7 +436,7 @@ class _PageMainState extends State<PageMain> {
                                         children: [
                                           Image.asset('assets/tasbih.png',
                                               scale: 6.5),
-                                          const Text("Tasbih",
+                                          const Text("The Tasbih",
                                               style: TextStyle(
                                                   fontWeight: FontWeight.bold)),
                                           OutlinedButton(
@@ -444,8 +444,7 @@ class _PageMainState extends State<PageMain> {
                                               Navigator.push(
                                                 context,
                                                 MaterialPageRoute(
-                                                    builder: (context) =>
-                                                    TasbihPage()),
+                                                    builder: (context) => TasbihPage()),
                                               );
                                             },
                                             child: const Text("Pilih"),

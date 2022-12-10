@@ -62,13 +62,13 @@ class _TasbihPageState extends State<TasbihPage> {
         ],
       ),
       body: GestureDetector(
-        onTap: () async {
+        onTap: () {
           _clicked();
-          await Vibrate.vibrate();
+          Vibrate.feedback(FeedbackType.medium);
         },
-        onVerticalDragStart: (details) async {
+        onVerticalDragStart: (details) {
           _clicked();
-          await Vibrate.vibrate();
+          Vibrate.feedback(FeedbackType.medium);
         },
         child: Container(
           color: kBackgroundColor,

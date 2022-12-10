@@ -29,6 +29,13 @@
             {
               "client_id": "77666331389-80rhir9kl6c3aaf7u45s90vpkofdr0rg.apps.googleusercontent.com",
               "client_type": 3
+            },
+            {
+              "client_id": "77666331389-srtn9p3a6iq41hs5tv8lbcv97al01cqu.apps.googleusercontent.com",
+              "client_type": 2,
+              "ios_info": {
+                "bundle_id": "com.example.hijrahJourney"
+              }
             }
           ]
         }
