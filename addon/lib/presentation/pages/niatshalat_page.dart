@@ -10,6 +10,7 @@ class NiatShalatPage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      backgroundColor: kBackgroundColor,
       appBar: AppBar(
         backgroundColor: kPrimaryColor,
         leading: IconButton(
@@ -39,9 +40,10 @@ class NiatShalatPage extends StatelessWidget {
     return Padding(
         padding: const EdgeInsets.all(8.0),
         child: Card(
-          shape:
-              RoundedRectangleBorder(borderRadius: BorderRadius.circular(10)),
-          elevation: 5,
+          shape: RoundedRectangleBorder(
+              borderRadius: BorderRadius.circular(10)
+          ),
+          elevation: 1,
           margin: const EdgeInsets.all(5),
           child: Theme(
             data: Theme.of(context).copyWith(dividerColor: Colors.transparent),
@@ -59,8 +61,7 @@ class NiatShalatPage extends StatelessWidget {
                     crossAxisAlignment: CrossAxisAlignment.center,
                     children: [
                       Expanded(
-                          child: Container(
-                        padding: const EdgeInsets.only(bottom: 8),
+                        child: Container(
                         child: Column(
                           mainAxisAlignment: MainAxisAlignment.center,
                           crossAxisAlignment: CrossAxisAlignment.start,

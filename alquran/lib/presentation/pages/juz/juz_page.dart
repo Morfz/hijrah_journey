@@ -48,23 +48,23 @@ class _JuzPageState extends State<JuzPage> {
                       elevation: 0.0,
                       child: ListTile(
                         dense: true,
-                        // leading: Container(
-                        //   width: 36,
-                        //   height: 30,
-                        //   alignment: Alignment.center,
-                        //   decoration: BoxDecoration(
-                        //     shape: BoxShape.rectangle,
-                        //     borderRadius: BorderRadius.circular(8),
-                        //     color: greenColor4,
-                        //   ),
-                        //   child: Text(
-                        //     '${index+1}',
-                        //     style: openSansMedium.copyWith(
-                        //       fontSize: 16,
-                        //       color: Colors.black,
-                        //     ),
-                        //   ),
-                        // ),
+                        leading: Container(
+                          width: 36,
+                          height: 30,
+                          alignment: Alignment.center,
+                          decoration: BoxDecoration(
+                            shape: BoxShape.rectangle,
+                            borderRadius: BorderRadius.circular(8),
+                            color: greenColor4,
+                          ),
+                          child: Text(
+                            '${index+1}',
+                            style: openSansMedium.copyWith(
+                              fontSize: 16,
+                              color: Colors.black,
+                            ),
+                          ),
+                        ),
                         title: Text(
                           titles[index],
                           style: openSansNormal.copyWith(

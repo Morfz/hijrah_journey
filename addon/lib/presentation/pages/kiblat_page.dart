@@ -48,7 +48,7 @@ class _KiblatPageState extends State<KiblatPage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: Colors.white,
+      backgroundColor: kBackgroundColor,
       appBar: AppBar(
         backgroundColor: kPrimaryColor,
         elevation: 0.0,

@@ -14,6 +14,7 @@ class WaktuSholatPage extends StatelessWidget {
       create: (context) =>
           HarianJadwalSholatProvider(apiService: WaktuSholatApiService()),
       child: Scaffold(
+          backgroundColor: kBackgroundColor,
           appBar: AppBar(
             backgroundColor: kPrimaryColor,
             title: Row(

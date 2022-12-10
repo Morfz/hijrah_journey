@@ -23,6 +23,7 @@ class _DoaPageState extends State<DoaPage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      backgroundColor: kBackgroundColor,
       appBar: AppBar(
         backgroundColor: kPrimaryColor,
         title: const Text('Doa'),
@@ -43,7 +44,7 @@ class _DoaPageState extends State<DoaPage> {
                   return Card(
                     shape: RoundedRectangleBorder(
                         borderRadius: BorderRadius.circular(10)),
-                    elevation: 5,
+                    elevation: 1,
                     margin: const EdgeInsets.all(5),
                     child: Theme(
                       data: Theme.of(context)
