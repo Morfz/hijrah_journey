@@ -3,6 +3,7 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:hadist/presentation/bloc/list_hadist/list_hadist_bloc.dart';
+import 'package:hadist/presentation/pages/rawi_page.dart';
 
 class ListHadistPage extends StatefulWidget {
   static const routeName = '/list-hadist-page';
@@ -28,6 +29,12 @@ class _ListHadistPageState extends State<ListHadistPage> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
+        leading: IconButton(
+          icon: const Icon(Icons.arrow_back),
+          onPressed: () {
+            Navigator.pop(context);
+          },
+        ),
         backgroundColor: Theme.of(context).primaryColor,
         elevation: 0.0,
         title: Text(

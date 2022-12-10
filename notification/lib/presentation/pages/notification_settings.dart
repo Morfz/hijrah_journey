@@ -3,7 +3,7 @@ import 'package:provider/provider.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 import 'package:sholat/data/api/api_waktu_sholat.dart';
 import 'package:sholat/presentation/providers/harian_waktu_sholat_provider.dart';
-import '../../common/notification.dart';
+import 'package:notification/common/notification.dart';
 import 'package:core/core.dart';
 
 class NotificationSettingsPages extends StatefulWidget {
