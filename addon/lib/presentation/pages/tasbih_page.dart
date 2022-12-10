@@ -64,11 +64,9 @@ class _TasbihPageState extends State<TasbihPage> {
       body: GestureDetector(
         onTap: () {
           _clicked();
-          Vibrate.feedback(FeedbackType.medium);
         },
         onVerticalDragStart: (details) {
           _clicked();
-          Vibrate.feedback(FeedbackType.medium);
         },
         child: Container(
           color: kBackgroundColor,
@@ -146,9 +144,10 @@ class _TasbihPageState extends State<TasbihPage> {
     if (!_isDisposed) {
       setState(() {
         _jumlah++;
-        if (_jumlah > 33) {
-          _jumlah = 1;
+        if (_jumlah > 32) {
+          _jumlah = 0;
           _putaran++;
+          Vibrate.feedback(FeedbackType.medium);
         }
       });
     }
