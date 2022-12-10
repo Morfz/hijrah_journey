@@ -28,6 +28,12 @@ class _ListHadistPageState extends State<ListHadistPage> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
+        leading: IconButton(
+          icon: const Icon(Icons.arrow_back_ios),
+          onPressed: () {
+            Navigator.pop(context);
+          },
+        ),
         backgroundColor: kPrimaryColor,
         elevation: 0.0,
         title: Text(
