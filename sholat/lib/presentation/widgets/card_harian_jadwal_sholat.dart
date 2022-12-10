@@ -114,7 +114,7 @@ class _CardJadwalSholatHarianState extends State<CardJadwalSholatHarian> {
                                                     ),
                                                     Center(
                                                       child: Text(
-                                                        list[index].sunrise,
+                                                        list[index].fajr,
                                                         textAlign:
                                                             TextAlign.justify,
                                                         overflow:
@@ -156,7 +156,7 @@ class _CardJadwalSholatHarianState extends State<CardJadwalSholatHarian> {
                                                     ),
                                                     Center(
                                                       child: Text(
-                                                        list[index].fajr,
+                                                        list[index].sunrise,
                                                         textAlign:
                                                             TextAlign.justify,
                                                         overflow:
