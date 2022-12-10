@@ -88,7 +88,7 @@ class MyApp extends StatelessWidget {
                 if (snapshot.hasData) {
                   return const HijrahHomePage();
                 }
-                return const LoginPage();
+                return const HijrahHomePage();
               }),
           navigatorObservers: [routeObserver],
           onGenerateRoute: (RouteSettings settings) {
@@ -113,7 +113,8 @@ class MyApp extends StatelessWidget {
               case LIST_HADIST_PAGE:
                 final id = settings.arguments as String;
                 return MaterialPageRoute(
-                    builder: (context) => ListHadistPage(id: id), settings: settings);
+                    builder: (context) => ListHadistPage(id: id),
+                    settings: settings);
               case WAKTU_SHOLAT_PAGE:
                 return MaterialPageRoute(
                     builder: (context) => const WaktuSholatPage());
