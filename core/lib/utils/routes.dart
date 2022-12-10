@@ -14,3 +14,4 @@ const SURAH_PAGE = '/surah-page';
 const SURAH_DETAIL_PAGE = '/surah-detail-page';
 const JUZ_PAGE = '/juz-page';
 const JUZ_DETAIL_PAGE = '/juz-detail-page';
+const KIBLAT_PAGE = '/kiblat-page';

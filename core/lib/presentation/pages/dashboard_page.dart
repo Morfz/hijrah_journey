@@ -1,4 +1,5 @@
 import 'package:addon/presentation/pages/doa_page.dart';
+import 'package:addon/presentation/pages/kiblat_page.dart';
 import 'package:addon/presentation/pages/tasbih_page.dart';
 import 'package:core/core.dart';
 import 'package:firebase_auth/firebase_auth.dart';
@@ -445,6 +446,37 @@ class _PageMainState extends State<PageMain> {
                                                 context,
                                                 MaterialPageRoute(
                                                     builder: (context) => TasbihPage()),
+                                              );
+                                            },
+                                            child: const Text("Pilih"),
+                                          )
+                                        ],
+                                      )),
+                                ],
+                              ),
+                            ),
+                          ),
+                          Expanded(
+                            child: Padding(
+                              padding:
+                              const EdgeInsets.fromLTRB(10, 15, 10, 15),
+                              child: Column(
+                                children: [
+                                  Padding(
+                                      padding: const EdgeInsets.all(5),
+                                      child: Column(
+                                        children: [
+                                          Image.asset('assets/kiblat.png',
+                                              scale: 6.5),
+                                          const Text("Arah Kiblat",
+                                              style: TextStyle(
+                                                  fontWeight: FontWeight.bold)),
+                                          OutlinedButton(
+                                            onPressed: () {
+                                              Navigator.push(
+                                                context,
+                                                MaterialPageRoute(
+                                                    builder: (context) => KiblatPage()),
                                               );
                                             },
                                             child: const Text("Pilih"),
