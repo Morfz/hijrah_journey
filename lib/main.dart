@@ -1,5 +1,6 @@
 import 'package:addon/presentation/bloc/doa/doa_bloc.dart';
 import 'package:addon/presentation/pages/doa_page.dart';
+import 'package:addon/presentation/pages/tasbih_page.dart';
 import 'package:alquran/presentation/bloc/juz_detail/juz_detail_bloc.dart';
 import 'package:alquran/presentation/bloc/surah/surah_bloc.dart';
 import 'package:alquran/presentation/bloc/surah_detail/surah_detail_bloc.dart';
@@ -138,6 +139,9 @@ class MyApp extends StatelessWidget {
                     builder: (_) => JuzDetailPage(id: id), settings: settings);
               case ASMAUL_HUSNA:
                 return MaterialPageRoute(builder: (context) => AsmaulHusnaPage());
+              case TASBIH_PAGE:
+                return MaterialPageRoute(
+                    builder: (context) => TasbihPage());
               default:
                 return MaterialPageRoute(builder: (_) {
                   return const Scaffold(
