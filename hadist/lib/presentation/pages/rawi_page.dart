@@ -36,7 +36,7 @@ class _RawiPageState extends State<RawiPage> {
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
                 Container(
-                  padding: const EdgeInsets.only(left: 20, top: 70),
+                  padding: const EdgeInsets.only(left: 20, top: 50),
                   child: Text(
                     'Hadist',
                     style: TextStyle(
@@ -47,7 +47,7 @@ class _RawiPageState extends State<RawiPage> {
                   ),
                 ),
                 const SizedBox(
-                  height: 10,
+                  height: 20,
                 ),
                 Flexible(
                     child: ListView.builder(

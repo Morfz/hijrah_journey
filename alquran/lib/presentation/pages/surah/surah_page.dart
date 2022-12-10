@@ -103,7 +103,7 @@ class _SurahPageState extends State<SurahPage> {
                         ),
                       ),
                       const Divider(
-                        thickness: 1,
+                        thickness: 0.5,
                         color: Colors.grey,
                       ),
                     ],

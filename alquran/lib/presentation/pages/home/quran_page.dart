@@ -20,7 +20,7 @@ class _QuranPageState extends State<QuranPage> with TickerProviderStateMixin {
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
           Container(
-              padding: const EdgeInsets.only(left: 20, top: 70),
+              padding: const EdgeInsets.only(left: 20, top: 50),
               child: Text(
                 'Al-Quran',
                 style: TextStyle(
@@ -31,9 +31,15 @@ class _QuranPageState extends State<QuranPage> with TickerProviderStateMixin {
               ),
           ),
           const SizedBox(
-            height: 10,
+            height: 20,
           ),
           Container(
+            height: 45,
+            margin: EdgeInsets.only(left: 20, right: 20),
+            decoration: BoxDecoration(
+              color: Colors.white,
+              borderRadius: BorderRadius.circular(20),
+            ),
             child: TabBar(
               indicatorColor: greenColor,
               indicatorSize: TabBarIndicatorSize.label,
