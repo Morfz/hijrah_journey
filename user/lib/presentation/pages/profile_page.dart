@@ -79,11 +79,10 @@ class _ProfilePageState extends State<ProfilePage> {
 
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-      backgroundColor: kBackgroundColor,
-      body: GestureDetector(
+    return GestureDetector(
         onTap: FocusScope.of(context).unfocus,
-        child: Stack(
+        child: Scaffold(
+        body: Stack(
             children: [
               Container(
                 padding: const EdgeInsets.only(left: 20, top: 50),
