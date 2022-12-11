@@ -16,7 +16,7 @@ class SurahDetail extends Equatable {
   int? sequence;
   int? numberOfVerses;
   NameSurah? name;
-  Revelation? revelation;
+  RevelationSurahDetail? revelation;
   DataTafsir? tafsir;
   PreBismillahSurahDetail? preBismillah;
   List<VerseSurah>? verses;
@@ -131,8 +131,8 @@ class TransliterationSurahDetail extends Equatable {
   List<Object?> get props => [en];
 }
 
-class Revelation extends Equatable {
-  Revelation({
+class RevelationSurahDetail extends Equatable {
+  RevelationSurahDetail({
     this.arab,
     this.en,
     this.id,

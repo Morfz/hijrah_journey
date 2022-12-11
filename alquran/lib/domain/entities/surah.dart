@@ -1,3 +1,4 @@
+import 'package:alquran/data/models/juz_model.dart';
 import 'package:equatable/equatable.dart';
 
 class Surah extends Equatable {
@@ -6,6 +7,7 @@ class Surah extends Equatable {
   final NameSurah nameSurah;
   final TransliterationSurah transliterationSurah;
   final TranslationSurah translation;
+  final RevelationSurah revelation;
 
   const Surah({
     required this.number,
@@ -13,6 +15,7 @@ class Surah extends Equatable {
     required this.nameSurah,
     required this.transliterationSurah,
     required this.translation,
+    required this.revelation,
   });
 
   @override
@@ -22,6 +25,7 @@ class Surah extends Equatable {
         nameSurah,
         transliterationSurah,
         translation,
+        revelation
       ];
 }
 
@@ -47,6 +51,14 @@ class TranslationSurah extends Equatable {
   final String id;
 
   const TranslationSurah(this.id);
+  @override
+  List<Object?> get props => [id];
+}
+
+class RevelationSurah extends Equatable {
+  final String id;
+
+  const RevelationSurah(this.id);
   @override
   List<Object?> get props => [id];
 }

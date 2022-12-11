@@ -35,45 +35,40 @@ class _SurahDetailPageState extends State<SurahDetailPage> {
                 child: CircularProgressIndicator(),
               );
             } else if (state is SurahDetailHasData) {
-              final juz = state.result.verses?.first;
               return Column(
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
-                  Container(
-                    height: 32,
-                    padding: const EdgeInsets.only(
-                      left: 20,
-                      right: 18,
-                    ),
-                    width: double.infinity,
-                    color: kPrimaryColor,
-                    child: Row(
-                      crossAxisAlignment: CrossAxisAlignment.center,
-                      mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                      children: [
-                        Text(
-                          "${state.result.name?.transliteration?.id}",
-                          style: openSansMedium.copyWith(
-                            fontSize: 16,
-                            letterSpacing: 0.3,
-                            color: Colors.white,
-                          ),
-                        ),
-                        Text(
-                          "Juz ${juz?.meta?.juz}",
-                          style: openSansMedium.copyWith(
-                            fontSize: 16,
-                            letterSpacing: 0.3,
-                            color: Colors.white,
-                          ),
-                        )
-                      ],
-                    ),
-                  ),
                   Expanded(
                     child: ListView(
                       shrinkWrap: true,
                       children: [
+                        Container(
+                          padding: const EdgeInsets.only(left: 40, right: 20, bottom: 20),
+                          width: MediaQuery.of(context).size.width,
+                          color: kPrimaryColor,
+                          child: Column(
+                            crossAxisAlignment: CrossAxisAlignment.start,
+                            children: <Widget>[
+                              Text(
+                                "${state.result.name?.transliteration?.id}",
+                                style: openSansNormal.copyWith(
+                                  fontSize: 24,
+                                  color: Colors.white,
+                                  fontWeight: FontWeight.bold
+                                ),
+                                textAlign: TextAlign.start,
+                              ),
+                              Text(
+                                "${state.result.revelation?.id} - ${state.result.name?.translation?.id} - ${state.result.numberOfVerses} Ayat",
+                                style: openSansNormal.copyWith(
+                                  fontSize: 16,
+                                  color: Colors.white,
+                                ),
+                                textAlign: TextAlign.start,
+                              ),
+                            ],
+                          ),
+                        ),
                         if (state.result.preBismillah?.text?.arab?.isNotEmpty ==
                             true) ...[
                           Container(

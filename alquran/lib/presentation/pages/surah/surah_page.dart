@@ -81,7 +81,7 @@ class _SurahPageState extends State<SurahPage> {
                               ),
                             ),
                             subtitle: Text(
-                              '${surah.translation.id} | ${surah.numberOfVerse} Ayat',
+                              '${surah.revelation.id} | ${surah.translation.id} | ${surah.numberOfVerse} Ayat',
                               style: openSansNormal.copyWith(
                                 fontSize: 14,
                                 color: Colors.black,

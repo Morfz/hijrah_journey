@@ -29,19 +29,16 @@ class _ListHadistPageState extends State<ListHadistPage> {
     return Scaffold(
       appBar: AppBar(
         leading: IconButton(
-          icon: const Icon(Icons.arrow_back_ios),
+          icon: const Icon(Icons.arrow_back),
           onPressed: () {
             Navigator.pop(context);
           },
         ),
         backgroundColor: kPrimaryColor,
         elevation: 0.0,
-        title: Text(
-          'List Hadist',
-        ),
         actions: <Widget>[
           IconButton(
-            icon: Icon(
+            icon: const Icon(
               Icons.filter_list,
               color: Colors.white,
               size: 24,
@@ -67,38 +64,31 @@ class _ListHadistPageState extends State<ListHadistPage> {
             } else if (state is ListHadistHasData) {
               return ListView(
                 children: [
-                  Center(
-                    child: Card(
-                      elevation: 0,
-                      shape: RoundedRectangleBorder(
-                        borderRadius: BorderRadius.circular(16),
-                      ),
-                      margin: const EdgeInsets.all(16),
-                      child: Container(
-                        height: MediaQuery.of(context).size.height * 0.15,
-                        width: MediaQuery.of(context).size.height * 0.5,
-                        decoration: BoxDecoration(
-                            gradient: LinearGradient(
-                                colors: [
-                                  kPrimaryColor,
-                                  kSecondaryColor
-                                ]
-                            ),
-                            borderRadius: BorderRadius.circular(16)),
-                        child: Column(
-                          mainAxisAlignment: MainAxisAlignment.center,
-                          children: <Widget>[
-                            Text(
-                              "${state.result.name}",
-                              style: kHeading6.copyWith(color: Colors.white),
-                            ),
-                            Text(
-                              "${state.result.available} Hadist",
-                              style: kBodyText.copyWith(color: Colors.white),
-                            ),
-                          ],
+                  Container(
+                    padding: const EdgeInsets.only(left: 40, right: 20, bottom: 20),
+                    width: MediaQuery.of(context).size.width,
+                    color: kPrimaryColor,
+                    child: Column(
+                      crossAxisAlignment: CrossAxisAlignment.start,
+                      children: <Widget>[
+                        Text(
+                          "${state.result.name}",
+                          style: openSansNormal.copyWith(
+                              fontSize: 24,
+                              color: Colors.white,
+                              fontWeight: FontWeight.bold
+                          ),
+                          textAlign: TextAlign.start,
                         ),
-                      ),
+                        Text(
+                          "${state.result.available} Hadist",
+                          style: openSansNormal.copyWith(
+                            fontSize: 16,
+                            color: Colors.white,
+                          ),
+                          textAlign: TextAlign.start,
+                        ),
+                      ],
                     ),
                   ),
                   ListView.builder(
@@ -114,7 +104,7 @@ class _ListHadistPageState extends State<ListHadistPage> {
                           right: 20,
                           bottom: 16,
                         ),
-                        color: index % 2 == 0 ? Colors.white : CupertinoColors.systemGrey6,
+                        color: index % 2 == 0 ? kBackgroundColor : CupertinoColors.systemGrey6,
                         child: Column(
                           crossAxisAlignment: CrossAxisAlignment.start,
                           children: [

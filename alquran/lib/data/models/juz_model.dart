@@ -38,6 +38,8 @@ class JuzDetailModel extends Equatable {
   JuzDetail toEntity() {
     return JuzDetail(
       juz: juz ?? -1,
+      juzStartInfo: juzStartInfo ?? "",
+      juzEndInfo: juzEndInfo ?? "",
       verses: verses
           ?.map(
             (e) => VerseJuz(

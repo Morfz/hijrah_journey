@@ -41,6 +41,7 @@ class SurahModel extends Equatable {
       number: number ?? 0,
       numberOfVerse: numberOfVerses ?? 0,
       nameSurah: NameSurah(name?.short ?? ""),
+      revelation: RevelationSurah(revelation?.id ?? ""),
       transliterationSurah:
           TransliterationSurah(name?.transliteration?.id ?? ""),
       translation: TranslationSurah(name?.translation?.id ?? ""),

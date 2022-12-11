@@ -79,6 +79,7 @@ class _LoginPageState extends State<LoginPage> {
     return GestureDetector(
       onTap: FocusScope.of(context).unfocus,
       child: Scaffold(
+        backgroundColor: kBackgroundColor,
         body: Center(
           child: SingleChildScrollView(
             child: Padding(

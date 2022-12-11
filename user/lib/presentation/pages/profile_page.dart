@@ -80,20 +80,22 @@ class _ProfilePageState extends State<ProfilePage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(
-        backgroundColor: kPrimaryColor,
-        title: Row(
-          mainAxisAlignment: MainAxisAlignment.spaceBetween,
-          children: const [
-            Text('Profile'),
-          ],
-        ),
-      ),
+      backgroundColor: kBackgroundColor,
       body: GestureDetector(
         onTap: FocusScope.of(context).unfocus,
-        child: Scaffold(
-          body: Stack(
+        child: Stack(
             children: [
+              Container(
+                padding: const EdgeInsets.only(left: 20, top: 50),
+                child: Text(
+                  'Profile',
+                  style: TextStyle(
+                      fontWeight: FontWeight.bold,
+                      fontSize: 30.toDouble(),
+                      color:Colors.black
+                  ),
+                ),
+              ),
               Center(
                 child: SizedBox(
                   width: 400,
@@ -194,8 +196,7 @@ class _ProfilePageState extends State<ProfilePage> {
             ],
           ),
         ),
-      ),
-    );
+      );
   }
 
   Future<String?> getPhotoURLFromUser() async {

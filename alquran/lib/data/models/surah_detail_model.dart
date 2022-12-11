@@ -43,15 +43,24 @@ class SurahDetailModel extends Equatable {
   SurahDetail toEntity() {
     return SurahDetail(
       number: number,
+      numberOfVerses: numberOfVerses,
       preBismillah: PreBismillahSurahDetail(
         text: TextSurahDetail(
           arab: preBismillah?.text?.arab ?? "",
         ),
       ),
       name: NameSurah(
+        short: name?.short ?? "",
         transliteration: TranslationSurahDetail(
           id: name?.transliteration?.id ?? "",
         ),
+        translation: TranslationSurahDetail(
+          id: name?.translation?.id ?? "",
+        )
+      ),
+      revelation: RevelationSurahDetail(
+        arab: revelation?.arab ?? "",
+        id: revelation?.id ?? "",
       ),
       verses: verses
           ?.map(

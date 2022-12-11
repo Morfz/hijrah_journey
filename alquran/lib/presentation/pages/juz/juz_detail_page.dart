@@ -24,12 +24,10 @@ class _JuzDetailPageState extends State<JuzDetailPage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      backgroundColor: kBackgroundColor,
       appBar: AppBar(
+        backgroundColor: kPrimaryColor,
         elevation: 0.0,
-        title: Text(
-          'Surah',
-          style: openSansMedium,
-        ),
       ),
       body: BlocBuilder<JuzDetailBloc, JuzDetailState>(
           builder: (context, state) {
@@ -38,45 +36,40 @@ class _JuzDetailPageState extends State<JuzDetailPage> {
                 child: CircularProgressIndicator(),
               );
             } else if (state is JuzDetailHasData) {
-              final juz = state.result.verses?.first;
               return Column(
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
-                  Container(
-                    height: 32,
-                    padding: const EdgeInsets.only(
-                      left: 20,
-                      right: 18,
-                    ),
-                    width: double.infinity,
-                    color: kPrimaryColor,
-                    child: Row(
-                      crossAxisAlignment: CrossAxisAlignment.center,
-                      mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                      children: [
-                        // Text(
-                        //   "${state.result.name?.transliteration?.id}",
-                        //   style: openSansMedium.copyWith(
-                        //     fontSize: 16,
-                        //     letterSpacing: 0.3,
-                        //     color: whiteColor,
-                        //   ),
-                        // ),
-                        Text(
-                          "Juz ${juz?.meta?.juz}",
-                          style: openSansMedium.copyWith(
-                            fontSize: 16,
-                            letterSpacing: 0.3,
-                            color: Colors.white,
-                          ),
-                        )
-                      ],
-                    ),
-                  ),
                   Expanded(
                     child: ListView(
                       shrinkWrap: true,
                       children: [
+                        Container(
+                          padding: const EdgeInsets.only(left: 40, right: 20, bottom: 20),
+                          width: MediaQuery.of(context).size.width,
+                          color: kPrimaryColor,
+                          child: Column(
+                            crossAxisAlignment: CrossAxisAlignment.start,
+                            children: <Widget>[
+                              Text(
+                                "Juz ${state.result.juz}",
+                                style: openSansNormal.copyWith(
+                                    fontSize: 24,
+                                    color: Colors.white,
+                                    fontWeight: FontWeight.bold
+                                ),
+                                textAlign: TextAlign.start,
+                              ),
+                              Text(
+                                "${state.result.juzStartInfo} | ${state.result.juzEndInfo}",
+                                style: openSansNormal.copyWith(
+                                  fontSize: 16,
+                                  color: Colors.white,
+                                ),
+                                textAlign: TextAlign.start,
+                              ),
+                            ],
+                          ),
+                        ),
                         ListView.builder(
                           physics: const NeverScrollableScrollPhysics(),
                           shrinkWrap: true,
@@ -90,7 +83,7 @@ class _JuzDetailPageState extends State<JuzDetailPage> {
                                 right: 20,
                                 bottom: 16,
                               ),
-                              color: index % 2 == 0 ? Colors.black12 : Colors.white,
+                              color: index % 2 == 0 ? kBackgroundColor : Colors.white,
                               child: Column(
                                 crossAxisAlignment: CrossAxisAlignment.start,
                                 children: [
