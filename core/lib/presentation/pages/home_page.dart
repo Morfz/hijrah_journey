@@ -4,6 +4,7 @@ import 'package:fluid_bottom_nav_bar/fluid_bottom_nav_bar.dart';
 import 'package:flutter/material.dart';
 import 'package:hadist/presentation/pages/rawi_page.dart';
 import 'package:user/presentation/pages/profile_page.dart';
+import 'package:flutter_islamic_icons/flutter_islamic_icons.dart';
 
 import 'dashboard_page.dart';
 
@@ -39,12 +40,12 @@ class _HijrahHomePageState extends State<HijrahHomePage>{
               extras: {'label': 'Home'},
             ),
             FluidNavBarIcon(
-              icon: Icons.menu_book_rounded,
+              icon: FlutterIslamicIcons.solidQuran,
               backgroundColor: kPrimaryColor,
               extras: {'label': 'Al-Quran'},
             ),
             FluidNavBarIcon(
-              icon: Icons.library_books_rounded,
+              icon: FlutterIslamicIcons.solidQuran2,
               backgroundColor: kPrimaryColor,
               extras: {'label': 'Hadist'},
             ),

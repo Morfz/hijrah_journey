@@ -326,7 +326,7 @@ class _PageMainState extends State<PageMain> {
                                         width: 60,
                                         height: 60,
                                       ),
-                                      const Text("Doa Harian"),
+                                      const Text("Doa Harian", style: TextStyle(fontWeight: FontWeight.bold)),
                                       OutlinedButton(
                                         onPressed: () {
                                           Navigator.push(
@@ -352,7 +352,7 @@ class _PageMainState extends State<PageMain> {
                                         width: 60,
                                         height: 60,
                                       ),
-                                      const Text("Jadwal Shalat"),
+                                      const Text("Jadwal Shalat", style: TextStyle(fontWeight: FontWeight.bold)),
                                       OutlinedButton(
                                         onPressed: () {
                                           Navigator.push(
@@ -378,7 +378,7 @@ class _PageMainState extends State<PageMain> {
                                         width: 60,
                                         height: 60,
                                       ),
-                                      const Text("Niat Shalat"),
+                                      const Text("Niat Shalat", style: TextStyle(fontWeight: FontWeight.bold)),
                                       OutlinedButton(
                                         onPressed: () {
                                           Navigator.push(
@@ -404,7 +404,7 @@ class _PageMainState extends State<PageMain> {
                                         width: 60,
                                         height: 60,
                                       ),
-                                      const Text("Arah Kiblat"),
+                                      const Text("Arah Kiblat", style: TextStyle(fontWeight: FontWeight.bold)),
                                       OutlinedButton(
                                         onPressed: () {
                                           Navigator.push(
@@ -430,7 +430,7 @@ class _PageMainState extends State<PageMain> {
                                         width: 60,
                                         height: 60,
                                       ),
-                                      const Text("The Tasbih"),
+                                      const Text("The Tasbih", style: TextStyle(fontWeight: FontWeight.bold)),
                                       OutlinedButton(
                                         onPressed: () {
                                           Navigator.push(
@@ -456,7 +456,7 @@ class _PageMainState extends State<PageMain> {
                                         width: 60,
                                         height: 60,
                                       ),
-                                      const Text("Asmaul Husna"),
+                                      const Text("Asmaul Husna", style: TextStyle(fontWeight: FontWeight.bold)),
                                       OutlinedButton(
                                         onPressed: () {
                                           Navigator.push(
