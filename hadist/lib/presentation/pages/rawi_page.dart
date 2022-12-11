@@ -29,14 +29,14 @@ class _RawiPageState extends State<RawiPage> {
         builder: (context, state) {
           if (state is RawiLoading) {
             return const Center(
-              child: CircularProgressIndicator(),
+              child: CircularProgressIndicator(color: kPrimaryColor,),
             );
           } else if (state is RawiHasData) {
             return Column(
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
                 Container(
-                  padding: const EdgeInsets.only(left: 150, top: 50),
+                  padding: const EdgeInsets.only(left: 20, top: 50),
                   child: Text(
                     'Hadist',
                     style: TextStyle(

@@ -33,7 +33,7 @@ class _JuzDetailPageState extends State<JuzDetailPage> {
           builder: (context, state) {
             if (state is JuzDetailLoading) {
               return const Center(
-                child: CircularProgressIndicator(),
+                child: CircularProgressIndicator(color: kPrimaryColor,),
               );
             } else if (state is JuzDetailHasData) {
               return Column(

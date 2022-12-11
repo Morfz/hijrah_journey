@@ -32,7 +32,7 @@ class _SurahDetailPageState extends State<SurahDetailPage> {
           builder: (context, state) {
             if (state is SurahDetailLoading) {
               return const Center(
-                child: CircularProgressIndicator(),
+                child: CircularProgressIndicator(color: kPrimaryColor,),
               );
             } else if (state is SurahDetailHasData) {
               return Column(

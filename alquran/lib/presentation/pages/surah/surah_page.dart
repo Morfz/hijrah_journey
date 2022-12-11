@@ -29,7 +29,7 @@ class _SurahPageState extends State<SurahPage> {
         builder: (context, state) {
           if (state is SurahLoading) {
             return const Center(
-              child: CircularProgressIndicator(),
+              child: CircularProgressIndicator(color: kPrimaryColor,),
             );
           } else if (state is SurahHasData) {
             return ListView.builder(

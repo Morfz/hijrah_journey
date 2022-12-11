@@ -55,7 +55,7 @@ class _ListHadistPageState extends State<ListHadistPage> {
           builder: (context, state) {
             if (state is ListHadistLoading) {
               return const Center(
-                child: CircularProgressIndicator(),
+                child: CircularProgressIndicator(color: kPrimaryColor,),
               );
             } else if (state is ListHadistError) {
               return Center(
