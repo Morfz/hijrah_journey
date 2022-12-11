@@ -36,7 +36,7 @@ class _RawiPageState extends State<RawiPage> {
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
                 Container(
-                  padding: const EdgeInsets.only(left: 20, top: 50),
+                  padding: const EdgeInsets.only(left: 150, top: 50),
                   child: Text(
                     'Hadist',
                     style: TextStyle(
