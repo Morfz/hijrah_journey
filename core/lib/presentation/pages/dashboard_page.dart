@@ -349,7 +349,7 @@ class _PageMainState extends State<PageMain> {
                                         width: 60,
                                         height: 60,
                                       ),
-                                      const Text("Jadwal Shalat", style: TextStyle(fontWeight: FontWeight.bold)),
+                                      const Text("Jadwal Shalat dan Notifikasi", style: TextStyle(fontWeight: FontWeight.bold)),
                                       OutlinedButton(
                                         onPressed: () {
                                           Navigator.push(
