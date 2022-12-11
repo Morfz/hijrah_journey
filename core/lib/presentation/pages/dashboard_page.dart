@@ -318,7 +318,6 @@ class _PageMainState extends State<PageMain> {
                             children: <Widget>[
                               Padding(
                                 padding: const EdgeInsets.fromLTRB(8.5, 10, 8.5, 10),
-                                child: Expanded(
                                   child: Column(
                                     children: [
                                       Image.asset(
@@ -339,12 +338,10 @@ class _PageMainState extends State<PageMain> {
                                         child: const Text("Pilih"),
                                       )
                                     ],
-                                  ),
                                 ),
                               ),
                               Padding(
                                 padding: const EdgeInsets.fromLTRB(8.5, 10, 8.5, 10),
-                                child: Expanded(
                                   child: Column(
                                     children: [
                                       Image.asset(
@@ -365,12 +362,10 @@ class _PageMainState extends State<PageMain> {
                                         child: const Text("Pilih"),
                                       )
                                     ],
-                                  ),
                                 ),
                               ),
                               Padding(
                                 padding: const EdgeInsets.fromLTRB(8.5, 10, 8.5, 10),
-                                child: Expanded(
                                   child: Column(
                                     children: [
                                       Image.asset(
@@ -391,12 +386,10 @@ class _PageMainState extends State<PageMain> {
                                         child: const Text("Pilih"),
                                       )
                                     ],
-                                  ),
                                 ),
                               ),
                               Padding(
                                 padding: const EdgeInsets.fromLTRB(8.5, 10, 8.5, 10),
-                                child: Expanded(
                                   child: Column(
                                     children: [
                                       Image.asset(
@@ -417,12 +410,10 @@ class _PageMainState extends State<PageMain> {
                                         child: const Text("Pilih"),
                                       )
                                     ],
-                                  ),
                                 ),
                               ),
                               Padding(
                                 padding: const EdgeInsets.fromLTRB(8.5, 10, 8.5, 10),
-                                child: Expanded(
                                   child: Column(
                                     children: [
                                       Image.asset(
@@ -443,12 +434,10 @@ class _PageMainState extends State<PageMain> {
                                         child: const Text("Pilih"),
                                       )
                                     ],
-                                  ),
                                 ),
                               ),
                               Padding(
                                 padding: const EdgeInsets.fromLTRB(8.5, 10, 8.5, 10),
-                                child: Expanded(
                                   child: Column(
                                     children: [
                                       Image.asset(
@@ -469,7 +458,6 @@ class _PageMainState extends State<PageMain> {
                                         child: const Text("Pilih"),
                                       )
                                     ],
-                                  ),
                                 ),
                               ),
                             ],
