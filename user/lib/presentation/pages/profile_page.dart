@@ -80,122 +80,119 @@ class _ProfilePageState extends State<ProfilePage> {
   @override
   Widget build(BuildContext context) {
     return GestureDetector(
-        onTap: FocusScope.of(context).unfocus,
-        child: Scaffold(
+      onTap: FocusScope.of(context).unfocus,
+      child: Scaffold(
         body: Stack(
-            children: [
-              Container(
-                padding: const EdgeInsets.only(left: 20, top: 50),
-                child: Text(
-                  'Profile',
-                  style: TextStyle(
-                      fontWeight: FontWeight.bold,
-                      fontSize: 30.toDouble(),
-                      color:Colors.black
-                  ),
+          children: [
+            Container(
+              padding: const EdgeInsets.only(left: 20, top: 50),
+              child: Text(
+                'Profile',
+                style: TextStyle(
+                    fontWeight: FontWeight.bold,
+                    fontSize: 30.toDouble(),
+                    color:Colors.black
                 ),
               ),
-              Center(
-                child: SizedBox(
-                  width: 400,
-                  child: Column(
-                    mainAxisAlignment: MainAxisAlignment.center,
-                    children: [
-                      Stack(
-                        children: [
-                          CircleAvatar(
-                            maxRadius: 60,
-                            backgroundImage: NetworkImage(
-                              user.photoURL ?? placeholderImage,
-                            ),
+            ),
+            Center(
+              child: SizedBox(
+                width: 400,
+                child: Column(
+                  mainAxisAlignment: MainAxisAlignment.center,
+                  children: [
+                    Stack(
+                      children: [
+                        CircleAvatar(
+                          maxRadius: 60,
+                          backgroundImage: NetworkImage(
+                            user.photoURL ?? placeholderImage,
                           ),
-                          Positioned.directional(
-                            textDirection: Directionality.of(context),
-                            end: 0,
-                            bottom: 0,
-                            child: Material(
-                              clipBehavior: Clip.antiAlias,
-                              color: kPrimaryColor,
-                              borderRadius: BorderRadius.circular(40),
-                              child: InkWell(
-                                onTap: () async {
-                                  final photoURL = await getPhotoURLFromUser();
+                        ),
+                        Positioned.directional(
+                          textDirection: Directionality.of(context),
+                          end: 0,
+                          bottom: 0,
+                          child: Material(
+                            clipBehavior: Clip.antiAlias,
+                            color: kPrimaryColor,
+                            borderRadius: BorderRadius.circular(40),
+                            child: InkWell(
+                              onTap: () async {
+                                final photoURL = await getPhotoURLFromUser();
 
-                                  if (photoURL != null) {
-                                    await user.updatePhotoURL(photoURL);
-                                  }
-                                },
-                                radius: 50,
-                                child: const SizedBox(
-                                  width: 35,
-                                  height: 35,
-                                  child: Icon(Icons.edit),
-                                ),
+                                if (photoURL != null) {
+                                  await user.updatePhotoURL(photoURL);
+                                }
+                              },
+                              radius: 50,
+                              child: const SizedBox(
+                                width: 35,
+                                height: 35,
+                                child: Icon(Icons.edit, color: Colors.white),
                               ),
                             ),
-                          )
-                        ],
-                      ),
-                      const SizedBox(height: 10),
-                      TextField(
-                        textAlign: TextAlign.center,
-                        controller: controller,
-                        decoration: const InputDecoration(
-                          border: InputBorder.none,
-                          floatingLabelBehavior: FloatingLabelBehavior.never,
-                          alignLabelWithHint: true,
-                          label: Center(
-                            child: Text(
-                              'Click to add a display name',
-                            ),
+                          ),
+                        )
+                      ],
+                    ),
+                    const SizedBox(height: 10),
+                    TextField(
+                      textAlign: TextAlign.center,
+                      controller: controller,
+                      decoration: const InputDecoration(
+                        border: InputBorder.none,
+                        floatingLabelBehavior: FloatingLabelBehavior.never,
+                        alignLabelWithHint: true,
+                        label: Center(
+                          child: Text(
+                            'Click to add a display name',
                           ),
                         ),
                       ),
-                      Text(user.email ?? 'User'),
-                      const SizedBox(height: 10),
-                      Row(
-                        mainAxisAlignment: MainAxisAlignment.center,
-                        children: [
-                          if (userProviders.contains('password'))
-                            const Icon(Icons.mail),
-                          if (userProviders.contains('google.com'))
-                            SizedBox(
-                              width: 24,
-                              child: Image.network(
-                                'https://upload.wikimedia.org/wikipedia/commons/0/09/IOS_Google_icon.png',
-                              ),
+                    ),
+                    Text(user.email ?? 'User'),
+                    const SizedBox(height: 10),
+                    Row(
+                      mainAxisAlignment: MainAxisAlignment.center,
+                      children: [
+                        if (userProviders.contains('password'))
+                          const Icon(Icons.mail),
+                        if (userProviders.contains('google.com'))
+                          SizedBox(
+                            width: 24,
+                            child: Image.network(
+                              'https://upload.wikimedia.org/wikipedia/commons/0/09/IOS_Google_icon.png',
                             ),
-                        ],
+                          ),
+                      ],
+                    ),
+                    const SizedBox(height: 20),
+                    AnimatedSwitcher(
+                      duration: const Duration(milliseconds: 200),
+                      child: !showSaveButton
+                          ? SizedBox(key: UniqueKey())
+                          : OutlinedButton(
+                              onPressed: isLoading ? null : updateDisplayName,
+                              child: const Text('Save changes'),
+                            ),
+                    ),
+                    const SizedBox(height: 20),
+                    ElevatedButton(
+                      style: ElevatedButton.styleFrom(
+                        backgroundColor: kPrimaryColor,
                       ),
-                      const SizedBox(height: 5),
-                      Positioned(
-                        child: AnimatedSwitcher(
-                          duration: const Duration(milliseconds: 200),
-                          child: !showSaveButton
-                              ? SizedBox(key: UniqueKey())
-                              : OutlinedButton(
-                                  onPressed:
-                                      isLoading ? null : updateDisplayName,
-                                  child: const Text('Save Name'),
-                                ),
-                        ),
-                      ),
-                      const SizedBox(height: 10),
-                      ElevatedButton(
-                        style: ElevatedButton.styleFrom(
-                          backgroundColor: kPrimaryColor,
-                        ),
-                        onPressed: _signOut,
-                        child: const Text('Sign out'),
-                      ),
-                    ],
-                  ),
+                      onPressed: _signOut,
+                      child: const Text('Sign out'),
+                    ),
+                  ],
                 ),
               ),
-            ],
-          ),
+            ),
+          ],
         ),
-      );
+      ),
+    );
   }
 
   Future<String?> getPhotoURLFromUser() async {
@@ -237,7 +234,6 @@ class _ProfilePageState extends State<ProfilePage> {
         );
       },
     );
-
     return photoURL;
   }
 
