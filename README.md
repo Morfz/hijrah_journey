@@ -35,3 +35,27 @@ Install Hijrah Journey
 | API Hadist | https://github.com/gadingnst/hadith-api , https://api.hadith.gading.dev |
 | API Doa Harian | https://doa-doa-api-ahmadramadhan.fly.dev/api |
 | API Al-Qur’an | https://my-api-quran.vercel.app |
+
+
+## Tech
+
+**Client:** 
+- Flutter
+- Dart
+
+**Server:**
+- Firebase
+
+
+## Features
+
+- Al-Qur'an
+- Hadist
+- Jadwal Sholat
+- Notifikasi Sholat
+- Arah Kiblat
+- Asmaul Husna
+- Doa Harian
+- Niat Shalat
+- The Tasbih
+
