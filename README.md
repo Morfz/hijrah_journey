@@ -31,7 +31,7 @@ Install Hijrah Journey
 
 | Nama API | Link API                |
 | :-------- | :------------------------- |
-| API Waktu Sholat | https://github.com/CPSG-26/qalbu.git |
+| API Waktu Sholat | https://muslim-pro-api-lleans.koyeb.app/  |
 | API Hadist | https://github.com/gadingnst/hadith-api , https://api.hadith.gading.dev |
 | API Doa Harian | https://doa-doa-api-ahmadramadhan.fly.dev/api |
 | API Al-Qur’an | https://my-api-quran.vercel.app |
